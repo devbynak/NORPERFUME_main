@@ -202,6 +202,13 @@ class NewArrivalsManager {
         };
 
         const boundOnScroll = this.onScroll.bind(this);
+        
+        // Sync with Lenis if globally available
+        if (window.lenis) {
+            window.lenis.on('scroll', boundOnScroll);
+            return;
+        }
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -257,10 +264,18 @@ class NewArrivalsManager {
                         const pY = centerDiff * 0.1;
                         entry.target.style.transform = `translateY(${pY}px) scale(1.1)`;
                     };
-                    window.addEventListener('scroll', scrollHandler);
+                    if (window.lenis) {
+                        window.lenis.on('scroll', scrollHandler);
+                    } else {
+                        window.addEventListener('scroll', scrollHandler);
+                    }
                     entry.target._scrollHandler = scrollHandler;
                 } else {
-                    window.removeEventListener('scroll', entry.target._scrollHandler);
+                    if (window.lenis) {
+                        window.lenis.off('scroll', entry.target._scrollHandler);
+                    } else {
+                        window.removeEventListener('scroll', entry.target._scrollHandler);
+                    }
                 }
             });
         });

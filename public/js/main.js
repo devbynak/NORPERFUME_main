@@ -14,13 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Many secondary pages don't load Lenis. Fall back to native scrolling
     // instead of crashing the rest of the shared page logic.
     if (typeof window.Lenis === "function") {
-        lenis = new window.Lenis({
+        window.lenis = new window.Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smoothWheel: true,
             orientation: "vertical",
             smoothTouch: false,
         });
+        lenis = window.lenis;
 
         function raf(time) {
             lenis.raf(time);
