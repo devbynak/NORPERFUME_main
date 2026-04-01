@@ -7,7 +7,7 @@ import './HeroSlider.css';
  * Uses "custom.hero_image" metafield for slide visuals
  */
 
-const SHOPIFY_DOMAIN = 'nor-perfume-2.myshopify.com';
+const SHOPIFY_DOMAIN = 'shop.norperfume.com';
 const STOREFRONT_ACCESS_TOKEN = '597e532f7345926a95b019ced728a002';
 
 const HERO_QUERY = `

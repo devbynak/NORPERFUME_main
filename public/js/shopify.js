@@ -5,7 +5,7 @@
 
 const SHOPIFY_CONFIG = {
     // Registered Shopify store domain
-    domain: 'nor-perfume-2.myshopify.com',
+    domain: 'shop.norperfume.com',
     // Storefront API Public Access Token
     accessToken: '597e532f7345926a95b019ced728a002',
     apiVersion: '2024-01'

@@ -71,6 +71,8 @@ app.post('/api/track-order', (req, res) => {
 // All product, cart, and checkout logic is handled via the Shopify Storefront API on the front-end.
 // Checkout redirects directly to Shopify's secure checkout page.
 
+module.exports = app;
+
 app.listen(PORT, () => {
     console.log(`✅ NOR Perfume Backend running on http://localhost:${PORT}`);
 });

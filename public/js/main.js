@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ─────────────────────────────────────────
        6. MARQUEE: Pause on hover (CSS handles it too, but JS backup)
     ───────────────────────────────────────── */
-    const SHOPIFY_STOREFRONT_ORIGIN = "https://nor-perfume-2.myshopify.com";
+    const SHOPIFY_STOREFRONT_ORIGIN = "https://shop.norperfume.com";
     const SHOPIFY_ACCOUNT_URL = `${SHOPIFY_STOREFRONT_ORIGIN}/account`;
     const SHOPIFY_LOGIN_URL = `${SHOPIFY_STOREFRONT_ORIGIN}/account/login`;
     const SHOPIFY_REGISTER_URL = `${SHOPIFY_STOREFRONT_ORIGIN}/account/register`;
