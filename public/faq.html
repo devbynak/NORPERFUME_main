@@ -1,786 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ | NOR PERFUME</title>
-  <meta name="description" content="Frequently asked questions about NOR Perfume.">
-
-  <!-- Favicon & Touch -->
-  <link rel="icon" type="image/png" href="assets/images/logo/norwhite.png">
-  <link rel="icon" type="image/png" href="assets/images/logo/norblack.png" media="(prefers-color-scheme: light)">
-  <link rel="icon" type="image/png" href="assets/images/logo/norwhite.png" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" href="assets/images/logo/norwhite.png">
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap"
-    rel="stylesheet">
-
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/pages.css">
-  <link rel="stylesheet" href="css/components.css">
-  <style>
-    .page-header {
-      padding: 160px 20px 60px;
-      text-align: center;
-    }
-
-    .sec-title {
-      font-family: var(--sans);
-      font-weight: 500;
-      font-size: 2.2rem;
-      color: #fff;
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
-    }
-
-    .page-subtitle {
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      color: #888;
-      max-width: 500px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-    
-    .page-subtitle a {
-      color: #bbb;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    
-    .page-subtitle a:hover {
-      color: #fff;
-    }
-
-    .faq-section {
-      padding: 0 20px 120px;
-    }
-
-    .faq-container {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .cat-tabs {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-
-    .cat-btn {
-      padding: 8px 20px;
-      border-radius: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: 0.75rem;
-      font-family: var(--sans);
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      cursor: pointer;
-      background: rgba(255, 255, 255, 0.02);
-      color: #888;
-      transition: all 0.3s ease;
-    }
-
-    .cat-btn.on {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.15);
-    }
-
-    .cat-btn:hover:not(.on) {
-      background: rgba(255, 255, 255, 0.05);
-      color: #ccc;
-    }
-
-    .cat-label {
-      font-size: 0.75rem;
-      font-family: var(--sans);
-      font-weight: 500;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #999;
-      margin: 40px 0 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      padding-bottom: 12px;
-    }
-
-    .faq-item {
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 12px;
-      margin-bottom: 12px;
-      overflow: hidden;
-      transition: background 0.3s ease, transform 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.02);
-    }
-
-    .faq-item:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.08);
-      transform: translateY(-2px);
-    }
-
-    .faq-item.open {
-      background: rgba(255, 255, 255, 0.07);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    .faq-q {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px 32px;
-      cursor: pointer;
-      gap: 20px;
-      user-select: none;
-    }
-
-    .faq-q-text {
-      font-size: 1.05rem;
-      font-family: var(--sans);
-      color: #e0e0e0;
-      line-height: 1.4;
-      flex: 1;
-      font-weight: 400;
-    }
-
-    .faq-icon {
-      font-size: 1.25rem;
-      color: #888;
-      font-family: var(--sans);
-      font-weight: 300;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s;
-    }
-
-    .faq-item:hover .faq-icon {
-      color: #fff;
-    }
-
-    .faq-item.open .faq-icon {
-      transform: rotate(45deg);
-      color: #fff;
-    }
-
-    .faq-a {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.4s cubic-bezier(0.25, 1, 0.5, 1), padding 0.4s ease, opacity 0.3s ease;
-      padding: 0 28px;
-      opacity: 0;
-    }
-
-    .faq-a.show {
-      grid-template-rows: 1fr;
-      padding: 0 28px 24px;
-      opacity: 1;
-    }
-
-    .faq-a-content {
-      overflow: hidden;
-      font-size: 0.95rem;
-      color: #999;
-      line-height: 1.6;
-      font-family: var(--sans);
-    }
-
-    .faq-a-content p {
-      margin-top: 0;
-    }
-
-    .faq-a-content ol {
-      margin-top: 12px;
-      padding-left: 20px;
-    }
-
-    .faq-a-content ol li {
-      margin-bottom: 8px;
-    }
-
-    .note-pill {
-      display: inline-block;
-      font-size: 0.65rem;
-      font-family: var(--sans);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      padding: 6px 12px;
-      border-radius: 20px;
-      margin-top: 16px;
-      background: rgba(255, 255, 255, 0.05);
-      color: #aaa;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .note-pill.green {
-      background: rgba(0, 200, 100, 0.05);
-      color: #00e673;
-      border-color: rgba(0, 200, 100, 0.15);
-    }
-    .note-pill.info {
-      background: rgba(196, 163, 90, 0.05);
-      color: var(--c-gold);
-      border-color: rgba(196, 163, 90, 0.15);
-    }
-    
-    @media (max-width: 768px) {
-      .page-header {
-        padding: 140px 20px 40px;
-      }
-      .sec-title {
-        font-size: 2rem;
-      }
-      .page-subtitle {
-        font-size: 0.95rem;
-      }
-      
-      .cat-tabs {
-        gap: 8px;
-        margin-bottom: 30px;
-        justify-content: center;
-      }
-      .cat-btn {
-        padding: 8px 16px;
-        font-size: 0.7rem;
-      }
-      
-      .faq-item {
-        margin-bottom: 10px;
-        border-radius: 10px;
-      }
-
-      .faq-q {
-        padding: 20px 24px;
-        gap: 16px;
-      }
-      .faq-q-text {
-        font-size: 1rem;
-      }
-      .faq-icon {
-        font-size: 1.15rem;
-      }
-      .faq-a {
-        padding: 0 24px;
-      }
-      .faq-a.show {
-        padding: 0 24px 24px;
-      }
-      .faq-a-content {
-        font-size: 0.9rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .page-header {
-        padding: 120px 16px 30px;
-      }
-      .sec-title {
-        font-size: 1.75rem;
-      }
-      
-      .cat-tabs {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-      }
-      .cat-btn {
-        width: 100%;
-        text-align: center;
-        padding: 10px 12px;
-      }
-      /* Make "All" span full width on small screens to look more balanced */
-      .cat-btn:first-child {
-        grid-column: 1 / -1;
-      }
-      
-      .faq-q {
-        padding: 18px 20px;
-      }
-      .faq-q-text {
-        font-size: 0.95rem;
-        line-height: 1.4;
-      }
-      .faq-a {
-        padding: 0 20px;
-      }
-      .faq-a.show {
-        padding: 0 20px 20px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ — Frequently Asked Questions | NOR PERFUME</title>
+    <meta name="description" content="Answers to common questions about NOR Perfume products, usage, delivery, returns, and more.">
+    <meta property="og:title" content="FAQ | NOR PERFUME">
+    <meta property="og:description" content="Everything you need to know about NOR Perfume — products, usage, shipping, and returns.">
+    <meta property="og:url" content="https://norperfume.com/faq.html">
+    <link rel="icon" type="image/png" href="assets/images/logo/norwhite.png">
+    <link rel="apple-touch-icon" href="assets/images/logo/norwhite.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/components.css">
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 </head>
+<body class="page-faq">
+    <a href="#main-content" class="skip-link sr-only">Skip to main content</a>
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
-<body>
-  <a href="#main-content" class="skip-link sr-only">Skip to main content</a>
-
-  <!-- ===================== CURSOR ===================== -->
-  <div class="cursor-dot" id="cursor-dot"></div>
-  <div class="cursor-ring" id="cursor-ring"></div>
-
-  <!-- ===================== NAVBAR ===================== -->
-  <nav class="navbar" id="navbar">
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
         <div class="nav-inner">
-            <!-- LEFT: Menu Toggle -->
             <div class="nav-left">
-                <button class="nav-menu-label" aria-label="Open Menu">
+                <button class="nav-menu-label" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                     <span>MENU</span>
-                    <div class="nav-menu-lines">
-                        <span></span>
-                        <span></span>
-                    </div>
+                    <div class="nav-menu-lines" aria-hidden="true"><span></span><span></span></div>
                 </button>
             </div>
-
-            <!-- CENTER: Logo -->
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="logo-svg" style="object-fit: contain;">
+            <a href="index.html" class="logo" aria-label="NOR Perfume Homepage">
+                <img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="logo-svg" width="80" height="30">
             </a>
-
-            <!-- RIGHT: Search, Profile, Cart -->
             <div class="nav-right">
                 <button class="nav-icon-btn" id="search-btn" aria-label="Search">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="11" cy="11" r="8" />
-                        <path d="M21 21l-4.35-4.35" />
-                    </svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
                 </button>
-                <a href="https://shop.norperfume.com/account" class="nav-icon-btn" aria-label="User Account">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                        <circle cx="12" cy="7" r="4" />
-                    </svg>
+                <a href="https://shop.norperfume.com/account" class="nav-icon-btn" aria-label="Account" rel="noopener">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 </a>
                 <a href="cart.html" class="nav-icon-btn cart-btn" id="cart-btn" aria-label="Cart">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
                     <span class="cart-count" id="cart-count">0</span>
                 </a>
             </div>
         </div>
     </nav>
 
-  <!-- ===================== MOBILE MENU ===================== -->
-  <div class="mobile-menu" id="mobile-menu">
-    <div class="mm-inner">
-      <div class="mm-header">
-        <a href="index.html" class="mm-logo"><span class='font-lovelo'>NOR</span></a>
-        <button class="mm-close" id="mm-close" aria-label="Close Menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
+    <!-- SEARCH OVERLAY -->
+    <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true">
+        <button class="search-close" id="search-close" aria-label="Close search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
-      </div>
-      <div class="mm-links">
-        <a href="index.html" class="mm-link">Home</a>
-        <a href="collections.html" class="mm-link">Products</a>
-        <a href="about.html" class="mm-link">About Us</a>
-        <a href="track-order.html" class="mm-link">Track My Order</a>
-      </div>
-      <div class="mm-footer">
-        <a href="profile.html" class="mm-link"
-          style="display:block; margin-bottom:1.5rem; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; color: var(--c-gold);">Profile
-          / Login</a>
-        <p>Luxury Car Fragrances</p>
-        <div class="social-row">
-          <a href="https://www.instagram.com/norperfumeofficial/" target="_blank">Instagram</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <main id="main-content">
-    <header class="page-header" style="position: relative;">
-      <div class="container">
-        <h1 class="sec-title fade-up">Frequently Asked Questions</h1>
-        <p class="page-subtitle fade-up" data-delay="100">
-          If you can't find an answer here, check out the community forum, reach out on Instagram <a href="https://www.instagram.com/norperfumeofficial/" target="_blank">@norperfumeofficial</a>, or write to <a href="mailto:norperfume.help@gmail.com">norperfume.help@gmail.com</a>.
-        </p>
-      </div>
-    </header>
-
-    <section class="faq-section">
-      <div class="faq-container fade-up" data-delay="200">
-        <div class="cat-tabs">
-          <button class="cat-btn on" onclick="filterCat('all',this)">All</button>
-          <button class="cat-btn" onclick="filterCat('product',this)">Product & fragrance</button>
-          <button class="cat-btn" onclick="filterCat('usage',this)">How to use</button>
-          <button class="cat-btn" onclick="filterCat('shipping',this)">Shipping & delivery</button>
-          <button class="cat-btn" onclick="filterCat('returns',this)">Returns & refunds</button>
-        </div>
-        <div id="faq-list">
-          <!-- Rendered by JS -->
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="footer" id="about">
-
-    <!-- Trust badges -->
-    <div class="footer-trust">
-      <div class="container">
-        <div class="trust-grid">
-          <div class="trust-card fade-up" data-delay="0">
-            <div class="trust-ico">
-              <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#e3e3e3"
-                style="display: block; margin: 0 auto; margin-bottom: 8px;">
-                <path
-                  d="M394.33-117.67 298-298.33l-181.33-97 63-62.67 147 26.33L442-546.33 118.33-684l76-76.67L586.67-692l130-130q21.66-21.67 52.66-21.67 31 0 52.67 21.67t21.67 52.5q0 30.83-21.67 52.5L691.67-586.67l68.66 392L684-118.33 546-442 431.33-326.67l26 146-63 63Z" />
-              </svg>
+        <div class="search-content">
+            <div class="search-input-wrapper">
+                <span class="search-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span>
+                <input type="search" id="search-input" placeholder="Search fragrances…" autocomplete="off">
             </div>
-            <h3>All India Shipping</h3>
-            <p>Nationwide shipping — fast &amp; reliable</p>
-          </div>
-          <div class="trust-card fade-up" data-delay="100"
-            onclick="window.location.href='mailto:norperfume.help@gmail.com'" style="cursor: pointer;"
-            title="Email Customer Service">
-            <div class="trust-ico">
-              <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#e3e3e3"
-                style="display: block; margin: 0 auto; margin-bottom: 8px;">
-                <path
-                  d="M440-120v-66.67h333.33V-484q0-121.46-85.38-206.06-85.38-84.61-207.95-84.61t-207.95 84.61q-85.38 84.6-85.38 206.06v244H160q-33 0-56.5-23.5T80-320v-80q0-21 10.5-39.5T120-469l3-53q8-68 39.5-126t79-101q47.5-43 109-67T480-840q68 0 129 24t109 66.5Q766-707 797-649t40 126l3 52q19 9 29.5 27t10.5 38v92q0 20-10.5 38T840-249v62.33q0 27.5-19.58 47.09Q800.83-120 773.33-120H440ZM336.17-416.28q-9.5-9.62-9.5-23.84 0-14.21 9.61-23.71 9.62-9.5 23.84-9.5 14.21 0 23.71 9.61 9.5 9.62 9.5 23.84 0 14.21-9.61 23.71-9.62 9.5-23.84 9.5-14.21 0-23.71-9.61Zm240 0q-9.5-9.62-9.5-23.84 0-14.21 9.61-23.71 9.62-9.5 23.84-9.5 14.21 0 23.71 9.61 9.5 9.62 9.5 23.84 0 14.21-9.61 23.71-9.62 9.5-23.84 9.5-14.21 0-23.71-9.61ZM241-462q-7-106 64-182t177-76q87.67 0 152.83 57.17Q700-605.67 714-519q-89.67-1-164.17-49.67-74.5-48.66-115.02-129.33Q419-618 367.5-555.5T241-462Z" />
-              </svg>
-            </div>
-            <h3>Customer Service</h3>
-            <p>Get in touch via <a href="mailto:norperfume.help@gmail.com">norperfume.help@gmail.com</a></p>
-          </div>
-          <div class="trust-card fade-up" data-delay="200">
-            <div class="trust-ico">
-              <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#e3e3e3"
-                style="display: block; margin: 0 auto; margin-bottom: 8px;">
-                <path
-                  d="M546.67-426.67q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM240-293.33q-27.5 0-47.08-19.59-19.59-19.58-19.59-47.08v-373.33q0-27.5 19.59-47.09Q212.5-800 240-800h613.33q27.5 0 47.09 19.58Q920-760.83 920-733.33V-360q0 27.5-19.58 47.08-19.59 19.59-47.09 19.59H240ZM333.33-360H760q0-39 27.17-66.17 27.16-27.16 66.16-27.16V-640q-39 0-66.16-27.17Q760-694.33 760-733.33H333.33q0 39-27.16 66.16Q279-640 240-640v186.67q39 0 66.17 27.16Q333.33-399 333.33-360ZM800-160H106.67q-27.5 0-47.09-19.58Q40-199.17 40-226.67V-680h66.67v453.33H800V-160ZM240-360v-373.33V-360Z" />
-              </svg>
-            </div>
-            <h3>Secure Payment</h3>
-            <p>Your payment information is processed securely.</p>
-          </div>
         </div>
-      </div>
     </div>
 
-    <!-- Newsletter -->
-    <div class="footer-newsletter">
-      <div class="container">
-        <div class="nl-box fade-up">
-          <span class="eyebrow">— Keep Me Updated</span>
-          <div class="nl-icon"></div>
-          <h3 class="nl-title">Newsletter</h3>
-          <p class="nl-desc">Subscribe to get notified about product launches, special offers and company
-            news.</p>
-          <form class="nl-form" id="nl-form">
-            <input type="email" placeholder="Your e-mail address" required>
-            <button type="submit">Subscribe</button>
-          </form>
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <div class="mm-inner">
+            <div class="mm-header">
+                <a href="index.html" class="mm-logo">NOR</a>
+                <button class="mm-close" id="mm-close" aria-label="Close menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <nav class="mm-links">
+                <a href="index.html" class="mm-link">Home</a>
+                <a href="collections.html" class="mm-link">Products</a>
+                <a href="about.html" class="mm-link">About Us</a>
+                <a href="faq.html" class="mm-link">FAQ</a>
+                <a href="track-order.html" class="mm-link">Track Order</a>
+            </nav>
+            <div class="mm-footer">
+                <div class="mm-footer-left">
+                    <p>Luxury Car Fragrances</p>
+                    <div class="mm-social">
+                        <a href="https://www.instagram.com/norperfumeofficial/" target="_blank" rel="noopener">Instagram</a>
+                    </div>
+                </div>
+                <a href="https://shop.norperfume.com/account" class="mm-account-link" rel="noopener">Account</a>
+            </div>
         </div>
-      </div>
     </div>
 
-    <!-- Bottom -->
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="fb-grid">
-          <div class="fb-brand">
-            <a href="index.html" class="footer-logo">
-              <img src="assets/images/norwhite.webp" alt="NOR Perfume" class="footer-logo-img" loading="lazy"
-                style="height: 48px; object-fit: contain;">
-              <div class="font-lovelo" style="font-size: 0.9rem; color: var(--c-cream); letter-spacing: 3px;">NOR
-                PERFUME</div>
-            </a>
-            <p>Luxury car fragrances crafted for those who drive with purpose.</p>
-            <div class="social-row" style="display: flex; gap: 16px; margin-top: 20px;">
-              <a href="https://www.instagram.com/norperfumeofficial/" target="_blank" aria-label="Instagram"
-                style="color: var(--c-silver); transition: color 0.3s var(--ease);">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </a>
-              <a href="https://www.facebook.com/norperfumeofficial/" target="_blank" aria-label="Facebook"
-                style="color: var(--c-silver); transition: color 0.3s var(--ease);">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
-              </a>
-              <a href="https://www.linkedin.com/company/norperfume/" target="_blank" aria-label="LinkedIn"
-                style="color: var(--c-silver); transition: color 0.3s var(--ease);">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                  </path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-              </a>
+    <main id="main-content">
+
+        <!-- PAGE HEADER -->
+        <header class="page-header">
+            <div class="container">
+                <span class="eyebrow fade-up">Help Center</span>
+                <h1 class="sec-title fade-up" data-delay="80">Frequently Asked <em>Questions</em></h1>
+                <p class="page-subtitle fade-up" data-delay="160">
+                    Can't find an answer?
+                    <a href="https://www.instagram.com/norperfumeofficial/" target="_blank" rel="noopener">@norperfumeofficial</a> or
+                    <a href="mailto:norperfume.help@gmail.com">norperfume.help@gmail.com</a>
+                </p>
             </div>
+        </header>
 
-          </div>
-          <div class="fb-links">
-            <div class="fb-col" id="footer-shop-list">
-              <h5>Shop</h5>
-              <a href="collections.html">All Collections</a>
+        <!-- FAQ SECTION -->
+        <section class="faq-section" aria-label="Frequently Asked Questions">
+            <div class="faq-container">
+                <!-- Category filter -->
+                <div class="cat-tabs fade-up" role="tablist" aria-label="FAQ categories">
+                    <button class="cat-btn on" role="tab" aria-selected="true" aria-controls="faq-list" onclick="filterCat('all', this)">All</button>
+                    <button class="cat-btn" role="tab" aria-selected="false" onclick="filterCat('product', this)">Product &amp; Fragrance</button>
+                    <button class="cat-btn" role="tab" aria-selected="false" onclick="filterCat('usage', this)">How to Use</button>
+                    <button class="cat-btn" role="tab" aria-selected="false" onclick="filterCat('shipping', this)">Shipping</button>
+                    <button class="cat-btn" role="tab" aria-selected="false" onclick="filterCat('returns', this)">Returns</button>
+                </div>
+
+                <!-- FAQ List (JS renders here) -->
+                <div id="faq-list" role="region" aria-live="polite"></div>
             </div>
+        </section>
 
+    </main>
 
-
-            <div class="fb-col">
-              <h5>Support</h5>
-              <a href="about.html">About NOR</a>
-              <a href="faq.html">FAQ</a>
-              <a href="track-order.html">Track Order</a>
-              <a href="contact.html">Contact Us</a>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-trust">
+            <div class="container">
+                <div class="trust-grid">
+                    <div class="trust-card fade-up"><div class="trust-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M394.33-117.67 298-298.33l-181.33-97 63-62.67 147 26.33L442-546.33 118.33-684l76-76.67L586.67-692l130-130q21.66-21.67 52.66-21.67 31 0 52.67 21.67t21.67 52.5q0 30.83-21.67 52.5L691.67-586.67l68.66 392L684-118.33 546-442 431.33-326.67l26 146-63 63Z"/></svg></div><h3>All India Shipping</h3><p>Nationwide shipping — fast &amp; reliable</p></div>
+                    <div class="trust-card fade-up" data-delay="100" onclick="window.location.href='mailto:norperfume.help@gmail.com'" style="cursor:pointer"><div class="trust-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M440-120v-66.67h333.33V-484q0-121.46-85.38-206.06-85.38-84.61-207.95-84.61t-207.95 84.61q-85.38 84.6-85.38 206.06v244H160q-33 0-56.5-23.5T80-320v-80q0-21 10.5-39.5T120-469l3-53q8-68 39.5-126t79-101q47.5-43 109-67T480-840q68 0 129 24t109 66.5Q766-707 797-649t40 126l3 52q19 9 29.5 27t10.5 38v92q0 20-10.5 38T840-249v62.33q0 27.5-19.58 47.09Q800.83-120 773.33-120H440Z"/></svg></div><h3>Customer Service</h3><p><a href="mailto:norperfume.help@gmail.com">norperfume.help@gmail.com</a></p></div>
+                    <div class="trust-card fade-up" data-delay="200"><div class="trust-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M546.67-426.67q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM240-293.33q-27.5 0-47.08-19.59-19.59-19.58-19.59-47.08v-373.33q0-27.5 19.59-47.09Q212.5-800 240-800h613.33q27.5 0 47.09 19.58Q920-760.83 920-733.33V-360q0 27.5-19.58 47.08-19.59 19.59-47.09 19.59H240ZM333.33-360H760q0-39 27.17-66.17 27.16-27.16 66.16-27.16V-640q-39 0-66.16-27.17Q760-694.33 760-733.33H333.33q0 39-27.16 66.16Q279-640 240-640v186.67q39 0 66.17 27.16Q333.33-399 333.33-360ZM800-160H106.67q-27.5 0-47.09-19.58Q40-199.17 40-226.67V-680h66.67v453.33H800V-160ZM240-360v-373.33V-360Z"/></svg></div><h3>Secure Payment</h3><p>Your payment information is processed securely.</p></div>
+                </div>
             </div>
-
-
-
-            <div class="fb-col">
-              <h5>Legal</h5>
-              <a href="return-policy.html">Return Policy</a>
-              <a href="shipping-policy.html">Shipping Policy</a>
-              <a href="privacy-policy.html">Privacy Policy</a>
-              <a href="terms.html">Terms of Service</a>
-            </div>
-
-
-          </div>
         </div>
-        <div class="fb-copyright">
-          <p>© 2026 <span class="font-lovelo">NOR PERFUME</span>. <span
-              style="text-transform: uppercase; letter-spacing: 3px;">ALL RIGHTS RESERVED.</span></p>
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="nl-box fade-up">
+                    <span class="nl-overline">Keep Me Updated</span>
+                    <h3 class="nl-title">Newsletter</h3>
+                    <p class="nl-desc">Subscribe to get notified about product launches, special offers, and company news.</p>
+                    <form class="nl-form" id="nl-form" novalidate>
+                        <input type="email" name="email" placeholder="Your e-mail address" required autocomplete="email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="nl-success" aria-live="polite">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <p>You're on the list!</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="fb-grid">
+                    <div class="fb-brand">
+                        <a href="index.html" class="footer-logo"><img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="footer-logo-img" loading="lazy" width="80" height="40"><span class="footer-logo-text">NOR PERFUME</span></a>
+                        <p>Luxury car fragrances crafted for those who drive with purpose.</p>
+                        <div class="social-row">
+                            <a href="https://www.instagram.com/norperfumeofficial/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                            <a href="https://www.facebook.com/norperfumeofficial/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        </div>
+                    </div>
+                    <div class="fb-links">
+                        <div class="fb-col"><h5>Shop</h5><a href="collections.html">All Collections</a><a href="collections.html?product=musk">MUSK NOR</a><a href="collections.html?product=aqua">AQUA NOR</a></div>
+                        <div class="fb-col"><h5>Support</h5><a href="about.html">About NOR</a><a href="faq.html">FAQ</a><a href="track-order.html">Track Order</a><a href="contact.html">Contact Us</a></div>
+                        <div class="fb-col"><h5>Legal</h5><a href="return-policy.html">Return Policy</a><a href="shipping-policy.html">Shipping Policy</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+                    </div>
+                </div>
+                <div class="fb-copyright"><p>© 2026 <span class="font-lovelo">NOR PERFUME</span>. All Rights Reserved.</p></div>
+            </div>
+        </div>
+    </footer>
 
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
-  <script src="js/main.js" defer></script>
-  <script type="module" src="js/shopify-integration.js"></script>
-
-  <script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script type="module" src="js/shopify-integration.js"></script>
+    <script>
     const faqs = [
-      {
-        cat: "product",
-        q: "What is <span class='font-lovelo'>NOR PERFUME</span>?",
-        a: "<span class='font-lovelo'>NOR</span> is a luxury automotive fragrance brand designed and manufactured in Kerala, India. We create toxin-free, essential-oil-based car fragrances that deliver a refined, long-lasting scent and luxury experience inside your vehicle. Unlike conventional car fresheners, <span class='font-lovelo'>NOR</span> is built around clean formulation, minimal luxury design, and controlled scent diffusion."
-      },
-      {
-        cat: "product",
-        q: "What fragrances does <span class='font-lovelo'>NOR</span> currently offer?",
-        a: "<span class='font-lovelo'>NOR</span> currently offers two handpicked fragrances — MUSK NOR and AQUA NOR. Each is priced at ₹1,499 and includes a 20ml fragrance spray and one <span class='font-lovelo'>NOR</span> luxury diffusion tag.",
-        pill: { text: "MUSK NOR · AQUA NOR — ₹1,499 each", type: "info" }
-      },
-      {
-        cat: "product",
-        q: "Is <span class='font-lovelo'>NOR PERFUME</span> toxin-free and safe to use?",
-        a: "Yes. <span class='font-lovelo'>NOR</span> fragrances are developed using essential-oil-based blends and carefully selected fragrance components. Our formulations are designed to be free from harmful toxins, making them safe for everyday use inside your vehicle. The fragrance is also gentle enough to be used on skin, though it is primarily designed as an automotive fragrance.",
-        pill: { text: "Toxin-free formulation", type: "green" }
-      },
-      {
-        cat: "product",
-        q: "Can <span class='font-lovelo'>NOR PERFUME</span> be used on my skin or body?",
-        a: "Yes. <span class='font-lovelo'>NOR</span> fragrances are formulated with clean, toxin-free ingredients that are gentle enough for skin contact. However, <span class='font-lovelo'>NOR</span> is primarily designed and optimised as a luxury automotive fragrance. We are confident in the purity of our ingredients, but as with any fragrance product, we recommend doing a patch test first if you have sensitive skin."
-      },
-      {
-        cat: "product",
-        q: "What is MUSK NOR like?",
-        a: "MUSK NOR is a warm, woody, and sensual fragrance. It is designed to create a grounded, sophisticated atmosphere inside your vehicle — ideal for those who prefer a deeper, more refined scent profile. It delivers a balanced and long-lasting fragrance experience when used with the <span class='font-lovelo'>NOR</span> diffusion tag."
-      },
-      {
-        cat: "product",
-        q: "What is AQUA NOR like?",
-        a: "AQUA NOR is a fresh, clean, and aquatic fragrance. It creates an open, airy driving atmosphere — light and crisp without being overpowering. It is ideal for everyday use and works particularly well in warmer climates or for drivers who prefer a lighter scent environment."
-      },
-      {
-        cat: "product",
-        q: "Where is <span class='font-lovelo'>NOR</span> manufactured?",
-        a: "<span class='font-lovelo'>NOR</span> products are designed and manufactured in Kerala, India. We maintain close oversight of our production process — from fragrance sourcing and formulation to packaging — to ensure consistent quality in every product."
-      },
-      {
-        cat: "usage",
-        q: "What is the <span class='font-lovelo'>NOR</span> tag-and-spray system?",
-        a: "Each <span class='font-lovelo'>NOR</span> product includes a 20ml fragrance spray and a <span class='font-lovelo'>NOR</span> luxury diffusion tag. The tag is designed to absorb the fragrance oils and release the scent gradually into your vehicle interior — giving you a more consistent and controlled fragrance experience compared to conventional car fresheners."
-      },
-      {
-        cat: "usage",
-        q: "How do I use <span class='font-lovelo'>NOR PERFUME</span> in my car?",
-        a: `Using <span class='font-lovelo'>NOR</span> is simple and takes less than a minute:`,
-        steps: [
-          "Remove the perfume bottle and premium <span class='font-lovelo'>NOR</span> tag from the box.",
-          "Hold the bottle approximately 10–15 cm away from the tag.",
-          "Spray the perfume evenly across the surface of the <span class='font-lovelo'>NOR</span> tag.",
-          "Hang the tag on your car's rear-view mirror or any open area with good airflow for gentle, consistent diffusion.",
-          "Reapply when the scent begins to fade to maintain a fresh, consistent aroma.",
-          "After each use, close the bottle tightly and store it in a cool, dry place away from direct sunlight."
-        ],
-        pill: { text: "Takes less than a minute", type: "green" }
-      },
-      {
-        cat: "usage",
-        q: "How do I control the strength of the fragrance?",
-        a: "You have full control over the scent intensity. Apply more spray to the tag for a stronger fragrance, or less for something more subtle. You can also reapply as needed based on your preference. Keep in mind that performance may vary depending on your vehicle's airflow, temperature, and ventilation."
-      },
-      {
-        cat: "usage",
-        q: "How long does the fragrance last on the <span class='font-lovelo'>NOR</span> tag?",
-        a: "The duration of scent diffusion depends on several factors — including the amount of fragrance applied, your vehicle's airflow, temperature, and usage patterns. <span class='font-lovelo'>NOR</span>'s essential-oil-based formula is designed to support extended fragrance diffusion. For best results, reapply to the tag once the scent begins to fade."
-      },
-      {
-        cat: "usage",
-        q: "Where is the best place to hang the <span class='font-lovelo'>NOR</span> tag in my car?",
-        a: "The <span class='font-lovelo'>NOR</span> tag works best when placed in an area with good airflow — such as your rear-view mirror or near an air vent. Avoid placing it in direct sunlight for extended periods, as sustained heat may affect the rate of diffusion and the longevity of the fragrance."
-      },
-      {
-        cat: "usage",
-        q: "How should I store the <span class='font-lovelo'>NOR PERFUME</span> bottle?",
-        a: "After each use, close the bottle tightly and store it in a cool, dry place away from direct sunlight. Avoid storing it in a hot car for prolonged periods. Proper storage helps preserve the fragrance quality and extends the life of the product."
-      },
-      {
-        cat: "shipping",
-        q: "Where does <span class='font-lovelo'>NOR</span> deliver?",
-        a: "<span class='font-lovelo'>NOR</span> currently ships across India. We are working towards expanding to international markets in the future. Follow us on Instagram @norperfumeofficial for updates on new shipping destinations."
-      },
-      {
-        cat: "shipping",
-        q: "How long does delivery take?",
-        a: "Delivery timelines vary by location. Standard delivery within India typically takes 4–7 business days from the date of order confirmation. You will receive a tracking link once your order has been dispatched."
-      },
-      {
-        cat: "shipping",
-        q: "Do you offer Cash on Delivery (COD)?",
-        a: "No. <span class='font-lovelo'>NOR</span> accepts prepaid orders only at this time. We accept all major payment methods including UPI, debit/credit cards, and net banking. COD is not currently available.",
-        pill: { text: "Prepaid orders only — no COD", type: "info" }
-      },
-      {
-        cat: "shipping",
-        q: "How do I track my order?",
-        a: "Once your order is dispatched, you will receive a tracking link via email or SMS. You can also use the Track Order option in our website's navigation menu to check your order status at any time."
-      },
-      {
-        cat: "shipping",
-        q: "Is there free shipping?",
-        a: "We offer free shipping on orders above ₹999. For orders below this threshold, a standard shipping fee will be applied at checkout."
-      },
-      {
-        cat: "returns",
-        q: "What is <span class='font-lovelo'>NOR</span>'s return policy?",
-        a: "As a fragrance product, <span class='font-lovelo'>NOR</span> does not accept returns once the product has been opened or used. However, if your product arrives damaged due to a delivery issue, we will make it right. Please see below for how to raise a damage claim.",
-        pill: { text: "No returns on opened products", type: "" }
-      },
-      {
-        cat: "returns",
-        q: "What do I do if my product arrives damaged?",
-        a: `If your <span class='font-lovelo'>NOR</span> product arrives damaged, please contact our customer support team immediately. To process a damage claim, the following proof is required:`,
-        steps: [
-          "A video recording of the unboxing showing the damage clearly — recorded at the time of delivery before opening.",
-          "Clear photographs of the damaged product and packaging.",
-          "Your order number and contact details."
-        ],
-        pill: { text: "Unboxing video required — no exceptions", type: "" },
-        note: "Claims submitted without an unboxing video cannot be processed. Please reach out via Instagram DM @norperfumeofficial or our contact page."
-      },
-      {
-        cat: "returns",
-        q: "What if I received the wrong product?",
-        a: "If you received an incorrect product, please contact us within 48 hours of delivery with your order number and a clear photo of the product received. We will arrange for the correct product to be sent to you at no additional cost."
-      },
-      {
-        cat: "returns",
-        q: "Do you offer exchanges?",
-        a: "Exchanges are only considered in cases of confirmed delivery damage or an incorrect product being dispatched. We do not offer exchanges based on fragrance preference, as scent is a personal choice. We recommend reviewing the MUSK NOR and AQUA NOR fragrance descriptions carefully before placing your order."
-      }
+      { cat:"product", q:"What is NOR PERFUME?", a:"<strong>NOR</strong> is a luxury automotive fragrance brand designed and manufactured in Kerala, India. We create toxin-free, essential-oil-based car fragrances that deliver a refined, long-lasting scent experience inside your vehicle." },
+      { cat:"product", q:"What fragrances does NOR currently offer?", a:"NOR currently offers two handpicked fragrances — <strong>MUSK NOR</strong> and <strong>AQUA NOR</strong>. Each is priced at ₹1,499 and includes a 20ml fragrance spray and one NOR luxury diffusion tag.", pill:{ text:"MUSK NOR · AQUA NOR — ₹1,499 each", type:"info" } },
+      { cat:"product", q:"Is NOR PERFUME toxin-free and safe to use?", a:"Yes. NOR fragrances are developed using essential-oil-based blends. Our formulations are designed to be free from harmful toxins, making them safe for everyday use inside your vehicle.", pill:{ text:"Toxin-free formulation", type:"green" } },
+      { cat:"product", q:"Can NOR PERFUME be used on my skin or body?", a:"Yes. NOR fragrances are formulated with clean, toxin-free ingredients gentle enough for skin contact. However, NOR is primarily designed as a luxury automotive fragrance. We recommend doing a patch test if you have sensitive skin." },
+      { cat:"product", q:"What is MUSK NOR like?", a:"MUSK NOR is a warm, woody, and sensual fragrance. Ideal for those who prefer a deeper, more refined scent — it delivers a balanced and long-lasting experience when used with the NOR diffusion tag." },
+      { cat:"product", q:"What is AQUA NOR like?", a:"AQUA NOR is a fresh, clean, and aquatic fragrance. Light and crisp without being overpowering — ideal for everyday use, particularly in warmer climates." },
+      { cat:"product", q:"Where is NOR manufactured?", a:"NOR products are designed and manufactured in <strong>Kerala, India</strong>. We maintain close oversight of our production process — from fragrance sourcing and formulation to packaging — to ensure consistent quality." },
+      { cat:"usage", q:"What is the NOR tag-and-spray system?", a:"Each NOR product includes a 20ml fragrance spray and a NOR luxury diffusion tag. The tag absorbs the fragrance oils and releases the scent gradually into your vehicle interior — giving you a more consistent, controlled fragrance experience." },
+      { cat:"usage", q:"How do I use NOR PERFUME in my car?", a:"Using NOR is simple and takes less than a minute:", steps:["Remove the perfume bottle and premium NOR tag from the box.","Hold the bottle approximately 10–15 cm away from the tag.","Spray the perfume evenly across the surface of the NOR tag.","Hang the tag on your rear-view mirror or any area with good airflow.","Reapply when the scent begins to fade.","After each use, close the bottle tightly and store in a cool, dry place."], pill:{ text:"Takes less than a minute", type:"green" } },
+      { cat:"usage", q:"How do I control the strength of the fragrance?", a:"You have full control over the scent intensity. Apply more spray to the tag for a stronger fragrance, or less for something more subtle. You can also reapply as needed based on your preference." },
+      { cat:"usage", q:"How long does the fragrance last on the NOR tag?", a:"The duration depends on the amount of fragrance applied, your vehicle's airflow, temperature, and usage patterns. NOR's essential-oil-based formula is designed to support extended fragrance diffusion. Reapply once the scent begins to fade." },
+      { cat:"usage", q:"Where is the best place to hang the NOR tag in my car?", a:"The NOR tag works best near your rear-view mirror or near an air vent. Avoid placing it in direct sunlight for extended periods, as sustained heat may affect diffusion rate and longevity." },
+      { cat:"usage", q:"How should I store the NOR PERFUME bottle?", a:"After each use, close the bottle tightly and store in a cool, dry place away from direct sunlight. Avoid storing it in a hot car for prolonged periods." },
+      { cat:"shipping", q:"Where does NOR deliver?", a:"NOR currently ships <strong>across India</strong>. We are working towards expanding to international markets. Follow us on Instagram @norperfumeofficial for updates." },
+      { cat:"shipping", q:"How long does delivery take?", a:"Standard delivery within India typically takes <strong>4–7 business days</strong> from the date of order confirmation. You will receive a tracking link once your order has been dispatched." },
+      { cat:"shipping", q:"Do you offer Cash on Delivery (COD)?", a:"No. NOR accepts <strong>prepaid orders only</strong>. We accept all major payment methods including UPI, debit/credit cards, and net banking.", pill:{ text:"Prepaid orders only — no COD", type:"info" } },
+      { cat:"shipping", q:"How do I track my order?", a:"Once your order is dispatched, you will receive a tracking link via email or SMS. You can also use the <a href='track-order.html'>Track Order</a> page on our website." },
+      { cat:"shipping", q:"Is there free shipping?", a:"We offer <strong>free shipping on orders above ₹999</strong>. For orders below this threshold, a standard shipping fee will be applied at checkout." },
+      { cat:"returns", q:"What is NOR's return policy?", a:"As a fragrance product, NOR does not accept returns once the product has been opened or used. However, if your product arrives damaged due to a delivery issue, we will make it right.", pill:{ text:"No returns on opened products", type:"" } },
+      { cat:"returns", q:"What do I do if my product arrives damaged?", a:"If your NOR product arrives damaged, please contact our customer support team immediately. To process a damage claim, the following proof is required:", steps:["A video recording of the unboxing showing the damage clearly — recorded at the time of delivery.","Clear photographs of the damaged product and packaging.","Your order number and contact details."], pill:{ text:"Unboxing video required — no exceptions", type:"" } },
+      { cat:"returns", q:"What if I received the wrong product?", a:"If you received an incorrect product, please contact us within 48 hours of delivery with your order number and a clear photo of the item received. We will arrange for the correct product to be sent at no additional cost." },
+      { cat:"returns", q:"Do you offer exchanges?", a:"Exchanges are only considered in cases of confirmed delivery damage or an incorrect product being dispatched. We do not offer exchanges based on fragrance preference." }
     ];
-
-    function toggle(idx) {
-      const item = document.getElementById('faq-' + idx);
-      const ans = document.getElementById('ans-' + idx);
-      const isOpen = item.classList.contains('open');
-      
-      // Close all other open items for accordion effect
-      document.querySelectorAll('.faq-item.open').forEach(el => {
-        if (el !== item) {
-          el.classList.remove('open');
-          el.querySelector('.faq-a').classList.remove('show');
-        }
-      });
-      
-      if (!isOpen) {
-        item.classList.add('open');
-        ans.classList.add('show');
-      } else {
-        item.classList.remove('open');
-        ans.classList.remove('show');
-      }
-    }
 
     let activeCat = 'all';
 
     function filterCat(cat, btn) {
       activeCat = cat;
-      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('on'));
+      document.querySelectorAll('.cat-btn').forEach(b => {
+        b.classList.remove('on');
+        b.setAttribute('aria-selected', 'false');
+      });
       btn.classList.add('on');
+      btn.setAttribute('aria-selected', 'true');
       renderFaqs();
+    }
+
+    function toggle(idx) {
+      const item = document.getElementById('faq-' + idx);
+      const ans = document.getElementById('ans-' + idx);
+      const icon = item.querySelector('.faq-icon');
+      const isOpen = item.classList.contains('open');
+      // Close others
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        if (el !== item) {
+          el.classList.remove('open');
+          el.querySelector('.faq-a').classList.remove('show');
+          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        }
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        ans.classList.add('show');
+        item.querySelector('.faq-q').setAttribute('aria-expanded', 'true');
+      } else {
+        item.classList.remove('open');
+        ans.classList.remove('show');
+        item.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      }
     }
 
     function renderFaqs() {
       const list = document.getElementById('faq-list');
-      const cats = { product: 'Product & fragrance', usage: 'How to use', shipping: 'Shipping & delivery', returns: 'Returns & refunds' };
+      const catLabels = { product:'Product & Fragrance', usage:'How to Use', shipping:'Shipping & Delivery', returns:'Returns & Refunds' };
       const filtered = activeCat === 'all' ? faqs : faqs.filter(f => f.cat === activeCat);
       const grouped = {};
-      filtered.forEach((f, idx) => {
-        if (!grouped[f.cat]) grouped[f.cat] = [];
-        // Preserve original index for toggling
+      filtered.forEach(f => {
         const origIdx = faqs.indexOf(f);
+        if (!grouped[f.cat]) grouped[f.cat] = [];
         grouped[f.cat].push({ ...f, idx: origIdx });
       });
-      
       let html = '';
-      ['product', 'usage', 'shipping', 'returns'].forEach(cat => {
+      ['product','usage','shipping','returns'].forEach(cat => {
         if (!grouped[cat]) return;
-        if (activeCat === 'all') html += `<div class="cat-label">${cats[cat]}</div>`;
-        
+        if (activeCat === 'all') html += `<p class="cat-label">${catLabels[cat]}</p>`;
         grouped[cat].forEach(f => {
           const pillHtml = f.pill ? `<div class="note-pill ${f.pill.type}">${f.pill.text}</div>` : '';
           const stepsHtml = f.steps ? `<ol>${f.steps.map(s => `<li>${s}</li>`).join('')}</ol>` : '';
-          const noteHtml = f.note ? `<p style="margin-top:14px;font-size:0.85rem;font-style:italic;color:#666">${f.note}</p>` : '';
-          
           html += `
-            <div class="faq-item" id="faq-${f.idx}">
-              <div class="faq-q" onclick="toggle(${f.idx})">
-                <span class="faq-q-text">${f.q}</span>
-                <span class="faq-icon">+</span>
+          <div class="faq-item" id="faq-${f.idx}">
+            <div class="faq-q" onclick="toggle(${f.idx})" role="button" aria-expanded="false" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')toggle(${f.idx})">
+              <span class="faq-q-text">${f.q}</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" id="ans-${f.idx}">
+              <div class="faq-a-content">
+                <p>${f.a}</p>
+                ${stepsHtml}
+                ${pillHtml}
               </div>
-              <div class="faq-a" id="ans-${f.idx}">
-                <div class="faq-a-content">
-                  <p>${f.a}</p>
-                  ${stepsHtml}
-                  ${pillHtml}
-                  ${noteHtml}
-                </div>
-              </div>
-            </div>`;
+            </div>
+          </div>`;
         });
       });
       list.innerHTML = html;
     }
 
     renderFaqs();
-  </script>
+    </script>
 </body>
-
 </html>

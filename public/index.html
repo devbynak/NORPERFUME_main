@@ -4,59 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOR PERFUME | The Ultimate Luxury Car Fragrance</title>
-    <meta name="description"
-        content="Elevate your driving experience with NOR. Premium, long-lasting luxury car perfumes crafted for sophistication.">
+    <title>NOR PERFUME | Luxury Car Fragrance — Obsidian Luxury</title>
+    <meta name="description" content="Elevate every journey. NOR crafts premium, long-lasting luxury car fragrances from 100% natural essential oils. Shop MUSK NOR & AQUA NOR.">
 
-    <!-- Open Graph & Social SEO -->
-    <meta property="og:title" content="NOR Perfume | The Ultimate Luxury Car Fragrance">
-    <meta property="og:description"
-        content="Elevate your driving experience with NOR. Premium, long-lasting luxury car perfumes crafted for sophistication.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="NOR PERFUME | Luxury Car Fragrance">
+    <meta property="og:description" content="Elevate every journey. Premium automotive fragrances crafted for those who drive with purpose.">
     <meta property="og:image" content="https://norperfume.com/assets/images/mask.webp">
     <meta property="og:url" content="https://norperfume.com/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Favicon & Touch -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/logo/norwhite.png">
     <link rel="icon" type="image/png" href="assets/images/logo/norblack.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" href="assets/images/logo/norwhite.png" media="(prefers-color-scheme: dark)">
     <link rel="apple-touch-icon" href="assets/images/logo/norwhite.png">
-    <!-- Performance: Preconnect to Shopify -->
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://shop.norperfume.com" crossorigin>
     <link rel="dns-prefetch" href="https://shop.norperfume.com">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@100..900&display=swap"
-        rel="stylesheet">
+    <!-- Fonts (subset) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Styles -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/pages.css">
     <link rel="stylesheet" href="css/components.css">
 
-    <!-- Smooth Scroll: Lenis -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundled/lenis.min.js"></script> -->
-    <link rel="stylesheet" href="css/hero-slider.css">
-    <link rel="stylesheet" href="css/best-seller.css">
-
-
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 </head>
 
 <body class="page-home">
     <a href="#main-content" class="skip-link sr-only">Skip to main content</a>
 
+    <!-- ═══ CURSOR ═══ -->
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
-    <!-- ===================== NAVBAR ===================== -->
-    <nav class="navbar" id="navbar">
+    <!-- ═══ SEARCH OVERLAY ═══ -->
+    <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search">
+        <button class="search-close" id="search-close" aria-label="Close search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <div class="search-content">
+            <div class="search-input-wrapper">
+                <span class="search-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+                    </svg>
+                </span>
+                <input type="search" id="search-input" placeholder="Search fragrances…" autocomplete="off" spellcheck="false">
+            </div>
+            <p class="search-eyebrow">Our Collection</p>
+            <div class="search-results-grid" id="search-results-grid">
+                <a href="collections.html?product=musk" class="search-product-card">
+                    <div class="spc-img"><img src="assets/images/mask.png" alt="MUSK NOR" loading="lazy" width="120" height="120"></div>
+                    <div class="spc-info"><h4>MUSK NOR</h4><p>₹1,499</p></div>
+                </a>
+                <a href="collections.html?product=aqua" class="search-product-card">
+                    <div class="spc-img"><img src="assets/images/aqua.png" alt="AQUA NOR" loading="lazy" width="120" height="120"></div>
+                    <div class="spc-info"><h4>AQUA NOR</h4><p>₹1,499</p></div>
+                </a>
+                <p class="no-results" style="display:none">No results found.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-inner">
-            <!-- LEFT: Menu Toggle -->
+            <!-- LEFT -->
             <div class="nav-left">
-                <button class="nav-menu-label" aria-label="Open Menu">
+                <button class="nav-menu-label" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                     <span>MENU</span>
-                    <div class="nav-menu-lines">
+                    <div class="nav-menu-lines" aria-hidden="true">
                         <span></span>
                         <span></span>
                     </div>
@@ -64,1207 +91,466 @@
             </div>
 
             <!-- CENTER: Logo -->
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="logo-svg" style="object-fit: contain;">
+            <a href="index.html" class="logo" aria-label="NOR Perfume Homepage">
+                <img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="logo-svg" width="80" height="30">
             </a>
 
-            <!-- RIGHT: Search, Profile, Cart -->
+            <!-- RIGHT -->
             <div class="nav-right">
-                <button class="nav-icon-btn" id="search-btn" aria-label="Search">
+                <button class="nav-icon-btn" id="search-btn" aria-label="Search products">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="11" cy="11" r="8" />
-                        <path d="M21 21l-4.35-4.35" />
+                        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
                     </svg>
                 </button>
-                <a href="https://shop.norperfume.com/account" class="nav-icon-btn" aria-label="User Account">
+                <a href="https://shop.norperfume.com/account" class="nav-icon-btn" aria-label="My Account" rel="noopener">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                        <circle cx="12" cy="7" r="4" />
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
                     </svg>
                 </a>
-                <a href="cart.html" class="nav-icon-btn cart-btn" id="cart-btn" aria-label="Cart">
+                <a href="cart.html" class="nav-icon-btn cart-btn" id="cart-btn" aria-label="Shopping cart">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
                     </svg>
-                    <span class="cart-count" id="cart-count">0</span>
+                    <span class="cart-count" id="cart-count" aria-label="items in cart">0</span>
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- ===================== MEGA MENU (DESKTOP) ===================== -->
-    <div class="mega-menu" id="mega-menu">
+    <!-- ═══ MEGA MENU (Desktop) ═══ -->
+    <div class="mega-menu" id="mega-menu" aria-hidden="true">
         <div class="mega-inner container">
-            <!-- Col 1 -->
             <div class="mega-col">
-                <span class="mega-pill">• Categories</span>
+                <span class="mega-pill active-pill">Shop</span>
                 <ul class="mega-list main-links">
                     <li><a href="collections.html">Car Perfumes</a></li>
-                    <li><a href="#" class="disabled">Room Diffusers <span class="badge">COMING SOON</span></a></li>
-                    <li><a href="#" class="disabled">Accessories <span class="badge">COMING SOON</span></a></li>
+                    <li><a href="#" style="opacity:0.4;pointer-events:none">Room Diffusers <span class="badge">SOON</span></a></li>
                 </ul>
             </div>
-            <!-- Col 2 -->
             <div class="mega-col">
-                <span class="mega-pill">All Products</span>
-                <ul class="mega-list sub-links">
+                <span class="mega-pill">Fragrances</span>
+                <ul class="mega-list">
                     <li><a href="collections.html?product=musk">MUSK NOR</a></li>
                     <li><a href="collections.html?product=aqua">AQUA NOR</a></li>
-                    <li><a href="collections.html?product=rose">ROSE NOR</a></li>
-                    <li><a href="collections.html?product=oud">OUD NOR</a></li>
                 </ul>
             </div>
-            <!-- Col 3 -->
-            <div class="mega-col mega-disabled-col">
-                <span class="mega-pill disabled-pill">Accessories <span class="badge">COMING SOON</span></span>
-                <ul class="mega-list sub-links">
-                    <li><a href="#">Vent Clips</a></li>
-                    <li><a href="#">Refills</a></li>
-                    <li><a href="#">Travel Bags</a></li>
-                    <li><a href="#">Gift Boxes</a></li>
+            <div class="mega-col">
+                <span class="mega-pill">Info</span>
+                <ul class="mega-list">
+                    <li><a href="about.html">About NOR</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="track-order.html">Track Order</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            <!-- Col 4: Images -->
-            <div class="mega-col mega-images">
-                <a href="collections.html" class="mega-image-wrap">
-                    <img src="assets/images/midnight_oud.png" alt="Midnight Oud">
+            <div class="mega-images mega-col">
+                <a href="collections.html?product=musk" class="mega-image-wrap">
+                    <img src="assets/images/mask.png" alt="MUSK NOR" loading="lazy" width="96" height="96">
                 </a>
-                <a href="collections.html" class="mega-image-wrap">
-                    <img src="assets/images/aqua.png" alt="Aqua">
-                </a>
-                <a href="collections.html" class="mega-image-wrap">
-                    <img src="assets/images/rose_absolut.png" alt="Rose Absolut">
-                </a>
-                <a href="collections.html" class="mega-image-wrap">
-                    <img src="assets/images/oceanic_woods.png" alt="Oceanic Woods">
+                <a href="collections.html?product=aqua" class="mega-image-wrap">
+                    <img src="assets/images/aqua.png" alt="AQUA NOR" loading="lazy" width="96" height="96">
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- ===================== MOBILE MENU ===================== -->
-    <div class="mobile-menu" id="mobile-menu">
+    <!-- ═══ MOBILE MENU ═══ -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Navigation menu">
         <div class="mm-inner">
             <div class="mm-header">
-                <a href="index.html" class="mm-logo"><span class="font-lovelo">NOR</span></a>
-                <button class="mm-close" id="mm-close" aria-label="Close Menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="1.5">
-                        <path d="M18 6L6 18M6 6l12 12" />
+                <a href="index.html" class="mm-logo" aria-label="NOR Perfume">NOR</a>
+                <button class="mm-close" id="mm-close" aria-label="Close navigation menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M18 6L6 18M6 6l12 12"/>
                     </svg>
                 </button>
             </div>
-            <div class="mm-links">
+
+            <nav class="mm-links" aria-label="Mobile navigation">
                 <a href="index.html" class="mm-link">Home</a>
                 <a href="collections.html" class="mm-link">Products</a>
                 <a href="about.html" class="mm-link">About Us</a>
-                <a href="track-order.html" class="mm-link">Track My Order</a>
-            </div>
+                <a href="faq.html" class="mm-link">FAQ</a>
+                <a href="track-order.html" class="mm-link">Track Order</a>
+            </nav>
 
             <div class="mm-footer">
-                <a href="https://shop.norperfume.com/account" class="mm-link"
-                    style="display:block; margin-bottom:1.5rem; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; color: var(--c-gold);">Login
-                    / Account</a>
-                <p>Luxury Car Fragrances</p>
-                <div class="social-row">
-                    <a href="https://www.instagram.com/norperfumeofficial/" target="_blank">Instagram</a>
+                <div class="mm-footer-left">
+                    <p>Luxury Car Fragrances</p>
+                    <div class="mm-social">
+                        <a href="https://www.instagram.com/norperfumeofficial/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+                        <a href="https://www.facebook.com/norperfumeofficial/" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+                    </div>
                 </div>
+                <a href="https://shop.norperfume.com/account" class="mm-account-link" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    Account
+                </a>
             </div>
         </div>
     </div>
 
     <main id="main-content">
-        <!-- ===================== SECTION 1: HERO (DYNAMIC) ===================== -->
-        <section id="shopify-hero-slider" class="hero-slider-v2"></section>
 
-        <!-- Marquee Banner (Repositioned below Hero) -->
-        <div class="marquee-strip" id="marquee-banner">
-            <div class="marquee-track">
-                <span>Luxury Car Fragrance</span>
-                <span class="dot">✦</span>
-                <span>Crafted in India</span>
-                <span class="dot">✦</span>
-                <span>Zero-Liquid Technology</span>
-                <span class="dot">✦</span>
-                <span>45 Days Lasting</span>
-                <span class="dot">✦</span>
-                <span>100% Natural Oils</span>
-                <span class="dot">✦</span>
-                <span>Worn Worldwide</span>
-                <span class="dot">✦</span>
-                <!-- Duplicate for seamless scroll -->
-                <span>Luxury Car Fragrance</span>
-                <span class="dot">✦</span>
-                <span>Crafted in India</span>
-                <span class="dot">✦</span>
-                <span>Zero-Liquid Technology</span>
-                <span class="dot">✦</span>
-                <span>45 Days Lasting</span>
-                <span class="dot">✦</span>
-                <span>100% Natural Oils</span>
-                <span class="dot">✦</span>
-                <span>Worn Worldwide</span>
-                <span class="dot">✦</span>
-            </div>
-        </div>
+        <!-- ═══════════════════════════
+             HERO
+        ═══════════════════════════ -->
+        <section class="panel-hero" aria-label="Hero">
+            <div class="hero-media" aria-hidden="true"></div>
+            <div class="hero-bg-gradient" aria-hidden="true"></div>
 
+            <div class="hero-body">
+                <p class="hero-eyebrow">Obsidian Luxury · Crafted in India</p>
 
+                <h1 class="hero-title">
+                    <span class="line-wrap">
+                        <span class="line-inner">The Scent of</span>
+                    </span>
+                    <span class="line-wrap italic">
+                        <span class="line-inner">Purpose</span>
+                    </span>
+                </h1>
 
-        <!-- ===================== SECTION: TRUST STRIP ===================== -->
-        <div class="trust-strip">
-            <div class="container strip-grid">
-                <div class="strip-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                    </svg>
-                    <span>Free Shipping</span>
-                </div>
-                <div class="strip-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                    </svg>
-                    <span>Secure Payment</span>
-                </div>
-                <div class="strip-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M21 21L3 3M21 3L3 21" />
-                    </svg>
-                    <span>Easy Returns</span>
-                </div>
-            </div>
-        </div>
+                <p class="hero-sub">
+                    Luxury car fragrances distilled from 100% natural essential oils —
+                    engineered to transform every drive into a sanctuary.
+                </p>
 
-        <!-- Promotional Marquee (Repositioned below icons) -->
-        <div class="marquee-strip promo-marquee"
-            style="transform: rotate(1.5deg); margin-top: 40px; margin-bottom: 80px;">
-            <div class="marquee-track" style="animation-direction: reverse;">
-                <span>FREE SHIPPING ON ALL ORDERS ABOVE ₹999</span>
-                <span class="dot">✦</span>
-                <span>ALL INDIA DELIVERY AVAILABLE</span>
-                <span class="dot">✦</span>
-                <!-- Duplicates for seamless scroll -->
-                <span>FREE SHIPPING ON ALL ORDERS ABOVE ₹999</span>
-                <span class="dot">✦</span>
-                <span>ALL INDIA DELIVERY AVAILABLE</span>
-                <span class="dot">✦</span>
-                <span>FREE SHIPPING ON ALL ORDERS ABOVE ₹999</span>
-                <span class="dot">✦</span>
-                <span>ALL INDIA DELIVERY AVAILABLE</span>
-                <span class="dot">✦</span>
-            </div>
-        </div>
-
-        <!-- ===================== SECTION: BEST SELLERS ===================== -->
-        <section class="best-seller-section" id="bestSeller">
-            <div class="container">
-                <div class="sec-header">
-                    <span class="eyebrow">The Elite Edit</span>
-                    <h2 class="sec-title">Most Coveted</h2>
-                    <a href="collections.html?collection=best-seller" class="cta-mini"
-                        style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 4px; transition: all 0.3s ease;">
-                        Discover All Items
+                <div class="hero-ctas">
+                    <a href="collections.html" class="cta-primary">
+                        Shop the Collection
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
                     </a>
+                    <a href="about.html" class="cta-outline">Our Story</a>
                 </div>
             </div>
 
-            <div class="bs-carousel-container">
-                <div class="bs-carousel-viewport">
-                    <div class="bs-carousel-track">
-                        <!-- Products from Shopify in Best Seller Collection -->
-                    </div>
-                </div>
+            <!-- Float cards (desktop only) -->
+            <div class="float-card fc-left" aria-hidden="true">
+                <span class="fc-label">Customer Rating</span>
+                <div class="fc-rating">4.9</div>
+                <div class="fc-stars">★★★★★</div>
+                <span class="fc-notes">Based on 1,200+ reviews</span>
+            </div>
+            <div class="float-card fc-right" aria-hidden="true">
+                <span class="fc-label">Bestseller</span>
+                <div class="fc-name">MUSK NOR</div>
+                <span class="fc-notes">Warm · Woody · Sensual</span>
+            </div>
 
-                <div class="bs-controls">
-                    <button class="bs-nav-btn bs-prev" aria-label="Previous">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M15 18l-6-6 6-6" />
-                        </svg>
-                    </button>
-                    <button class="bs-nav-btn bs-next" aria-label="Next">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M9 18l6-6-6-6" />
-                        </svg>
-                    </button>
-                </div>
+            <!-- Scroll cue -->
+            <div class="hero-scroll-cue" aria-hidden="true">
+                <div class="scroll-cue-line"></div>
+                <span class="scroll-cue-label">Scroll</span>
             </div>
         </section>
 
+        <!-- ═══════════════════════════
+             MARQUEE STRIP
+        ═══════════════════════════ -->
+        <div class="marquee-strip" aria-hidden="true">
+            <div class="marquee-track">
+                <span>Luxury Car Fragrance</span><span class="dot">✦</span>
+                <span>Crafted in India</span><span class="dot">✦</span>
+                <span>Zero-Liquid Technology</span><span class="dot">✦</span>
+                <span>45 Days Lasting</span><span class="dot">✦</span>
+                <span>100% Natural Oils</span><span class="dot">✦</span>
+                <span>Worn Worldwide</span><span class="dot">✦</span>
+                <span>Toxin Free Formula</span><span class="dot">✦</span>
+                <span>Premium Diffuser Tag</span><span class="dot">✦</span>
+            </div>
+        </div>
 
-
-        <!-- ===================== SECTION: SIGNATURE COLLECTIONS ===================== -->
-        <section class="panel panel-collections" id="collections">
+        <!-- ═══════════════════════════
+             BEST SELLERS
+        ═══════════════════════════ -->
+        <section class="panel-best-of" id="collections" aria-labelledby="bestsellers-heading">
             <div class="container">
-                <div class="sec-header fade-up">
-                    <span class="eyebrow">The Signature Series</span>
-                    <h2 class="sec-title">Explore Our Collections</h2>
+                <div class="sec-header center fade-up">
+                    <span class="eyebrow">Bestsellers</span>
+                    <h2 class="sec-title" id="bestsellers-heading">Our <em>Signature</em> Fragrances</h2>
+                    <p class="body-copy" style="margin: 16px auto 0; text-align:center;">
+                        Two masterfully composed fragrances — each a different world, both unmistakably NOR.
+                    </p>
                 </div>
-                <div class="product-grid" id="shopify-collections-grid">
-                    <!-- High-level collections will be injected here -->
+            </div>
+
+            <div class="product-grid" id="best-seller-grid">
+                <!-- Card: MUSK NOR -->
+                <article class="product-card fade-up" data-delay="0">
+                    <div class="prod-img-wrap">
+                        <img class="prod-img-inner" src="assets/images/mask.png" alt="MUSK NOR — Luxury Car Perfume" loading="lazy" width="400" height="460">
+                        <div class="prod-badge">Bestseller</div>
+                        <div class="prod-overlay">
+                            <button class="btn-quick" data-product-id="musk-nor" aria-label="Quick add MUSK NOR to cart">
+                                Quick Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="prod-info">
+                        <h3 class="prod-name">MUSK NOR</h3>
+                        <p class="prod-notes">Warm · Woody · Sensual</p>
+                        <div class="prod-footer">
+                            <span class="prod-price">₹1,499</span>
+                            <button class="btn-circle-add" aria-label="Add MUSK NOR to cart">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card: AQUA NOR -->
+                <article class="product-card fade-up" data-delay="120">
+                    <div class="prod-img-wrap">
+                        <img class="prod-img-inner" src="assets/images/aqua.png" alt="AQUA NOR — Luxury Car Perfume" loading="lazy" width="400" height="460">
+                        <div class="prod-badge">New Arrival</div>
+                        <div class="prod-overlay">
+                            <button class="btn-quick" data-product-id="aqua-nor" aria-label="Quick add AQUA NOR to cart">
+                                Quick Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="prod-info">
+                        <h3 class="prod-name">AQUA NOR</h3>
+                        <p class="prod-notes">Fresh · Aquatic · Clean</p>
+                        <div class="prod-footer">
+                            <span class="prod-price">₹1,499</span>
+                            <button class="btn-circle-add" aria-label="Add AQUA NOR to cart">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="sec-cta fade-up" data-delay="200">
+                <a href="collections.html" class="cta-outline">View All Products</a>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════
+             STATS
+        ═══════════════════════════ -->
+        <section class="panel-stats" aria-label="Brand statistics">
+            <div class="stats-grid">
+                <div class="stat-item fade-up" data-delay="0">
+                    <span class="stat-number" data-count="1200" data-suffix="+" data-duration="2000">1200+</span>
+                    <span class="stat-label">Happy Customers</span>
                 </div>
-                <div class="sec-cta fade-up">
-                    <a href="collections.html" class="cta-outline">View All Collections</a>
+                <div class="stat-item fade-up" data-delay="80">
+                    <span class="stat-number" data-count="45" data-suffix=" Days" data-duration="1600">45 Days</span>
+                    <span class="stat-label">Fragrance Longevity</span>
+                </div>
+                <div class="stat-item fade-up" data-delay="160">
+                    <span class="stat-number" data-count="100" data-suffix="%" data-duration="1400">100%</span>
+                    <span class="stat-label">Natural Essential Oils</span>
+                </div>
+                <div class="stat-item fade-up" data-delay="240">
+                    <span class="stat-number" data-count="4.9" data-suffix="★" data-decimals="1" data-duration="1800">4.9★</span>
+                    <span class="stat-label">Average Rating</span>
                 </div>
             </div>
         </section>
 
-
-
-
-        <!-- ===================== SECTION 3: EDITORIAL SPLIT ===================== -->
-        <section class="panel panel-editorial" id="experience">
+        <!-- ═══════════════════════════
+             EDITORIAL
+        ═══════════════════════════ -->
+        <section class="panel-editorial" aria-labelledby="editorial-heading">
             <div class="editorial-layout">
-                <div class="editorial-vis fade-up">
+                <div class="editorial-vis fade-left">
                     <div class="ed-img-frame">
-                        <div class="ed-img-inner"></div>
+                        <div class="ed-img-inner" role="img" aria-label="NOR Perfume luxury diffuser in a premium car interior"></div>
                     </div>
-                    <div class="ed-badge fade-up">
+                    <div class="ed-badge fade-up" data-delay="200">
                         <span class="ed-badge-label">Ceramic Core Tech</span>
-                        <p>Zero-liquid, spill-proof innovation</p>
+                        <p>Zero-liquid, spill-proof innovation for every road.</p>
                     </div>
                 </div>
-                <div class="editorial-text fade-up">
+
+                <div class="editorial-text fade-right">
                     <span class="eyebrow">The Experience</span>
-                    <h2 class="sec-title">More Than<br><em>Just a Scent.</em></h2>
-                    <p class="body-copy">We believe your car is an extension of your personal sanctuary. <span
-                            class="font-lovelo">NOR</span> diffusers are engineered with premium aerospace-grade
-                        aluminum and feature a minimalist design that seamlessly integrates into luxury interiors.</p>
-                    <ul class="feat-list">
+                    <h2 class="sec-title" id="editorial-heading">More Than<br><em>Just a Scent.</em></h2>
+                    <p class="body-copy">
+                        We believe your car is an extension of your personal sanctuary.
+                        NOR diffusers are engineered with premium materials and a minimalist
+                        design that seamlessly integrates into luxury interiors.
+                    </p>
+
+                    <ul class="feat-list" aria-label="Product features">
                         <li>
-                            <div class="feat-dot"></div>
+                            <div class="feat-dot" aria-hidden="true"></div>
                             <div class="feat-body">
                                 <strong>Long-lasting Release</strong>
-                                <span>Up to 45 days of continuous fragrance</span>
+                                <span>Up to 45 days of continuous, consistent fragrance</span>
                             </div>
                         </li>
                         <li>
-                            <div class="feat-dot"></div>
+                            <div class="feat-dot" aria-hidden="true"></div>
                             <div class="feat-body">
                                 <strong>Sustainably Sourced</strong>
-                                <span>100% natural essential oils, ethically obtained</span>
+                                <span>100% natural essential oils, ethically obtained globally</span>
                             </div>
                         </li>
                         <li>
-                            <div class="feat-dot"></div>
+                            <div class="feat-dot" aria-hidden="true"></div>
                             <div class="feat-body">
                                 <strong>Zero-Liquid Technology</strong>
-                                <span>Spill-proof ceramic core, safe for all vehicles</span>
+                                <span>Spill-proof ceramic core, safe for every vehicle</span>
                             </div>
                         </li>
                     </ul>
-                    <a href="#collections" class="cta-primary">Shop Now</a>
+
+                    <a href="about.html" class="cta-ghost">Discover Our Story →</a>
                 </div>
             </div>
         </section>
 
-        <!-- ===================== STATS ROW ===================== -->
-        <div class="stats-row">
-            <div class="stat-col fade-up">
-                <div class="stat-value"><span class="stat-num" data-target="230">0</span><span class="stat-suf">+</span>
-                </div>
-                <span class="stat-lbl">Sprays</span>
-            </div>
-            <div class="stat-col fade-up">
-                <div class="stat-value"><span class="stat-num" data-target="2">0</span></div>
-                <span class="stat-lbl">Luxury Fragrances</span>
-            </div>
-            <div class="stat-col fade-up">
-                <div class="stat-value"><span class="stat-num" data-target="99">0</span><span class="stat-suf">%</span>
-                </div>
-                <span class="stat-lbl">Natural Oil Toxin Free</span>
-            </div>
-            <div class="stat-col fade-up">
-                <div class="stat-value"><span class="stat-num" data-target="2000">0</span><span
-                        class="stat-suf">+</span></div>
-                <span class="stat-lbl">Happy Customers</span>
+        <!-- ═══════════════════════════
+             SECOND MARQUEE
+        ═══════════════════════════ -->
+        <div class="marquee-strip" style="transform: rotate(1.5deg);" aria-hidden="true">
+            <div class="marquee-track" style="animation-direction: reverse;">
+                <span>FREE SHIPPING ON ORDERS ABOVE ₹999</span><span class="dot">✦</span>
+                <span>ALL INDIA DELIVERY AVAILABLE</span><span class="dot">✦</span>
+                <span>PREPAID ORDERS ONLY</span><span class="dot">✦</span>
+                <span>CUSTOMER CARE: NORPERFUME.HELP@GMAIL.COM</span><span class="dot">✦</span>
             </div>
         </div>
 
-        <!-- ===================== SECTION: TESTIMONIALS ===================== -->
-        <section class="panel panel-reviews" id="reviews">
-            <div class="container">
-                <div class="sec-header fade-up">
-                    <span class="eyebrow">Customer Love</span>
-                    <h2 class="sec-title">What They're Saying</h2>
-                </div>
+        <!-- ═══════════════════════════
+             REVIEWS MARQUEE
+        ═══════════════════════════ -->
+        <section class="panel-reviews" aria-labelledby="reviews-heading">
+            <div class="sec-header center fade-up" style="padding: 0 var(--pad-x);">
+                <span class="eyebrow">Testimonials</span>
+                <h2 class="sec-title" id="reviews-heading">Driven by <em>Real Stories</em></h2>
+            </div>
 
-
-                <div class="reviews-marquee">
-                    <div class="reviews-track">
-
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
+            <div class="reviews-marquee-wrapper">
+                <div class="reviews-track" aria-label="Customer reviews">
+                    <!-- Review 1 -->
+                    <article class="review-card">
+                        <div class="card-top">
+                            <div class="review-stars" aria-label="5 stars">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                             </div>
-                            <div class="review-text">"Game-changing fragrance! MUSK NOR transformed my car into a
-                                sanctuary. Every drive feels entirely intentional now."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=11" alt="Asif Ali" class="author-av-img">
-                                <div>
-                                    <strong>Asif Ali</strong>
-                                    <span>Mercedes-Benz S-Class</span>
-                                </div>
-                            </div>
+                            <div class="card-quote-icon" aria-hidden="true">"</div>
                         </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"Outstanding solution! AQUA NOR is so refreshing. It blends
-                                flawlessly into my dashboard and lasts very long."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=59" alt="Shah Rukh Khan" class="author-av-img">
-                                <div>
-                                    <strong>Shah Rukh Khan</strong>
-                                    <span>Range Rover Velar</span>
-                                </div>
-                            </div>
+                        <p class="review-text">"MUSK NOR is hands-down the most sophisticated car fragrance I've ever used. My BMW has never smelled this incredible."</p>
+                        <div class="review-author">
+                            <img class="author-av-img" src="https://i.pravatar.cc/80?img=11" alt="Ahmed" width="40" height="40" loading="lazy">
+                            <div><strong>Ahmed</strong><span>Bentley Continental</span></div>
                         </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
+                    </article>
+                    <!-- Review 2 -->
+                    <article class="review-card">
+                        <div class="card-top">
+                            <div class="review-stars" aria-label="5 stars">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                             </div>
-                            <div class="review-text">"We've tried several perfumes, but this is by far the best. MUSK
-                                NOR has a sophisticated fragrance that lingers gracefully."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=60" alt="Salman Khan" class="author-av-img">
-                                <div>
-                                    <strong>Salman Khan</strong>
-                                    <span>BMW 5 Series</span>
-                                </div>
-                            </div>
+                            <div class="card-quote-icon" aria-hidden="true">"</div>
                         </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"The design is impeccably minimal. AQUA NOR looks as good as it
-                                smells. Worth every penny for the luxury feel."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=68" alt="Amitabh Bachchan"
-                                    class="author-av-img">
-                                <div>
-                                    <strong>Amitabh Bachchan</strong>
-                                    <span>Porsche 911</span>
-                                </div>
-                            </div>
+                        <p class="review-text">"AQUA NOR has transformed my morning commute. It's clean, fresh, and not overpowering. Exactly what I wanted."</p>
+                        <div class="review-author">
+                            <img class="author-av-img" src="https://i.pravatar.cc/80?img=5" alt="Asna" width="40" height="40" loading="lazy">
+                            <div><strong>Asna</strong><span>Volvo XC90</span></div>
                         </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
+                    </article>
+                    <!-- Review 3 -->
+                    <article class="review-card">
+                        <div class="card-top">
+                            <div class="review-stars" aria-label="5 stars">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                             </div>
-                            <div class="review-text">"Finally, a car perfume that doesn't feel cheap. MUSK NOR is an
-                                absolute statement piece. Highly recommended."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=53" alt="Yousf bhai" class="author-av-img">
-                                <div>
-                                    <strong>Yousf bhai</strong>
-                                    <span>Audi Q8</span>
-                                </div>
-                            </div>
+                            <div class="card-quote-icon" aria-hidden="true">"</div>
                         </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"AQUA NOR feels like an ocean breeze. The premium packaging and
-                                long-lasting scent completely won me over."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=14" alt="Ronaldo" class="author-av-img">
-                                <div>
-                                    <strong>Ronaldo</strong>
-                                    <span>Bugatti Chiron</span>
-                                </div>
-                            </div>
+                        <p class="review-text">"The attention to detail is stunning. MUSK NOR is rich and complex. Rare to find such quality in automotive accessories."</p>
+                        <div class="review-author">
+                            <img class="author-av-img" src="https://i.pravatar.cc/80?img=9" alt="Naveena" width="40" height="40" loading="lazy">
+                            <div><strong>Naveena</strong><span>Jaguar F-Pace</span></div>
                         </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
+                    </article>
+                    <!-- Review 4 -->
+                    <article class="review-card">
+                        <div class="card-top">
+                            <div class="review-stars" aria-label="5 stars">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                             </div>
-                            <div class="review-text">"I was skeptical, but MUSK NOR exceeded all expectations. It's
-                                subtle yet incredibly present. A true masterpiece."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=5" alt="Asna" class="author-av-img">
-                                <div>
-                                    <strong>Asna</strong>
-                                    <span>Volvo XC90</span>
-                                </div>
-                            </div>
+                            <div class="card-quote-icon" aria-hidden="true">"</div>
                         </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"AQUA NOR has transformed my morning commute. It's clean, fresh,
-                                and not overpowering. Exactly what I wanted."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=33" alt="AK" class="author-av-img">
-                                <div>
-                                    <strong>AK</strong>
-                                    <span>Lexus RX</span>
-                                </div>
-                            </div>
+                        <p class="review-text">"On my third refill of AQUA NOR. Every passenger asks what the scent is. Simply the best car perfume available."</p>
+                        <div class="review-author">
+                            <img class="author-av-img" src="https://i.pravatar.cc/80?img=15" alt="Kassim" width="40" height="40" loading="lazy">
+                            <div><strong>Kassim</strong><span>Maserati Levante</span></div>
                         </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
+                    </article>
+                    <!-- Review 5 -->
+                    <article class="review-card">
+                        <div class="card-top">
+                            <div class="review-stars" aria-label="5 stars">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                             </div>
-                            <div class="review-text">"The attention to detail is stunning. MUSK NOR is rich and complex.
-                                It's rare to find such quality in car accessories."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=9" alt="Naveena" class="author-av-img">
-                                <div>
-                                    <strong>Naveena</strong>
-                                    <span>Jaguar F-Pace</span>
-                                </div>
-                            </div>
+                            <div class="card-quote-icon" aria-hidden="true">"</div>
                         </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"I'm on my third refill of AQUA NOR. Every passenger asks what the
-                                scent is. Simply the best car perfume available."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=15" alt="Kassim" class="author-av-img">
-                                <div>
-                                    <strong>Kassim</strong>
-                                    <span>Maserati Levante</span>
-                                </div>
-                            </div>
+                        <p class="review-text">"Beautifully crafted and smells divine. MUSK NOR is the only fragrance I allow in my car. Absolute perfection."</p>
+                        <div class="review-author">
+                            <img class="author-av-img" src="https://i.pravatar.cc/80?img=12" alt="Jubsan" width="40" height="40" loading="lazy">
+                            <div><strong>Jubsan</strong><span>Mercedes-AMG G63</span></div>
                         </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"Beautifully crafted and smells divine. MUSK NOR is the only
-                                fragrance I allow in my car. Absolute perfection."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=12" alt="Jubsan" class="author-av-img">
-                                <div>
-                                    <strong>Jubsan</strong>
-                                    <span>Mercedes-AMG G63</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"AQUA NOR gives the interior such a vibrant atmosphere. I receive
-                                compliments from almost everyone who gets in."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=13" alt="Aju" class="author-av-img">
-                                <div>
-                                    <strong>Aju</strong>
-                                    <span>Land Rover Defender</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"The delivery was fast, and the scent of MUSK NOR is heavenly. It
-                                perfectly matches my car's dark interior."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=16" alt="Nazrin" class="author-av-img">
-                                <div>
-                                    <strong>Nazrin</strong>
-                                    <span>Tesla Model Y</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"Game-changing fragrance! MUSK NOR transformed my car into a
-                                sanctuary. Every drive feels entirely intentional now."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=11" alt="Asif Ali" class="author-av-img">
-                                <div>
-                                    <strong>Asif Ali</strong>
-                                    <span>Mercedes-Benz S-Class</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"Outstanding solution! AQUA NOR is so refreshing. It blends
-                                flawlessly into my dashboard and lasts very long."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=59" alt="Shah Rukh Khan" class="author-av-img">
-                                <div>
-                                    <strong>Shah Rukh Khan</strong>
-                                    <span>Range Rover Velar</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"We've tried several perfumes, but this is by far the best. MUSK
-                                NOR has a sophisticated fragrance that lingers gracefully."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=60" alt="Salman Khan" class="author-av-img">
-                                <div>
-                                    <strong>Salman Khan</strong>
-                                    <span>BMW 5 Series</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"The design is impeccably minimal. AQUA NOR looks as good as it
-                                smells. Worth every penny for the luxury feel."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=68" alt="Amitabh Bachchan"
-                                    class="author-av-img">
-                                <div>
-                                    <strong>Amitabh Bachchan</strong>
-                                    <span>Porsche 911</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"Finally, a car perfume that doesn't feel cheap. MUSK NOR is an
-                                absolute statement piece. Highly recommended."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=53" alt="Yousf bhai" class="author-av-img">
-                                <div>
-                                    <strong>Yousf bhai</strong>
-                                    <span>Audi Q8</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"AQUA NOR feels like an ocean breeze. The premium packaging and
-                                long-lasting scent completely won me over."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=14" alt="Ronaldo" class="author-av-img">
-                                <div>
-                                    <strong>Ronaldo</strong>
-                                    <span>Bugatti Chiron</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"I was skeptical, but MUSK NOR exceeded all expectations. It's
-                                subtle yet incredibly present. A true masterpiece."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=5" alt="Asna" class="author-av-img">
-                                <div>
-                                    <strong>Asna</strong>
-                                    <span>Volvo XC90</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"AQUA NOR has transformed my morning commute. It's clean, fresh,
-                                and not overpowering. Exactly what I wanted."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=33" alt="AK" class="author-av-img">
-                                <div>
-                                    <strong>AK</strong>
-                                    <span>Lexus RX</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"The attention to detail is stunning. MUSK NOR is rich and complex.
-                                It's rare to find such quality in car accessories."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=9" alt="Naveena" class="author-av-img">
-                                <div>
-                                    <strong>Naveena</strong>
-                                    <span>Jaguar F-Pace</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"I'm on my third refill of AQUA NOR. Every passenger asks what the
-                                scent is. Simply the best car perfume available."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=15" alt="Kassim" class="author-av-img">
-                                <div>
-                                    <strong>Kassim</strong>
-                                    <span>Maserati Levante</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"Beautifully crafted and smells divine. MUSK NOR is the only
-                                fragrance I allow in my car. Absolute perfection."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=12" alt="Jubsan" class="author-av-img">
-                                <div>
-                                    <strong>Jubsan</strong>
-                                    <span>Mercedes-AMG G63</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"AQUA NOR gives the interior such a vibrant atmosphere. I receive
-                                compliments from almost everyone who gets in."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=13" alt="Aju" class="author-av-img">
-                                <div>
-                                    <strong>Aju</strong>
-                                    <span>Land Rover Defender</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="review-card">
-                            <div class="card-top">
-                                <div class="review-stars">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg><svg viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                                    </svg>
-                                </div>
-                                <div class="card-quote-icon">“</div>
-                            </div>
-                            <div class="review-text">"The delivery was fast, and the scent of MUSK NOR is heavenly. It
-                                perfectly matches my car's dark interior."</div>
-                            <div class="review-author">
-                                <img src="https://i.pravatar.cc/150?img=16" alt="Nazrin" class="author-av-img">
-                                <div>
-                                    <strong>Nazrin</strong>
-                                    <span>Tesla Model Y</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-
-
-
     </main>
 
-    <!-- ===================== FOOTER ===================== -->
+    <!-- ═══ FOOTER ═══ -->
     <footer class="footer" id="about">
 
-        <!-- Trust badges -->
+        <!-- Trust Badges -->
         <div class="footer-trust">
             <div class="container">
                 <div class="trust-grid">
                     <div class="trust-card fade-up" data-delay="0">
                         <div class="trust-ico">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
-                                fill="#e3e3e3" style="display: block; margin: 0 auto; margin-bottom: 8px;">
-                                <path
-                                    d="M394.33-117.67 298-298.33l-181.33-97 63-62.67 147 26.33L442-546.33 118.33-684l76-76.67L586.67-692l130-130q21.66-21.67 52.66-21.67 31 0 52.67 21.67t21.67 52.5q0 30.83-21.67 52.5L691.67-586.67l68.66 392L684-118.33 546-442 431.33-326.67l26 146-63 63Z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true">
+                                <path d="M394.33-117.67 298-298.33l-181.33-97 63-62.67 147 26.33L442-546.33 118.33-684l76-76.67L586.67-692l130-130q21.66-21.67 52.66-21.67 31 0 52.67 21.67t21.67 52.5q0 30.83-21.67 52.5L691.67-586.67l68.66 392L684-118.33 546-442 431.33-326.67l26 146-63 63Z"/>
                             </svg>
                         </div>
                         <h3>All India Shipping</h3>
                         <p>Nationwide shipping — fast &amp; reliable</p>
                     </div>
-                    <div class="trust-card fade-up" data-delay="100"
-                        onclick="window.location.href='mailto:norperfume.help@gmail.com'" style="cursor: pointer;"
-                        title="Email Customer Service">
+                    <div class="trust-card fade-up" data-delay="100" onclick="window.location.href='mailto:norperfume.help@gmail.com'" style="cursor:pointer" title="Email Customer Service">
                         <div class="trust-ico">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
-                                fill="#e3e3e3" style="display: block; margin: 0 auto; margin-bottom: 8px;">
-                                <path
-                                    d="M440-120v-66.67h333.33V-484q0-121.46-85.38-206.06-85.38-84.61-207.95-84.61t-207.95 84.61q-85.38 84.6-85.38 206.06v244H160q-33 0-56.5-23.5T80-320v-80q0-21 10.5-39.5T120-469l3-53q8-68 39.5-126t79-101q47.5-43 109-67T480-840q68 0 129 24t109 66.5Q766-707 797-649t40 126l3 52q19 9 29.5 27t10.5 38v92q0 20-10.5 38T840-249v62.33q0 27.5-19.58 47.09Q800.83-120 773.33-120H440ZM336.17-416.28q-9.5-9.62-9.5-23.84 0-14.21 9.61-23.71 9.62-9.5 23.84-9.5 14.21 0 23.71 9.61 9.5 9.62 9.5 23.84 0 14.21-9.61 23.71-9.62 9.5-23.84 9.5-14.21 0-23.71-9.61Zm240 0q-9.5-9.62-9.5-23.84 0-14.21 9.61-23.71 9.62-9.5 23.84-9.5 14.21 0 23.71 9.61 9.5 9.62 9.5 23.84 0 14.21-9.61 23.71-9.62 9.5-23.84 9.5-14.21 0-23.71-9.61ZM241-462q-7-106 64-182t177-76q87.67 0 152.83 57.17Q700-605.67 714-519q-89.67-1-164.17-49.67-74.5-48.66-115.02-129.33Q419-618 367.5-555.5T241-462Z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true">
+                                <path d="M440-120v-66.67h333.33V-484q0-121.46-85.38-206.06-85.38-84.61-207.95-84.61t-207.95 84.61q-85.38 84.6-85.38 206.06v244H160q-33 0-56.5-23.5T80-320v-80q0-21 10.5-39.5T120-469l3-53q8-68 39.5-126t79-101q47.5-43 109-67T480-840q68 0 129 24t109 66.5Q766-707 797-649t40 126l3 52q19 9 29.5 27t10.5 38v92q0 20-10.5 38T840-249v62.33q0 27.5-19.58 47.09Q800.83-120 773.33-120H440ZM336.17-416.28q-9.5-9.62-9.5-23.84 0-14.21 9.61-23.71 9.62-9.5 23.84-9.5 14.21 0 23.71 9.61 9.5 9.62 9.5 23.84 0 14.21-9.61 23.71-9.62 9.5-23.84 9.5-14.21 0-23.71-9.61Zm240 0q-9.5-9.62-9.5-23.84 0-14.21 9.61-23.71 9.62-9.5 23.84-9.5 14.21 0 23.71 9.61 9.5 9.62 9.5 23.84 0 14.21-9.61 23.71-9.62 9.5-23.84 9.5-14.21 0-23.71-9.61ZM241-462q-7-106 64-182t177-76q87.67 0 152.83 57.17Q700-605.67 714-519q-89.67-1-164.17-49.67-74.5-48.66-115.02-129.33Q419-618 367.5-555.5T241-462Z"/>
                             </svg>
                         </div>
                         <h3>Customer Service</h3>
@@ -1272,10 +558,8 @@
                     </div>
                     <div class="trust-card fade-up" data-delay="200">
                         <div class="trust-ico">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
-                                fill="#e3e3e3" style="display: block; margin: 0 auto; margin-bottom: 8px;">
-                                <path
-                                    d="M546.67-426.67q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM240-293.33q-27.5 0-47.08-19.59-19.59-19.58-19.59-47.08v-373.33q0-27.5 19.59-47.09Q212.5-800 240-800h613.33q27.5 0 47.09 19.58Q920-760.83 920-733.33V-360q0 27.5-19.58 47.08-19.59 19.59-47.09 19.59H240ZM333.33-360H760q0-39 27.17-66.17 27.16-27.16 66.16-27.16V-640q-39 0-66.16-27.17Q760-694.33 760-733.33H333.33q0 39-27.16 66.16Q279-640 240-640v186.67q39 0 66.17 27.16Q333.33-399 333.33-360ZM800-160H106.67q-27.5 0-47.09-19.58Q40-199.17 40-226.67V-680h66.67v453.33H800V-160ZM240-360v-373.33V-360Z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true">
+                                <path d="M546.67-426.67q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM240-293.33q-27.5 0-47.08-19.59-19.59-19.58-19.59-47.08v-373.33q0-27.5 19.59-47.09Q212.5-800 240-800h613.33q27.5 0 47.09 19.58Q920-760.83 920-733.33V-360q0 27.5-19.58 47.08-19.59 19.59-47.09 19.59H240ZM333.33-360H760q0-39 27.17-66.17 27.16-27.16 66.16-27.16V-640q-39 0-66.16-27.17Q760-694.33 760-733.33H333.33q0 39-27.16 66.16Q279-640 240-640v186.67q39 0 66.17 27.16Q333.33-399 333.33-360ZM800-160H106.67q-27.5 0-47.09-19.58Q40-199.17 40-226.67V-680h66.67v453.33H800V-160ZM240-360v-373.33V-360Z"/>
                             </svg>
                         </div>
                         <h3>Secure Payment</h3>
@@ -1289,71 +573,62 @@
         <div class="footer-newsletter">
             <div class="container">
                 <div class="nl-box fade-up">
-                    <span class="eyebrow">Keep Me Updated</span>
-                    <div class="nl-icon"></div>
+                    <span class="nl-overline">Keep Me Updated</span>
                     <h3 class="nl-title">Newsletter</h3>
-                    <p class="nl-desc">Subscribe to get notified about product launches, special offers and company
-                        news.</p>
-                    <form class="nl-form" id="nl-form">
-                        <input type="email" placeholder="Your e-mail address" required>
+                    <p class="nl-desc">Subscribe to get notified about product launches, special offers, and company news.</p>
+                    <form class="nl-form" id="nl-form" novalidate>
+                        <input type="email" name="email" placeholder="Your e-mail address" required autocomplete="email">
                         <button type="submit">Subscribe</button>
                     </form>
+                    <div class="nl-success" aria-live="polite">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <p>You're on the list! We'll be in touch soon.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Bottom -->
+        <!-- Footer Bottom -->
         <div class="footer-bottom">
             <div class="container">
                 <div class="fb-grid">
                     <div class="fb-brand">
-                        <a href="index.html" class="footer-logo">
-                            <img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="footer-logo-img"
-                                loading="lazy" style="height: 48px; object-fit: contain;">
-                            <div class="font-lovelo"
-                                style="font-size: 0.9rem; color: var(--c-cream); letter-spacing: 3px;">NOR PERFUME</div>
+                        <a href="index.html" class="footer-logo" aria-label="NOR Perfume homepage">
+                            <img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="footer-logo-img" loading="lazy" width="80" height="40">
+                            <span class="footer-logo-text">NOR PERFUME</span>
                         </a>
                         <p>Luxury car fragrances crafted for those who drive with purpose.</p>
-                        <div class="social-row" style="display: flex; gap: 16px; margin-top: 20px;">
-                            <a href="https://www.instagram.com/norperfumeofficial/" target="_blank"
-                                aria-label="Instagram"
-                                style="color: var(--c-silver); transition: color 0.3s var(--ease);">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        <div class="social-row">
+                            <a href="https://www.instagram.com/norperfumeofficial/" target="_blank" rel="noopener" aria-label="Instagram">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                                 </svg>
                             </a>
-                            <a href="https://www.facebook.com/norperfumeofficial/" target="_blank" aria-label="Facebook"
-                                style="color: var(--c-silver); transition: color 0.3s var(--ease);">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            <a href="https://www.facebook.com/norperfumeofficial/" target="_blank" rel="noopener" aria-label="Facebook">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                                 </svg>
                             </a>
-                            <a href="https://www.linkedin.com/company/norperfume/" target="_blank" aria-label="LinkedIn"
-                                style="color: var(--c-silver); transition: color 0.3s var(--ease);">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                    </path>
-                                    <rect x="2" y="9" width="4" height="12"></rect>
-                                    <circle cx="4" cy="4" r="2"></circle>
+                            <a href="https://www.linkedin.com/company/norperfume/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                    <rect x="2" y="9" width="4" height="12"/>
+                                    <circle cx="4" cy="4" r="2"/>
                                 </svg>
                             </a>
                         </div>
-
                     </div>
+
                     <div class="fb-links">
                         <div class="fb-col" id="footer-shop-list">
                             <h5>Shop</h5>
                             <a href="collections.html">All Collections</a>
+                            <a href="collections.html?product=musk">MUSK NOR</a>
+                            <a href="collections.html?product=aqua">AQUA NOR</a>
                         </div>
-
-
-
                         <div class="fb-col">
                             <h5>Support</h5>
                             <a href="about.html">About NOR</a>
@@ -1361,9 +636,6 @@
                             <a href="track-order.html">Track Order</a>
                             <a href="contact.html">Contact Us</a>
                         </div>
-
-
-
                         <div class="fb-col">
                             <h5>Legal</h5>
                             <a href="return-policy.html">Return Policy</a>
@@ -1371,22 +643,57 @@
                             <a href="privacy-policy.html">Privacy Policy</a>
                             <a href="terms.html">Terms of Service</a>
                         </div>
-
-
                     </div>
                 </div>
+
                 <div class="fb-copyright">
-                    <p>© 2026 <span class="font-lovelo">NOR PERFUME</span>. <span
-                            style="text-transform: uppercase; letter-spacing: 3px;">ALL RIGHTS RESERVED.</span></p>
+                    <p>© 2026 <span class="font-lovelo">NOR PERFUME</span>. <span style="text-transform:uppercase;letter-spacing:3px">All Rights Reserved.</span></p>
                 </div>
             </div>
         </div>
 
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+    <!-- Scripts -->
+    <script src="js/animations.js" defer></script>
     <script src="js/main.js" defer></script>
     <script type="module" src="js/shopify-integration.js"></script>
+
+    <!-- Custom Cursor (desktop only) -->
+    <script>
+    (function() {
+        if (window.matchMedia('(hover: none)').matches) return;
+        const dot = document.getElementById('cursor-dot');
+        const ring = document.getElementById('cursor-ring');
+        if (!dot || !ring) return;
+
+        let mx = -100, my = -100, rx = -100, ry = -100;
+        dot.style.cssText = 'position:fixed;top:0;left:0;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.9);pointer-events:none;z-index:99997;transform:translate(-50%,-50%);transition:transform .15s,opacity .3s;';
+        ring.style.cssText = 'position:fixed;top:0;left:0;width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,0.3);pointer-events:none;z-index:99996;transform:translate(-50%,-50%);transition:width .3s,height .3s,opacity .3s;';
+
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+        function render() {
+            rx += (mx - rx) * 0.12;
+            ry += (my - ry) * 0.12;
+            dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+            ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+            requestAnimationFrame(render);
+        }
+        requestAnimationFrame(render);
+
+        document.querySelectorAll('a, button, [role="button"]').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                ring.style.width = '48px'; ring.style.height = '48px';
+                ring.style.borderColor = 'rgba(182,154,112,0.6)';
+            });
+            el.addEventListener('mouseleave', () => {
+                ring.style.width = '32px'; ring.style.height = '32px';
+                ring.style.borderColor = 'rgba(255,255,255,0.3)';
+            });
+        });
+    })();
+    </script>
 </body>
 
 </html>
