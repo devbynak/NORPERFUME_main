@@ -27,10 +27,13 @@
     text-align: center;
     gap: 14px;
     padding: 40px 30px;
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--g-bdr);
-    transition: var(--t);
+    border-radius: 28px; /* Apple-like larger radius */
+    background: rgba(25, 25, 28, 0.4);
+    backdrop-filter: var(--g-blur);
+    -webkit-backdrop-filter: var(--g-blur);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--premium-shadow);
+    transition: var(--t-spring);
     will-change: transform, opacity;
 }
 
@@ -130,24 +133,34 @@
 .nl-box {
     position: relative;
     z-index: 2;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    padding: 60px 40px;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 32px;
-    border: 1px solid var(--g-bdr);
-    box-shadow: var(--premium-shadow);
-    transition: var(--t);
+    padding: 70px 50px;
+    background: linear-gradient(145deg, rgba(42, 36, 32, 0.45) 0%, rgba(18, 15, 12, 0.75) 100%);
+    backdrop-filter: blur(48px) saturate(200%);
+    -webkit-backdrop-filter: blur(48px) saturate(200%);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.7),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    transition: var(--t-spring);
 }
 
 .nl-box:hover {
-    box-shadow: var(--premium-shadow-h);
-    border-color: var(--g-bdr-h);
+    box-shadow: 
+        0 50px 100px rgba(0, 0, 0, 0.8),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
 }
 
 .nl-title {
@@ -156,7 +169,7 @@
     font-weight: 300;
     margin-bottom: 24px;
     color: #fff;
-    letter-spacing: -1px;
+    letter-spacing: 0;
 }
 
 .nl-desc {
@@ -232,22 +245,23 @@
 
 /* Footer Bottom */
 .footer-bottom {
-    background: #0a0a0a;
-    border-top: 2px solid var(--c-gold-dim);
+    background: #050505;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding: 80px 0 32px;
 }
 
 .fb-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--sp-m);
-    margin-bottom: var(--sp-l);
+    gap: 40px;
+    margin-bottom: 60px;
+    align-items: start;
 }
 
 @media (min-width: 992px) {
     .fb-grid {
-        grid-template-columns: 0.8fr 2.2fr;
-        gap: var(--sp-xl);
+        grid-template-columns: 1.2fr 2fr;
+        gap: 80px;
     }
 }
 
@@ -281,17 +295,17 @@
 }
 
 .fb-brand>p {
-    font-size: .85rem;
-    color: #CCCCCC;
+    font-size: .95rem;
+    color: rgba(255, 255, 255, 0.6);
     font-weight: 300;
-    line-height: 1.8;
-    max-width: 220px;
+    line-height: 1.7;
+    max-width: 280px;
 }
 
 .social-row {
     display: flex;
-    gap: 24px;
-    margin-top: 8px;
+    gap: 28px;
+    margin-top: 24px;
 }
 
 .social-row a {
@@ -300,41 +314,46 @@
     letter-spacing: 2.5px;
     color: #CCCCCC;
     transition: var(--t);
+    opacity: 0.7;
 }
 
 .social-row a:hover {
     color: #FFFFFF;
+    opacity: 1;
 }
 
 .fb-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
+    gap: 30px;
+    margin-top: 10px;
 }
 
 .fb-col h5 {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-    font-weight: 400;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 600;
     color: #FFFFFF;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
+    opacity: 0.9;
 }
 
 .fb-col a {
-    display: block;
-    color: #EBEBEB;
-    margin-bottom: 14px;
-    font-size: 0.9rem;
+    position: relative;
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 16px;
+    font-size: 0.95rem;
     font-family: var(--sans);
-    font-weight: 300;
-    transition: var(--t);
+    font-weight: 400;
+    transition: color 0.4s var(--ease-spring);
+    will-change: color;
 }
 
 .fb-col a:hover {
     color: #FFFFFF;
-    padding-left: 4px;
 }
 
 .fb-col p {
@@ -365,15 +384,172 @@
 }
 
 /* =========================================================
+   DESKTOP MEGA MENU
+   ========================================================= */
+.mega-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: var(--pad-x, 40px);
+    width: max-content;
+    max-width: 850px;
+    background: #0f1012;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 30px 40px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 99;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+.mega-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mega-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.mega-pill {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-family: var(--sans);
+    align-self: flex-start;
+}
+
+.mega-pill.disabled-pill {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.mega-pill .badge {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 8px;
+    margin-left: 6px;
+}
+
+.mega-pill.disabled-pill .badge {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.mega-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.mega-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mega-list a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 13px;
+    transition: color 0.3s ease;
+}
+
+.mega-list a:hover {
+    color: var(--c-gold);
+}
+
+.mega-list.main-links {
+    gap: 16px;
+}
+
+.mega-list.main-links a {
+    font-size: 22px;
+    font-family: var(--outfit, var(--sans));
+    font-weight: 400;
+    color: #fff;
+}
+
+.mega-list a .badge {
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.mega-disabled-col .mega-list a {
+    color: rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+}
+
+.mega-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+
+.mega-image-wrap {
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.mega-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 6px;
+    transition: transform 0.5s ease;
+}
+
+.mega-image-wrap:hover img {
+    transform: scale(1.05);
+}
+
+/* Ensure navbar lines show close state if needed */
+.nav-menu-label.active .nav-menu-lines span:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+}
+.nav-menu-label.active .nav-menu-lines span:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+/* Desktop only for mega menu */
+@media (max-width: 992px) {
+    .mega-menu {
+        display: none !important;
+    }
+}
+
+/* =========================================================
    MOBILE MENU OVERLAY
    ========================================================= */
 .mobile-menu {
     position: fixed;
     inset: 0;
     z-index: 9998;
-    background: rgba(15, 15, 15, 0.45);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    background: rgba(10, 10, 12, 0.6); /* Slightly darker for contrast */
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
     clip-path: inset(0 0 100% 0);
     visibility: hidden;
     pointer-events: none;

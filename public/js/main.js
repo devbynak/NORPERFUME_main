@@ -33,6 +33,23 @@ document.addEventListener("DOMContentLoaded", () => {
         lenis.on("scroll", () => {
             // Optional: Trigger specific heavy animations on scroll if needed
         });
+    } else {
+        // Mock lenis instance to avoid "Cannot read properties of undefined" in dependent scripts
+        window.lenis = {
+            on: () => {},
+            off: () => {},
+            raf: () => {},
+            destroy: () => {},
+            scrollTo: (target) => {
+                if (typeof target === 'string') {
+                    const el = document.querySelector(target);
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                } else if (typeof target === 'number') {
+                    window.scrollTo({ top: target, behavior: 'smooth' });
+                }
+            }
+        };
+        lenis = window.lenis;
     }
 
     /* Custom cursor logic removed */
@@ -316,45 +333,8 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ─────────────────────────────────────────
        9. NEWSLETTER
     ───────────────────────────────────────── */
-    const nlForm = document.getElementById("nl-form");
-    if (nlForm) {
-        nlForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const input = nlForm.querySelector("input[type='email']");
-            const btn = nlForm.querySelector("button[type='submit']");
-            if (!input || !btn || !input.value) return;
-
-            const origText = btn.textContent;
-            btn.textContent = "Submitting...";
-
-            try {
-                const res = await fetch('/api/subscribe', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: input.value })
-                });
-
-                if (res.ok) {
-                    btn.textContent = "Subscribed ✓";
-                    btn.style.background = "linear-gradient(135deg, #809076, #284139)";
-                    btn.style.color = "#fff";
-                    input.value = "";
-                    input.placeholder = "Thank you for subscribing!";
-                } else {
-                    btn.textContent = "Error";
-                }
-            } catch (err) {
-                btn.textContent = "Error";
-            }
-
-            setTimeout(() => {
-                btn.textContent = "Subscribe";
-                btn.style.background = "";
-                btn.style.color = "";
-                input.placeholder = "Your e-mail address";
-            }, 3500);
-        });
-    }
+    // Newsletter form submission logic moved to shopify-integration.js
+    // to utilize Shopify's Storefront API directly.
 
     /* ─────────────────────────────────────────
        10. GLASS CARD MOUSE GLOW — CSS variable proxy
@@ -410,6 +390,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const now = Date.now() / 1500; // slower bob
 
         floatCards.forEach((fc, i) => {
+            if (!fc.classList.contains('fc-visible')) return;
             const dir = i % 2 === 0 ? 1 : -1;
             const bob = Math.sin(now + i * 1.8) * 12; // gentle float
             const rotY = cx * 18 * dir; // more responsive tilt
@@ -424,7 +405,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         fcRafId = requestAnimationFrame(animFloatCards);
     };
-    if (floatCards.length) animFloatCards();
+
+    if (floatCards.length) {
+        const fcObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fc-visible');
+                } else {
+                    entry.target.classList.remove('fc-visible');
+                }
+            });
+        });
+        floatCards.forEach(fc => fcObserver.observe(fc));
+        animFloatCards();
+    }
 
     /* ─────────────────────────────────────────
        12. SECTION ENTRANCE COUNTER — horizontal nav line
@@ -452,30 +446,58 @@ document.addEventListener("DOMContentLoaded", () => {
     sections.forEach(s => sectionObs.observe(s));
 
     /* ─────────────────────────────────────────
-       13. MOBILE MENU
+       13. DESKTOP MEGA MENU & MOBILE MENU 
     ───────────────────────────────────────── */
     const mobileMenu = document.getElementById("mobile-menu");
+    const megaMenu = document.getElementById("mega-menu");
     const menuOpenBtn = document.querySelector(".nav-menu-label");
     const menuCloseBtn = document.getElementById("mm-close");
 
-    if (mobileMenu && menuOpenBtn && menuCloseBtn) {
+    if (menuOpenBtn) {
         const toggleMenu = (force) => {
-            const isActive = force !== undefined ? force : !mobileMenu.classList.contains("active");
-            if (isActive) {
-                mobileMenu.classList.add("active");
-                document.body.style.overflow = "hidden"; // lock scroll
-            } else {
-                mobileMenu.classList.remove("active");
-                document.body.style.overflow = "";
+            const isDesktop = window.innerWidth > 992;
+            
+            if (isDesktop && megaMenu) {
+                const isActive = force !== undefined ? force : !megaMenu.classList.contains("active");
+                if (isActive) {
+                    megaMenu.classList.add("active");
+                    menuOpenBtn.classList.add("active");
+                } else {
+                    megaMenu.classList.remove("active");
+                    menuOpenBtn.classList.remove("active");
+                }
+            } else if (mobileMenu && menuCloseBtn) {
+                const isActive = force !== undefined ? force : !mobileMenu.classList.contains("active");
+                if (isActive) {
+                    mobileMenu.classList.add("active");
+                    document.body.style.overflow = "hidden"; // lock scroll
+                } else {
+                    mobileMenu.classList.remove("active");
+                    document.body.style.overflow = "";
+                }
             }
         };
 
-        menuOpenBtn.addEventListener("click", () => toggleMenu(true));
-        menuCloseBtn.addEventListener("click", () => toggleMenu(false));
+        menuOpenBtn.addEventListener("click", () => toggleMenu());
+        if (menuCloseBtn) {
+            menuCloseBtn.addEventListener("click", () => toggleMenu(false));
+        }
 
         // Close on link click
-        mobileMenu.querySelectorAll(".mm-link").forEach(link => {
-            link.addEventListener("click", () => toggleMenu(false));
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll(".mm-link").forEach(link => {
+                link.addEventListener("click", () => toggleMenu(false));
+            });
+        }
+        
+        // Close mega menu when clicking outside
+        document.addEventListener("click", (e) => {
+             const isDesktop = window.innerWidth > 992;
+             if (isDesktop && megaMenu && megaMenu.classList.contains("active")) {
+                 if (!megaMenu.contains(e.target) && !menuOpenBtn.contains(e.target)) {
+                     toggleMenu(false);
+                 }
+             }
         });
     }
 
@@ -648,6 +670,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /* ─────────────────────────────────────────
+       18. REVIEW CARD 3D TILT
+    ───────────────────────────────────────── */
+    const reviewCards = document.querySelectorAll('.review-card');
+    reviewCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            // Calculate tilt angle (-8 to 8 deg)
+            const tiltX = ((y - centerY) / centerY) * -8; 
+            const tiltY = ((x - centerX) / centerX) * 8;
+            
+            card.style.setProperty('--tilt-x', `${tiltX}deg`);
+            card.style.setProperty('--tilt-y', `${tiltY}deg`);
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--tilt-x', `0deg`);
+            card.style.setProperty('--tilt-y', `0deg`);
+        });
+    });
 
 
 });

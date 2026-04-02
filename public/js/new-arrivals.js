@@ -198,23 +198,25 @@ class NewArrivalsManager {
     setupScrollAnimation() {
         const observerOptions = {
             threshold: 0,
-            rootMargin: '0px'
+            rootMargin: '100% 0px' // Expand rootMargin to prepare before seeing
         };
 
         const boundOnScroll = this.onScroll.bind(this);
-        
-        // Sync with Lenis if globally available
-        if (window.lenis) {
-            window.lenis.on('scroll', boundOnScroll);
-            return;
-        }
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    window.addEventListener('scroll', boundOnScroll);
+                    if (window.lenis && typeof window.lenis.on === 'function') {
+                        window.lenis.on('scroll', boundOnScroll);
+                    } else {
+                        window.addEventListener('scroll', boundOnScroll, { passive: true });
+                    }
                 } else {
-                    window.removeEventListener('scroll', boundOnScroll);
+                    if (window.lenis && typeof window.lenis.off === 'function') {
+                        window.lenis.off('scroll', boundOnScroll);
+                    } else {
+                        window.removeEventListener('scroll', boundOnScroll);
+                    }
                 }
             });
         }, observerOptions);

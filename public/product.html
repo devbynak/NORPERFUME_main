@@ -35,10 +35,10 @@
     <!-- ===================== NAVBAR ===================== -->
     <nav class="navbar" id="navbar">
         <div class="nav-inner">
-            <!-- LEFT: Menu & Currency Selector -->
+            <!-- LEFT: Menu Toggle -->
             <div class="nav-left">
                 <button class="nav-menu-label" aria-label="Open Menu">
-                    <span>Menu</span>
+                    <span>MENU</span>
                     <div class="nav-menu-lines">
                         <span></span>
                         <span></span>
@@ -48,30 +48,26 @@
 
             <!-- CENTER: Logo -->
             <a href="index.html" class="logo">
-                <img src="assets/images/norwhite.webp" alt="NOR Perfume" class="logo-img" loading="lazy">
+                <img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="logo-svg" style="object-fit: contain;">
             </a>
 
             <!-- RIGHT: Search, Profile, Cart -->
             <div class="nav-right">
                 <button class="nav-icon-btn" id="search-btn" aria-label="Search">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="1.5">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <circle cx="11" cy="11" r="8" />
                         <path d="M21 21l-4.35-4.35" />
                     </svg>
                 </button>
-                <a href="account.html" class="nav-icon-btn" aria-label="User Account">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="1.5">
+                <a href="https://shop.norperfume.com/account" class="nav-icon-btn" aria-label="User Account">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                         <circle cx="12" cy="7" r="4" />
                     </svg>
                 </a>
                 <a href="cart.html" class="nav-icon-btn cart-btn" id="cart-btn" aria-label="Cart">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="1.5">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <line x1="3" y1="6" x2="21" y2="6" />
                         <path d="M16 10a4 4 0 0 1-8 0" />
                     </svg>
                     <span class="cart-count" id="cart-count">0</span>
@@ -111,178 +107,120 @@
     </div>
 
     <main id="main-content">
-        <!-- 1. HERO: GALLERY + INFO (PREMIUM DESIGN FROM MASK.HTML) -->
-        <section class="pdp-wrapper page-header-pdp" style="padding-top: 140px; padding-bottom: 60px;">
+        <!-- 1. HERO: GALLERY + INFO -->
+        <section class="pdp-wrapper page-header-pdp" style="padding-top: 120px; padding-bottom: 60px;">
             <div class="container">
-                <a href="collections.html" class="fade-up"
-                    style="display: inline-flex; align-items: center; gap: 8px; color: var(--c-silver); font-size: 0.9rem; margin-bottom: 32px; text-decoration: none; text-transform: uppercase; letter-spacing: 1px;">
-                    <span style="font-size: 1.2rem;">←</span> Back to fragrances
-                </a>
 
-                <div class="pdp-layout"
-                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
-                    <!-- Gallery -->
-                    <div class="pdp-gallery fade-up" style="position: sticky; top: 120px;">
-                        <div class="glass"
-                            style="aspect-ratio: 4/5; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
-                                alt="Loading..." class="pdp-gallery-main" id="pdp-gallery-main"
-                                style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease;">
-                        </div>
-                    </div>
-
-                    <!-- Info -->
-                    <div class="pdp-info glass fade-up" data-delay="100"
-                        style="padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 16px 40px rgba(0,0,0,0.4);">
-                        <div class="eyebrow-pdp" id="pdp-category"
-                            style="font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--c-gold); margin-bottom: 12px;">
-                            Premium Category</div>
-                        <h1 class="pdp-title" id="pdp-title"
-                            style="font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.1; margin-bottom: 8px; text-transform: uppercase;">Loading...</h1>
-                        <div class="product-pdt-sub" id="pdp-sub"
-                            style="font-size: 1.1rem; font-style: italic; color: var(--c-silver); margin-bottom: 24px; font-family: var(--serif);">
-                            Signature Drop</div>
-
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 32px;">
-                            <span style="color: var(--c-gold); font-size: 1.1rem; letter-spacing: 2px;">★★★★★</span>
-                            <span style="font-size: 0.9rem; color: var(--c-silver);">4.9 · Verified Reviews</span>
-                        </div>
-
-                        <div style="height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 32px;"></div>
-
-                        <div class="pdp-description body-copy" id="pdp-description"
-                            style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 40px; color: var(--c-cream);">
-                            Fetching product details from Shopify...
-                        </div>
-
-                        <!-- Dynamic Tags for Scent Profile -->
-                        <div
-                            style="font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--c-silver); margin-bottom: 16px;">
-                            Scent profile</div>
-                        <div class="pdp-tags" id="pdp-tags" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px;">
-                            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; padding: 6px 12px; border: 1px solid rgba(196,163,90,0.3); border-radius: 4px; color: var(--c-cream);">Aromatic</span>
-                        </div>
-
-                        <div
-                            style="font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--c-silver); margin-bottom: 16px;">
-                            What's in the box</div>
-                        <div id="pdp-whats-in-box" style="margin-bottom: 40px;">
-                            <div
-                                style="font-size: 0.95rem; color: var(--c-cream); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 12px;">
-                                <span
-                                    style="display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--c-gold);"></span>
-                                20ml fragrance spray
+                <div class="pdp-layout pdp-redesign">
+                    <!-- ============================================== -->
+                    <!-- LEFT: GALLERY -->
+                    <!-- ============================================== -->
+                    <div class="pdp-gallery-new fade-up" style="position: sticky; top: 120px; display: flex; gap: 16px;">
+                        
+                        <!-- Vertical Thumbnails -->
+                        <div class="pdp-thumbs" style="display: flex; flex-direction: column; gap: 10px; width: 60px;">
+                            <div class="thumb glass" style="aspect-ratio: 4/5; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.4); cursor: pointer; opacity: 1;">
+                                <img src="assets/images/norblack.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
-                            <div
-                                style="font-size: 0.95rem; color: var(--c-cream); padding: 12px 0; display: flex; align-items: center; gap: 12px;">
-                                <span
-                                    style="display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--c-gold);"></span>
-                                1 × NOR luxury diffusion tag
+                            <div class="thumb glass" style="aspect-ratio: 4/5; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; opacity: 0.5;">
+                                <img src="assets/images/norblack.png" alt="" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%);">
+                            </div>
+                            <div class="thumb glass" style="aspect-ratio: 4/5; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; opacity: 0.5;">
+                                <img src="assets/images/norblack.png" alt="" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%);">
                             </div>
                         </div>
 
-                        <div class="pdp-price" id="pdp-price" style="font-size: 2.3rem; font-family: var(--serif); color: #fff; margin-bottom: 24px;">
-                            ₹0</div>
+                        <!-- Main Image -->
+                        <div class="pdp-main-image-wrap glass" style="position: relative; flex: 1; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); background: #0a0a0a;">
+                            <a href="collections.html" class="pdp-back-btn" style="position: absolute; top: 20px; left: 20px; z-index: 10; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); color: white; text-decoration: none;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                            </a>
+                            <button class="pdp-save-btn" aria-label="Save Item" style="position: absolute; top: 20px; right: 20px; z-index: 10; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); color: white; cursor: pointer; border: none; outline: none;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                            </button>
 
-                        <div class="pdp-cta-group" style="display: flex; gap: 16px; margin-bottom: 16px;">
-                            <button class="cta-primary btn-add-cart" id="btn-add-cart"
-                                style="flex: 1; justify-content: center; padding: 20px; position: relative; z-index: 10;">Add
-                                to Cart</button>
-                            <button class="cta-ghost btn-buy-now" id="btn-buy-now"
-                                style="flex: 1; justify-content: center; padding: 20px; position: relative; z-index: 10;">Buy
-                                Now</button>
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Product Image" class="pdp-gallery-main" id="pdp-gallery-main" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; aspect-ratio: 4/5;">
                         </div>
-                        <div
-                            style="text-align: center; font-size: 0.8rem; color: var(--c-silver); letter-spacing: 1px;">
-                            Free shipping above ₹999 · Prepaid only</div>
                     </div>
-                </div>
+
+                    <!-- ============================================== -->
+                    <!-- RIGHT: INFO & VARIANTS -->
+                    <!-- ============================================== -->
+                    <div class="pdp-info-new fade-up" data-delay="100" style="padding: 10px 0;">
+                        <!-- Category/Eyebrow -->
+                        <div class="eyebrow-pdp" id="pdp-category" style="font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; color: var(--c-silver);">Premium Category</div>
+                        
+                        <!-- Header row: Title & Price -->
+                        <div class="pdp-header-row" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+                            <h1 class="pdp-title" id="pdp-title" style="font-size: clamp(1.8rem, 3vw, 2.2rem); margin: 0; font-family: var(--sans); font-weight: 500; text-transform: uppercase;">Loading...</h1>
+                            <div class="pdp-price-wrap" style="text-align: right;">
+                                <div class="pdp-price" id="pdp-price" style="font-size: 1.5rem; font-family: var(--sans); font-weight: 500; color: #fff; display: flex; align-items: baseline; gap: 8px;">
+                                    ₹0
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Subtitle / Notes -->
+                        <div class="product-pdt-sub" id="pdp-sub" style="font-size: 0.95rem; color: rgba(255,255,255,0.5); margin-bottom: 24px;">Signature Drop</div>
+
+                        <!-- Add to cart buttons (hidden or kept for shopify) -->
+                        <!-- Hidden elements for dynamic injection -->
+                        <div id="pdp-description" style="display: none;"></div>
+                        <div id="pdp-tags" style="display: none;"></div>
+                        <div id="pdp-whats-in-box" style="display: none;"></div>
+                        
+                        <!-- Trust badges -->
+                        <div style="display: flex; gap: 16px; margin-bottom: 32px; font-size: 0.8rem; color: var(--c-silver);">
+                           <div style="display: flex; align-items: center; gap: 6px;"><span style="color: var(--c-gold);">★★★★★</span> 4.9 Reviews</div>
+                           <div style="display: flex; align-items: center; gap: 6px;">
+                               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                               Authentic Quality
+                           </div>
+                        </div>
+
+                        <div class="pdp-divider" style="height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 32px;"></div>
+
+
+                        <!-- ACTION: ADD TO CART -->
+                        <div class="pdp-cta-group" style="margin-bottom: 40px; margin-top: 10px;">
+                            <button class="btn-add-cart" id="btn-add-cart" style="width: 100%; border-radius: 8px; justify-content: center; padding: 20px; font-size: 1rem; letter-spacing: 1px; font-weight: 600; text-transform: uppercase; background: #fff; color: #000; border: none; cursor: pointer; transition: transform 0.3s ease;">
+                                Add to Bag
+                            </button>
+                        </div>
+
+                        <!-- ACCORDIONS (Details & Size Guide) -->
+                        <div class="pdp-accordion-group" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                            
+                            <div class="accordion-item new-accordion active">
+                                <div class="accordion-header" style="padding: 24px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                                    <h3 style="font-size: 1.1rem; font-weight: 500; margin: 0; color: #fff;">Details</h3>
+                                    <div class="acc-icon" style="position: relative; width: 14px; height: 14px;">
+                                        <span class="acc-line horizontal" style="position: absolute; top: 6px; left: 0; width: 14px; height: 1px; background: #fff; transition: transform 0.3s ease;"></span>
+                                        <span class="acc-line vertical" style="position: absolute; top: 0; left: 6.5px; width: 1px; height: 14px; background: #fff; transition: transform 0.3s ease;"></span>
+                                    </div>
+                                </div>
+                                <div class="accordion-content">
+                                    <div style="padding-bottom: 24px; color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.6;">
+                                        A luxurious blend engineered for high endurance and zero-liquid safety. Our proprietary extraction process ensures the scent molecules retain their peak potency.
+                                        <ul style="margin-top: 12px; padding-left: 20px;">
+                                            <li>Zero-Liquid Technology</li>
+                                            <li>45-Day Duration Active Core</li>
+                                            <li>Sustainably Sourced Botanicals</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div> <!-- /pdp-accordion-group -->
+
+                    </div> <!-- /pdp-info-new -->
+                </div> <!-- /pdp-layout -->
+
             </div>
         </section>
 
-        <!-- 2. STICKY BUY BAR (Logic in main.js) -->
-        <div class="sticky-buy-bar" id="sticky-buy-bar">
-            <div class="container">
-                <div class="sbb-inner">
-                    <div class="sbb-left">
-                        <img src="" alt="" class="sbb-img">
-                        <div class="sbb-meta">
-                            <div class="sbb-title">Product Name</div>
-                            <div class="sbb-price">₹0</div>
-                        </div>
-                    </div>
-                    <div class="sbb-right">
-                        <button class="cta-primary btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 3. TRUST SECTION (REQUESTED: SECOND IMAGE) -->
-        <section class="pdp-trust-section">
-            <div class="container">
-                <div class="trust-pill-grid">
-                    <div class="trust-pill fade-up">
-                        <span class="tp-icon">✦</span>
-                        <span>Zero-Liquid Tech</span>
-                    </div>
-                    <div class="trust-pill fade-up" data-delay="100">
-                        <span class="tp-icon">✦</span>
-                        <span>45-Day Duration</span>
-                    </div>
-                    <div class="trust-pill fade-up" data-delay="200">
-                        <span class="tp-icon">✦</span>
-                        <span>Sustainably Sourced</span>
-                    </div>
-                    <div class="trust-pill fade-up" data-delay="300">
-                        <span class="tp-icon">✦</span>
-                        <span>Free National Shipping</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. DETAILS ACCORDIONS (REQUESTED: SECOND IMAGE) -->
-        <section class="pdp-details-section">
-            <div class="container">
-                <div class="pdp-details-layout">
-                    <div class="pdp-details-main fade-up">
-                        <div class="accordion-item active">
-                            <div class="accordion-header">
-                                <h3>The Composition</h3>
-                                <div class="accordion-icon"></div>
-                            </div>
-                            <div class="accordion-content">
-                                <p>A harmonious blend of rare botanicals and pure essential oils. Our proprietary extraction process ensures the molecules retain their peak potency, delivering a scent that evolves as you drive.</p>
-                                <ul class="composition-list">
-                                    <li><strong>Top:</strong> Bergamot & Saffron</li>
-                                    <li><strong>Heart:</strong> Damascena Rose</li>
-                                    <li><strong>Base:</strong> Aged Oud & Leather</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <div class="accordion-header">
-                                <h3>How to Use</h3>
-                                <div class="accordion-icon"></div>
-                            </div>
-                            <div class="accordion-content">
-                                <p>Gently slide the NOR diffuser onto your vehicle's air vent. The airflow will naturally activate the ceramic core, releasing the fragrance. Adjust the air intensity to control the diffusion speed.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <div class="accordion-header">
-                                <h3>Shipping & Returns</h3>
-                                <div class="accordion-icon"></div>
-                            </div>
-                            <div class="accordion-content">
-                                <p>We offer free standard shipping on all orders within India. Due to the personal nature of our products, we only accept returns for damaged items within 7 days of delivery.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- 5. HOW TO USE VISUALS (PREMIUM SECTION FROM MASK.HTML) -->
         <section class="panel bg-dark"
@@ -511,7 +449,6 @@
     </footer>
 
     <script src="js/main.js" defer></script>
-    <script src="js/auth.js" defer></script>
     <script src="js/pdp-ui.js" defer></script>
     <script type="module" src="js/shopify-integration.js"></script>
 </body>

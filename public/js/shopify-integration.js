@@ -8,7 +8,6 @@ import cartManager from './cart.js';
 import productManager from './product.js';
 import HeroSlider from './hero-slider.js';
 import BestSellerManager from './best-seller.js';
-import NewArrivalsManager from './new-arrivals.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     // 0. Force refresh Shopify data by clearing session cache
@@ -35,7 +34,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             initTasks.push(productManager.renderCollections('#shopify-collections-grid', 6));
             initTasks.push((async () => { new HeroSlider('#shopify-hero-slider'); })());
             initTasks.push((async () => { new BestSellerManager('#bestSeller'); })());
-            initTasks.push((async () => { new NewArrivalsManager(); })());
         }
     } else if (page === 'cart.html') {
         initTasks.push((async () => {

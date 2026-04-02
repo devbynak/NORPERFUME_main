@@ -16,6 +16,13 @@
       "dest": "server.js"
     },
     {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)\\.html",
+      "dest": "public/product.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "public/$1"
     }
