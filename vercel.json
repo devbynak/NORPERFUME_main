@@ -3,26 +3,13 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "server.js"
+      "destination": "/api/index.js"
     },
     {
       "source": "/(.*)",
-      "destination": "public/$1"
+      "destination": "/public/$1"
     }
   ],
-  "functions": {
-    "server.js": {
-      "runtime": "@vercel/node"
-    }
-  },
-  "routes": [
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "status": 404,
-      "dest": "public/index.html"
-    }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
