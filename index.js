@@ -9,6 +9,7 @@ const { body, validationResult } = require('express-validator');
 
 // Create the Express app
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Security: Restrict CORS to expected domains
 const allowedOrigins = [
@@ -31,7 +32,7 @@ app.use(cors({
     }
 }));
 
-// API Rate Limiting for Serverless
+// API Rate Limiting to prevent spam/abuse
 const apiLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 100,
@@ -44,9 +45,8 @@ app.use('/api/', apiLimiter);
 app.use(express.json());
 app.use(cookieParser());
 
-// Static files are handled by Vercel for the /public/ directory, 
-// but we keep this for local compatibility if needed.
-app.use(express.static(path.join(__dirname, '../public')));
+// Serve static files from /public/ directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ==========================================
 // API ROUTES
@@ -55,5 +55,14 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
 
-// Export the app instance for Vercel Serverless
 module.exports = app;
+
+/**
+ * LOCAL DEVELOPMENT SERVER
+ * Only listens if NOT on Vercel.
+ */
+if (process.env.NODE_ENV !== 'production' && require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`✅ NOR Perfume Local Dev running on http://localhost:${PORT}`);
+    });
+}
