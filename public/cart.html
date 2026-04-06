@@ -117,29 +117,23 @@
 
 
     <main id="main-content">
-        <div class="hero-media"
-            style="position: absolute; top: 0; left: 0; right: 0; height: 60vh; background: radial-gradient(circle at center top, rgba(196,163,90,0.12) 0%, transparent 70%); z-index: -1; pointer-events: none;">
-        </div>
+        <div class="cart-hero-bg"></div>
 
         <!-- ===================== CART ===================== -->
-        <header class="page-header-cart text-center"
-            style="position: relative; padding-top: 160px; padding-bottom: 20px;">
+        <header class="page-header-cart">
             <div class="container">
-                <span class="eyebrow fade-up" style="margin-bottom: 12px;"><span class="font-lovelo">NOR
-                        PERFUME</span></span>
-                <h1 class="sec-title fade-up" style="font-size: clamp(2.5rem, 4vw, 3.5rem);">Your Selection</h1>
+                <span class="eyebrow fade-up"><span class="font-lovelo">NOR PERFUME</span></span>
+                <h1 class="sec-title fade-up">Your Selection</h1>
             </div>
         </header>
 
         <section class="cart-section">
             <div class="container">
                 <!-- Premium Subtitle -->
-                <div
-                    style="margin-bottom: 60px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 24px;">
-                    <p
-                        style="font-family: var(--sans); font-size: 0.8rem; color: var(--c-silver); margin-bottom: 0px; letter-spacing: 3px; text-transform: uppercase;">
-                        Your <strong style="color: var(--c-gold); font-weight: 500;">Premium</strong> Olfactory
-                        Collection</p>
+                <div class="cart-subtitle-wrap">
+                    <p class="cart-subtitle">
+                        Your <strong class="text-gold">Premium</strong> Olfactory Collection
+                    </p>
                 </div>
 
                 <div class="cart-layout">
@@ -149,14 +143,11 @@
                     </div>
 
                     <!-- Empty Cart Message (Hidden by default) -->
-                    <div id="empty-cart-message" style="display: none; padding: 60px 0; text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 20px; color: var(--c-gold); opacity: 0.5;">✦</div>
-                        <h3 style="font-family: var(--serif); font-size: 2rem; margin-bottom: 12px;">Your Selection is
-                            Empty</h3>
-                        <p style="color: var(--c-silver); margin-bottom: 30px;">It seems you haven't discovered your
-                            perfect scent yet.</p>
-                        <a href="collections.html" class="cta-primary" style="display: inline-flex;">Discover
-                            Collections</a>
+                    <div id="empty-cart-message" class="empty-cart-state">
+                        <div class="empty-cart-icon">✦</div>
+                        <h3>Your Selection is Empty</h3>
+                        <p>It seems you haven't discovered your perfect scent yet.</p>
+                        <a href="collections.html" class="cta-primary">Discover Collections</a>
                     </div>
 
                     <!-- Summary -->
@@ -173,12 +164,9 @@
                         </div>
 
                         <!-- Promo Code Field -->
-                        <div class="promo-box"
-                            style="display: flex; gap: 8px; margin: 24px 0; border-top: 1px dashed rgba(0,0,0,0.1); padding-top: 24px;">
-                            <input type="text" placeholder="Promo code"
-                                style="flex: 1; padding: 12px 16px; background: rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; color: var(--c-text); font-family: var(--sans); font-size: 0.9rem; outline: none;">
-                            <button class="cta-ghost"
-                                style="padding: 0 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Apply</button>
+                        <div class="promo-box">
+                            <input type="text" placeholder="Promo code" class="promo-input" aria-label="Promo Code">
+                            <button class="cta-ghost promo-btn">Apply</button>
                         </div>
 
                         <div class="summary-row summary-total">
@@ -186,21 +174,15 @@
                             <span class="summary-final-total" id="summary-final-total">₹2,998</span>
                         </div>
 
-                        <button class="btn-checkout cta-primary" id="btn-real-checkout"
-                            style="width: 100%; justify-content: center; padding: 18px; font-size: 1rem;">
+                        <button class="btn-checkout cta-primary checkout-btn-wide" id="btn-real-checkout">
                             Secure Checkout
                         </button>
 
-                        <div
-                            style="margin-top: 24px; text-align: center; color: var(--c-silver); font-size: 0.8rem; display: flex; flex-direction: column; gap: 8px;">
+                        <div class="cart-trust-info">
                             <span>Over 2,000+ luxury shipments securely delivered.</span>
-                            <div
-                                style="display: flex; justify-content: center; gap: 12px; margin-top: 8px; opacity: 0.7;">
-                                <span
-                                    style="font-weight: bold; border: 1px solid rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 4px;">VISA</span>
-                                <span
-                                    style="font-weight: bold; border: 1px solid rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 4px;">
-                                    Pay</span>
+                            <div class="payment-methods">
+                                <span class="pm-badge">VISA</span>
+                                <span class="pm-badge"> Pay</span>
                             </div>
                         </div>
                     </div>
@@ -209,20 +191,16 @@
         </section>
 
         <!-- ===================== YOU MAY ALSO LIKE ===================== -->
-        <section class="suggestions-section"
-            style="padding: 80px 0 100px; border-top: 1px solid rgba(255,255,255,0.05);">
+        <section class="suggestions-section suggestions-divider">
             <div class="container">
                 <div class="text-center fade-up">
-                    <span class="eyebrow"
-                        style="margin-bottom: 12px; font-family: var(--sans); letter-spacing: 2px;">Curated for
-                        you</span>
-                    <h2 class="sec-title" style="font-size: 2.5rem; margin-bottom: 40px;">You May Also Like</h2>
+                    <span class="eyebrow curated-eyebrow">Curated for you</span>
+                    <h2 class="sec-title suggestions-title">You May Also Like</h2>
                 </div>
 
                 <div class="product-grid" id="shopify-suggestions-grid">
                     <!-- Dynamic suggestions from Shopify will be loaded here -->
-                    <div class="loader-placeholder"
-                        style="grid-column: 1/-1; text-align: center; color: var(--c-silver); padding: 40px;">
+                    <div class="loader-placeholder suggestions-loader">
                         Loading curated suggestions...
                     </div>
                 </div>

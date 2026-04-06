@@ -1448,3 +1448,22 @@ textarea.form-control {
 .cart-empty { text-align: center; padding: clamp(40px, 8vw, 100px) var(--pad-x); }
 .cart-empty h2 { font-family: var(--serif); font-size: var(--fs-xl); color: var(--c-cream); margin-bottom: 16px; }
 .cart-empty p { color: var(--c-text-dim); font-size: var(--fs-s); margin-bottom: 32px; }
+
+/* ─── SOCIAL LINKS ─── */
+.social-row-flex {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.social-link {
+    color: var(--c-silver);
+    transition: color 0.3s var(--ease), transform 0.3s var(--ease);
+    opacity: 0.8;
+}
+
+.social-link:hover {
+    color: var(--c-gold);
+    transform: translateY(-2px);
+    opacity: 1;
+}

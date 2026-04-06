@@ -104,60 +104,60 @@
 
     <main id="main-content">
         <!-- 1. HERO: GALLERY + INFO -->
-        <section class="pdp-wrapper page-header-pdp" style="padding-top: 120px; padding-bottom: 60px;">
+        <section class="pdp-wrapper page-header-pdp-new">
             <div class="container">
 
                 <div class="pdp-layout pdp-redesign">
                     <!-- ============================================== -->
                     <!-- LEFT: GALLERY -->
                     <!-- ============================================== -->
-                    <div class="pdp-gallery-new fade-up" style="position: sticky; top: 120px; display: flex; gap: 16px;">
+                    <div class="pdp-gallery-new fade-up">
                         
                         <!-- Vertical Thumbnails -->
-                        <div class="pdp-thumbs" style="display: flex; flex-direction: column; gap: 10px; width: 60px;">
-                            <div class="thumb glass" style="aspect-ratio: 4/5; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.4); cursor: pointer; opacity: 1;">
-                                <img src="assets/images/norblack.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="pdp-thumbs">
+                            <div class="thumb thumb-active glass">
+                                <img src="assets/images/norblack.png" alt="Product Thumbnail 1">
                             </div>
-                            <div class="thumb glass" style="aspect-ratio: 4/5; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; opacity: 0.5;">
-                                <img src="assets/images/norblack.png" alt="" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%);">
+                            <div class="thumb thumb-inactive glass">
+                                <img src="assets/images/norblack.png" alt="Product Thumbnail 2">
                             </div>
-                            <div class="thumb glass" style="aspect-ratio: 4/5; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; opacity: 0.5;">
-                                <img src="assets/images/norblack.png" alt="" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%);">
+                            <div class="thumb thumb-inactive glass">
+                                <img src="assets/images/norblack.png" alt="Product Thumbnail 3">
                             </div>
                         </div>
 
                         <!-- Main Image -->
-                        <div class="pdp-main-image-wrap glass" style="position: relative; flex: 1; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); background: #0a0a0a;">
-                            <a href="collections.html" class="pdp-back-btn" style="position: absolute; top: 20px; left: 20px; z-index: 10; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); color: white; text-decoration: none;">
+                        <div class="pdp-main-image-wrap glass">
+                            <a href="collections.html" class="pdp-back-btn" aria-label="Back to collections">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                             </a>
-                            <button class="pdp-save-btn" aria-label="Save Item" style="position: absolute; top: 20px; right: 20px; z-index: 10; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); color: white; cursor: pointer; border: none; outline: none;">
+                            <button class="pdp-save-btn" aria-label="Save Item">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                             </button>
 
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Product Image" class="pdp-gallery-main" id="pdp-gallery-main" style="width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; aspect-ratio: 4/5;">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Product Image" class="pdp-gallery-main" id="pdp-gallery-main">
                         </div>
                     </div>
 
                     <!-- ============================================== -->
                     <!-- RIGHT: INFO & VARIANTS -->
                     <!-- ============================================== -->
-                    <div class="pdp-info-new fade-up" data-delay="100" style="padding: 10px 0;">
+                    <div class="pdp-info-new fade-up" data-delay="100">
                         <!-- Category/Eyebrow -->
-                        <div class="eyebrow-pdp" id="pdp-category" style="font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; color: var(--c-silver);">Premium Category</div>
+                        <div class="eyebrow-pdp" id="pdp-category">Premium Category</div>
                         
                         <!-- Header row: Title & Price -->
-                        <div class="pdp-header-row" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
-                            <h1 class="pdp-title" id="pdp-title" style="font-size: clamp(1.8rem, 3vw, 2.2rem); margin: 0; font-family: var(--sans); font-weight: 500; text-transform: uppercase;">Loading...</h1>
-                            <div class="pdp-price-wrap" style="text-align: right;">
-                                <div class="pdp-price" id="pdp-price" style="font-size: 1.5rem; font-family: var(--sans); font-weight: 500; color: #fff; display: flex; align-items: baseline; gap: 8px;">
+                        <div class="pdp-header-row">
+                            <h1 class="pdp-title" id="pdp-title">Loading...</h1>
+                            <div class="pdp-price-wrap">
+                                <div class="pdp-price" id="pdp-price">
                                     ₹0
                                 </div>
                             </div>
                         </div>
 
                         <!-- Subtitle / Notes -->
-                        <div class="product-pdt-sub" id="pdp-sub" style="font-size: 0.95rem; color: rgba(255,255,255,0.5); margin-bottom: 24px;">Signature Drop</div>
+                        <div class="product-pdt-sub" id="pdp-sub">Signature Drop</div>
 
                         <!-- Add to cart buttons (hidden or kept for shopify) -->
                         <!-- Hidden elements for dynamic injection -->
@@ -166,39 +166,39 @@
                         <div id="pdp-whats-in-box" style="display: none;"></div>
                         
                         <!-- Trust badges -->
-                        <div style="display: flex; gap: 16px; margin-bottom: 32px; font-size: 0.8rem; color: var(--c-silver);">
-                           <div style="display: flex; align-items: center; gap: 6px;"><span style="color: var(--c-gold);">★★★★★</span> 4.9 Reviews</div>
-                           <div style="display: flex; align-items: center; gap: 6px;">
+                        <div class="pdp-trust-row">
+                           <div class="pdp-trust-item"><span class="text-gold">★★★★★</span> 4.9 Reviews</div>
+                           <div class="pdp-trust-item">
                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                Authentic Quality
                            </div>
                         </div>
 
-                        <div class="pdp-divider" style="height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 32px;"></div>
+                        <div class="pdp-divider"></div>
 
 
                         <!-- ACTION: ADD TO CART -->
-                        <div class="pdp-cta-group" style="margin-bottom: 40px; margin-top: 10px;">
-                            <button class="btn-add-cart" id="btn-add-cart" style="width: 100%; border-radius: 8px; justify-content: center; padding: 20px; font-size: 1rem; letter-spacing: 1px; font-weight: 600; text-transform: uppercase; background: #fff; color: #000; border: none; cursor: pointer; transition: transform 0.3s ease;">
+                        <div class="pdp-cta-group">
+                            <button class="btn-add-cart cta-primary pdp-add-cart-btn" id="btn-add-cart">
                                 Add to Bag
                             </button>
                         </div>
 
                         <!-- ACCORDIONS (Details & Size Guide) -->
-                        <div class="pdp-accordion-group" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                        <div class="pdp-accordion-group">
                             
                             <div class="accordion-item new-accordion active">
-                                <div class="accordion-header" style="padding: 24px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-                                    <h3 style="font-size: 1.1rem; font-weight: 500; margin: 0; color: #fff;">Details</h3>
-                                    <div class="acc-icon" style="position: relative; width: 14px; height: 14px;">
-                                        <span class="acc-line horizontal" style="position: absolute; top: 6px; left: 0; width: 14px; height: 1px; background: #fff; transition: transform 0.3s ease;"></span>
-                                        <span class="acc-line vertical" style="position: absolute; top: 0; left: 6.5px; width: 1px; height: 14px; background: #fff; transition: transform 0.3s ease;"></span>
+                                <div class="accordion-header">
+                                    <h3>Details</h3>
+                                    <div class="acc-icon">
+                                        <span class="acc-line horizontal"></span>
+                                        <span class="acc-line vertical"></span>
                                     </div>
                                 </div>
                                 <div class="accordion-content">
-                                    <div style="padding-bottom: 24px; color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.6;">
+                                    <div class="pdp-accordion-body">
                                         A luxurious blend engineered for high endurance and zero-liquid safety. Our proprietary extraction process ensures the scent molecules retain their peak potency.
-                                        <ul style="margin-top: 12px; padding-left: 20px;">
+                                        <ul>
                                             <li>Zero-Liquid Technology</li>
                                             <li>45-Day Duration Active Core</li>
                                             <li>Sustainably Sourced Botanicals</li>
@@ -219,38 +219,33 @@
 
 
         <!-- 5. HOW TO USE VISUALS (PREMIUM SECTION FROM MASK.HTML) -->
-        <section class="panel bg-dark"
-            style="border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 100px 0;">
+        <section class="panel bg-dark pdp-usage-section">
             <div class="container fade-up">
-                <h2 class="sec-title" style="text-align: center; margin-bottom: 60px; font-size: 2.5rem;">How to <em>Use</em>
+                <h2 class="sec-title pdp-usage-title">How to <em>Use</em>
                 </h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px;">
-                    <div class="glass"
-                        style="text-align: center; padding: 40px 24px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05);">
-                        <div style="font-size: 3rem; font-family: var(--serif); color: rgba(255,255,255,0.1); margin-bottom: 16px;">01</div>
-                        <h4 style="font-size: 1.1rem; color: var(--c-gold); margin-bottom: 12px;">Spray</h4>
-                        <p style="font-size: 0.9rem; color: var(--c-silver); line-height: 1.6;">Hold bottle 10–15 cm
+                <div class="pdp-usage-grid">
+                    <div class="glass pdp-usage-card">
+                        <div class="pdp-usage-number">01</div>
+                        <h4 class="pdp-usage-step">Spray</h4>
+                        <p class="pdp-usage-p">Hold bottle 10–15 cm
                             away and spray evenly onto the NOR tag.</p>
                     </div>
-                    <div class="glass"
-                        style="text-align: center; padding: 40px 24px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05);">
-                        <div style="font-size: 3rem; font-family: var(--serif); color: rgba(255,255,255,0.1); margin-bottom: 16px;">02</div>
-                        <h4 style="font-size: 1.1rem; color: var(--c-gold); margin-bottom: 12px;">Absorb</h4>
-                        <p style="font-size: 0.9rem; color: var(--c-silver); line-height: 1.6;">Let the tag absorb the
+                    <div class="glass pdp-usage-card">
+                        <div class="pdp-usage-number">02</div>
+                        <h4 class="pdp-usage-step">Absorb</h4>
+                        <p class="pdp-usage-p">Let the tag absorb the
                             fragrance oils fully.</p>
                     </div>
-                    <div class="glass"
-                        style="text-align: center; padding: 40px 24px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05);">
-                        <div style="font-size: 3rem; font-family: var(--serif); color: rgba(255,255,255,0.1); margin-bottom: 16px;">03</div>
-                        <h4 style="font-size: 1.1rem; color: var(--c-gold); margin-bottom: 12px;">Hang</h4>
-                        <p style="font-size: 0.9rem; color: var(--c-silver); line-height: 1.6;">Hang the tag on your
+                    <div class="glass pdp-usage-card">
+                        <div class="pdp-usage-number">03</div>
+                        <h4 class="pdp-usage-step">Hang</h4>
+                        <p class="pdp-usage-p">Hang the tag on your
                             rear-view mirror or near an air vent.</p>
                     </div>
-                    <div class="glass"
-                        style="text-align: center; padding: 40px 24px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05);">
-                        <div style="font-size: 3rem; font-family: var(--serif); color: rgba(255,255,255,0.1); margin-bottom: 16px;">04</div>
-                        <h4 style="font-size: 1.1rem; color: var(--c-gold); margin-bottom: 12px;">Refresh</h4>
-                        <p style="font-size: 0.9rem; color: var(--c-silver); line-height: 1.6;">When the scent fades,
+                    <div class="glass pdp-usage-card">
+                        <div class="pdp-usage-number">04</div>
+                        <h4 class="pdp-usage-step">Refresh</h4>
+                        <p class="pdp-usage-p">When the scent fades,
                             simply spray again to bring it back.</p>
                     </div>
                 </div>
@@ -269,32 +264,32 @@
                         <div class="rev-stars">★★★★★</div>
                         <p>"The most sophisticated car fragrance I've ever owned. It actually feels like a perfume."</p>
                         <div class="rev-author">— Arjun K.</div>
-                        <div style="margin-top: 12px; font-size: 0.7rem; color: #4CAF50; letter-spacing: 1px; font-weight: 600;">✓ VERIFIED PURCHASE</div>
+                        <div class="verified-badge">✓ VERIFIED PURCHASE</div>
                     </div>
                     <div class="review-card glass fade-up" data-delay="100">
                         <div class="rev-stars">★★★★★</div>
                         <p>"Beautiful design that fits my car's interior perfectly. Powerful yet never overwhelming."</p>
                         <div class="rev-author">— Shreya S.</div>
-                        <div style="margin-top: 12px; font-size: 0.7rem; color: #4CAF50; letter-spacing: 1px; font-weight: 600;">✓ VERIFIED PURCHASE</div>
+                        <div class="verified-badge">✓ VERIFIED PURCHASE</div>
                     </div>
                     <div class="review-card glass fade-up" data-delay="200">
                         <div class="rev-stars">★★★★★</div>
                         <p>"Finally a spill-proof solution that actually smells high-end. 10/10 would recommend."</p>
                         <div class="rev-author">— Rahul M.</div>
-                        <div style="margin-top: 12px; font-size: 0.7rem; color: #4CAF50; letter-spacing: 1px; font-weight: 600;">✓ VERIFIED PURCHASE</div>
+                        <div class="verified-badge">✓ VERIFIED PURCHASE</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 7. RECOMMENDATIONS (REQUESTED: THIRD IMAGE) -->
-        <section class="suggestions-section pdp-recommendations" style="padding: 100px 0; border-top: 1px solid rgba(255,255,255,0.05);">
+        <section class="suggestions-section pdp-recommendations">
             <div class="container">
                 <div class="text-center fade-up">
                     <span class="eyebrow">Curated for you</span>
-                    <h2 class="sec-title" style="margin-top: 10px;">You May <em>Also Like</em></h2>
+                    <h2 class="sec-title suggestions-title-new">You May <em>Also Like</em></h2>
                 </div>
-                <div class="product-grid-modern" id="shopify-suggestions-grid" style="margin-top: 60px;">
+                <div class="product-grid-modern" id="shopify-suggestions-grid">
                     <!-- Dynamic recommendations from Shopify will be loaded here -->
                 </div>
             </div>

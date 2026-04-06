@@ -34,27 +34,6 @@
     <!-- Performance: Preconnect to Shopify -->
     <link rel="preconnect" href="https://shop.norperfume.com" crossorigin>
     <link rel="dns-prefetch" href="https://shop.norperfume.com">
-    <style>
-        .page-header {
-            padding: 180px 0 80px;
-            text-align: center;
-        }
-
-        .collection-grid-page {
-            padding-bottom: 120px;
-        }
-
-        .product-grid {
-            row-gap: 60px;
-            /* Add more vertical space for the dedicated page */
-        }
-
-        /* Override anchor links for multi-page */
-        .nav-link[href="#collections"] {
-            color: var(--text-p);
-            pointer-events: none;
-        }
-    </style>
 </head>
 
 <body class="page-collections">
@@ -147,11 +126,9 @@
     <section class="collection-grid-page">
         <div class="container">
 
-            <div class="product-grid" id="shopify-product-grid"
-                style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; justify-content: center; max-width: 900px; margin: 0 auto; margin-top: 60px;">
+            <div class="product-grid collections-grid-main" id="shopify-product-grid">
                 <!-- Real products from Shopify will be injected here -->
-                <div class="loader-placeholder"
-                    style="grid-column: 1/-1; text-align: center; color: var(--c-silver); padding: 40px;">
+                <div class="loader-placeholder collections-loader">
                     Curating our latest collection...
                 </div>
             </div>

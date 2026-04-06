@@ -107,11 +107,11 @@
             <div class="faq-container">
                 <!-- Category filter -->
                 <div class="cat-tabs fade-up" role="tablist" aria-label="FAQ categories">
-                    <button class="cat-btn on" role="tab" aria-selected="true" aria-controls="faq-list" onclick="filterCat('all', this)">All</button>
-                    <button class="cat-btn" role="tab" aria-selected="false" onclick="filterCat('product', this)">Product &amp; Fragrance</button>
-                    <button class="cat-btn" role="tab" aria-selected="false" onclick="filterCat('usage', this)">How to Use</button>
-                    <button class="cat-btn" role="tab" aria-selected="false" onclick="filterCat('shipping', this)">Shipping</button>
-                    <button class="cat-btn" role="tab" aria-selected="false" onclick="filterCat('returns', this)">Returns</button>
+                    <button class="cat-btn on" role="tab" aria-selected="true" aria-controls="faq-list" onclick="filterCat('all', this)" aria-label="Show all frequent questions">All</button>
+                    <button class="cat-btn" role="tab" aria-selected="false" onclick="filterCat('product', this)" aria-label="Filter by Product and Fragrance questions">Product &amp; Fragrance</button>
+                    <button class="cat-btn" role="tab" aria-selected="false" onclick="filterCat('usage', this)" aria-label="Filter by How to Use questions">How to Use</button>
+                    <button class="cat-btn" role="tab" aria-selected="false" onclick="filterCat('shipping', this)" aria-label="Filter by Shipping questions">Shipping</button>
+                    <button class="cat-btn" role="tab" aria-selected="false" onclick="filterCat('returns', this)" aria-label="Filter by Returns questions">Returns</button>
                 </div>
 
                 <!-- FAQ List (JS renders here) -->
@@ -139,8 +139,8 @@
                     <h3 class="nl-title">Newsletter</h3>
                     <p class="nl-desc">Subscribe to get notified about product launches, special offers, and company news.</p>
                     <form class="nl-form" id="nl-form" novalidate>
-                        <input type="email" name="email" placeholder="Your e-mail address" required autocomplete="email">
-                        <button type="submit">Subscribe</button>
+                        <input type="email" name="email" placeholder="Your e-mail address" required autocomplete="email" aria-label="Email address for newsletter">
+                        <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
                     </form>
                     <div class="nl-success" aria-live="polite">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
