@@ -172,7 +172,7 @@
 }
 
 .slide-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--serif);
     font-size: var(--fs-xxl);
     font-weight: 300;
     font-style: italic;

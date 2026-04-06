@@ -1,381 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | NOR PERFUME</title>
-    <meta name="description"
-        content="Discover the story, craftsmanship, and technology behind NOR luxury car diffusers.">
-
-    <!-- Open Graph & Social SEO -->
-    <meta property="og:title" content="Experience | NOR Perfume">
-    <meta property="og:description" content="Discover the origins and philosophy behind NOR Perfume.">
-    <meta property="og:image" content="https://norperfume.com/assets/images/mask.webp">
-    <meta property="og:url" content="https://norperfume.com/about.html">
+    <meta name="description" content="NOR Perfume Terms of Service — the rules governing your use of norperfume.com and purchases made through our website.">
+    <meta property="og:title" content="Terms of Service | NOR PERFUME">
+    <meta property="og:url" content="https://norperfume.com/terms.html">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Favicon & Touch -->
-    <link rel="apple-touch-icon" href="assets/images/mask.webp">
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' fill='%23c4a35a'%3E✦%3C/text%3E%3C/svg%3E">
-
-    <!-- Google Fonts -->
+    <link rel="icon" type="image/png" href="assets/images/logo/norwhite.png">
+    <link rel="apple-touch-icon" href="assets/images/logo/norwhite.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/pages.css">
     <link rel="stylesheet" href="css/components.css">
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
     <style>
-        .page-header {
-            padding: 180px 0 80px;
-            text-align: center;
-        }
-
-        .about-content {
-            padding-bottom: 120px;
-        }
-
-        /* Override anchor links for multi-page */
-        .nav-link[href="#experience"],
-        .nav-link[href="#about"] {
-            color: var(--text-p);
-            pointer-events: none;
-        }
-
-        /* Specific about page styling */
-        .story-block {
-            max-width: 800px;
-            margin: 0 auto 100px;
-            text-align: center;
-        }
-
-        .story-block p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--text-p);
-            margin-bottom: 2rem;
-        }
+        .legal-hero { padding: clamp(130px,18vh,220px) 0 clamp(50px,6vw,80px); text-align: center; position: relative; overflow: hidden; }
+        .legal-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(182,154,112,0.09) 0%, transparent 65%); pointer-events: none; }
+        .legal-hero h1 { font-family: var(--serif); font-size: clamp(2.5rem,6vw,5rem); font-weight: 300; color: var(--c-cream); line-height: 1.05; margin-bottom: 20px; }
+        .legal-hero h1 em { font-style: italic; color: var(--c-silver); }
+        .legal-meta { font-family: var(--sans); font-size: var(--fs-xs); color: var(--c-text-muted); letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .legal-meta::before, .legal-meta::after { content: ''; display: inline-block; width: 30px; height: 1px; background: var(--c-border-gold); }
+        .legal-nav-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
+        .legal-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 9px 20px; font-family: var(--sans); font-size: var(--fs-xs); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 50px; border: 1px solid var(--c-border); color: var(--c-text-muted); text-decoration: none; transition: all 0.3s var(--ease-out); background: rgba(255,255,255,0.015); }
+        .legal-nav-link:hover, .legal-nav-link.current { border-color: var(--c-border-gold); color: var(--c-gold); background: rgba(182,154,112,0.06); }
+        .legal-nav-link.current { pointer-events: none; }
+        .legal-layout { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x) clamp(80px,10vw,140px); display: grid; grid-template-columns: 260px 1fr; gap: clamp(32px,4vw,60px); align-items: start; }
+        @media (max-width: 900px) { .legal-layout { grid-template-columns: 1fr; } .legal-toc { display: none; } }
+        .legal-toc { position: sticky; top: calc(76px + 28px); background: rgba(14,11,9,0.70); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid var(--c-border); border-top-color: rgba(255,255,255,0.09); border-radius: 20px; padding: 28px 22px; max-height: calc(100vh - 120px); overflow-y: auto; scrollbar-width: none; }
+        .legal-toc::-webkit-scrollbar { display: none; }
+        .legal-toc-title { font-family: var(--sans); font-size: var(--fs-2xs); font-weight: 600; text-transform: uppercase; letter-spacing: 4px; color: var(--c-gold); margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--c-border); }
+        .legal-toc-nav { display: flex; flex-direction: column; gap: 4px; }
+        .legal-toc-nav a { font-family: var(--sans); font-size: 0.76rem; color: var(--c-text-muted); text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: all 0.25s ease; line-height: 1.4; border: 1px solid transparent; display: flex; align-items: flex-start; gap: 10px; }
+        .legal-toc-nav a .toc-n { font-family: var(--serif); font-size: 0.82rem; color: var(--c-text-muted); flex-shrink: 0; transition: color 0.25s; line-height: 1.4; }
+        .legal-toc-nav a:hover { color: var(--c-cream); background: rgba(255,255,255,0.04); border-color: var(--c-border); }
+        .legal-toc-nav a:hover .toc-n { color: var(--c-gold); }
+        .legal-toc-nav a.toc-active { color: var(--c-cream); background: rgba(182,154,112,0.08); border-color: var(--c-border-gold); }
+        .legal-toc-nav a.toc-active .toc-n { color: var(--c-gold); }
+        .legal-content { min-width: 0; }
+        .legal-section { margin-bottom: 20px; padding: 32px 36px; background: rgba(16,13,10,0.45); backdrop-filter: blur(12px) saturate(160%); -webkit-backdrop-filter: blur(12px) saturate(160%); border: 1px solid var(--c-border); border-top-color: rgba(255,255,255,0.07); border-radius: 20px; transition: border-color 0.4s; scroll-margin-top: 110px; }
+        .legal-section:hover { border-color: rgba(255,255,255,0.10); }
+        @media (max-width: 600px) { .legal-section { padding: 22px 18px; } }
+        .legal-section h2 { font-family: var(--serif); font-size: clamp(1.15rem,2vw,1.55rem); font-weight: 400; color: var(--c-cream); margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--c-border); display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+        .sec-num { display: inline-flex; align-items: center; font-family: var(--sans); font-size: var(--fs-2xs); font-weight: 600; color: var(--c-gold); letter-spacing: 1.5px; background: rgba(182,154,112,0.10); border: 1px solid var(--c-border-gold); border-radius: 6px; padding: 4px 10px; flex-shrink: 0; }
+        .legal-section p { font-size: var(--fs-s); color: var(--c-text-dim); line-height: 1.85; margin-bottom: 14px; font-weight: 300; }
+        .legal-section p:last-child { margin-bottom: 0; }
+        .legal-section a { color: var(--c-gold); text-decoration: underline; text-underline-offset: 3px; }
+        .legal-section ul, .legal-section ol { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 16px; }
+        .legal-section ul li, .legal-section ol li { font-size: var(--fs-s); color: var(--c-text-dim); line-height: 1.75; font-weight: 300; display: flex; gap: 14px; align-items: flex-start; }
+        .legal-section ul li::before { content: '—'; color: var(--c-gold); opacity: 0.55; font-size: 0.7rem; flex-shrink: 0; margin-top: 5px; }
+        .legal-section ol { counter-reset: li; }
+        .legal-section ol li { counter-increment: li; }
+        .legal-section ol li::before { content: counter(li, decimal-leading-zero); font-family: var(--serif); font-size: 0.9rem; color: var(--c-gold); opacity: 0.65; flex-shrink: 0; min-width: 22px; }
+        .legal-section strong { color: var(--c-cream); font-weight: 500; }
+        .new-tag { display: inline-block; background: rgba(182,154,112,0.12); color: var(--c-gold); font-family: var(--sans); font-size: 0.55rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; border: 1px solid var(--c-border-gold); vertical-align: middle; margin-left: 6px; }
+        .warn-box { border-radius: 12px; padding: 18px 22px; margin: 16px 0; background: rgba(180,90,60,0.08); border: 1px solid rgba(220,100,60,0.22); }
+        .warn-box p { font-size: var(--fs-s); color: #d9825a; line-height: 1.75; margin: 0; font-weight: 300; }
+        .warn-box p strong { color: #e0956e; font-weight: 600; }
+        .legal-contact-box { background: linear-gradient(135deg, rgba(182,154,112,0.08) 0%, rgba(182,154,112,0.02) 100%); border: 1px solid var(--c-border-gold); border-radius: 20px; padding: 36px; margin-top: 12px; }
+        .legal-contact-box h2 { font-family: var(--serif); font-size: clamp(1.4rem,2.5vw,2rem); font-weight: 300; color: var(--c-cream); margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid rgba(182,154,112,0.20); }
+        .contact-rows { display: flex; flex-direction: column; }
+        .contact-row-item { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid var(--c-border); gap: 20px; flex-wrap: wrap; }
+        .contact-row-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .contact-row-label { font-family: var(--sans); font-size: var(--fs-2xs); font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--c-gold); flex-shrink: 0; }
+        .contact-row-val { font-family: var(--sans); font-size: var(--fs-s); color: var(--c-cream); font-weight: 300; }
+        .contact-row-val a { color: var(--c-gold); text-decoration: underline; text-underline-offset: 3px; }
     </style>
 </head>
-
 <body class="page-policy">
-    <a href="#main-content" class="skip-link sr-only">Skip to main content</a>
-
-    <!-- ===================== CURSOR ===================== -->
-    <div class="cursor-dot" id="cursor-dot"></div>
-    <div class="cursor-ring" id="cursor-ring"></div>
-
-    <!-- ===================== NAVBAR ===================== -->
-    <nav class="navbar" id="navbar">
+    <a href="#main-content" class="skip-link sr-only">Skip to main content</a><nav class="navbar" id="navbar">
         <div class="nav-inner">
-            <!-- LEFT: Menu Toggle -->
             <div class="nav-left">
-                <button class="nav-menu-label" aria-label="Open Menu">
+                <button class="nav-menu-label" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                     <span>MENU</span>
-                    <div class="nav-menu-lines">
-                        <span></span>
-                        <span></span>
-                    </div>
+                    <div class="nav-menu-lines" aria-hidden="true"><span></span><span></span></div>
                 </button>
             </div>
-
-            <!-- CENTER: Logo -->
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="logo-svg" style="object-fit: contain;">
+            <a href="index.html" class="logo" aria-label="NOR Perfume Homepage">
+                <img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="logo-svg" width="80" height="30">
             </a>
-
-            <!-- RIGHT: Search, Profile, Cart -->
             <div class="nav-right">
-                <button class="nav-icon-btn" id="search-btn" aria-label="Search">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="11" cy="11" r="8" />
-                        <path d="M21 21l-4.35-4.35" />
-                    </svg>
-                </button>
-                <a href="https://shop.norperfume.com/account" class="nav-icon-btn" aria-label="User Account">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                        <circle cx="12" cy="7" r="4" />
-                    </svg>
-                </a>
-                <a href="cart.html" class="nav-icon-btn cart-btn" id="cart-btn" aria-label="Cart">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span class="cart-count" id="cart-count">0</span>
-                </a>
+                <button class="nav-icon-btn" id="search-btn" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button>
+                <a href="https://shop.norperfume.com/account" class="nav-icon-btn" aria-label="Account" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+                <a href="cart.html" class="nav-icon-btn cart-btn" id="cart-btn" aria-label="Cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="cart-count" id="cart-count">0</span></a>
             </div>
         </div>
     </nav>
 
-    <!-- ===================== MOBILE MENU ===================== -->
-    <div class="mobile-menu" id="mobile-menu">
+    <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true">
+        <button class="search-close" id="search-close" aria-label="Close search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+        <div class="search-content"><div class="search-input-wrapper"><span class="search-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span><input type="search" id="search-input" placeholder="Search fragrances…" autocomplete="off"></div></div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
         <div class="mm-inner">
             <div class="mm-header">
-                <a href="index.html" class="mm-logo"><span class="font-lovelo">NOR</span></a>
-                <button class="mm-close" id="mm-close" aria-label="Close Menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="1.5">
-                        <path d="M18 6L6 18M6 6l12 12" />
-                    </svg>
-                </button>
+                <a href="index.html" class="mm-logo">NOR</a>
+                <button class="mm-close" id="mm-close" aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
             </div>
-            <div class="mm-links">
+            <nav class="mm-links">
                 <a href="index.html" class="mm-link">Home</a>
                 <a href="collections.html" class="mm-link">Products</a>
                 <a href="about.html" class="mm-link">About Us</a>
-                <a href="track-order.html" class="mm-link">Track My Order</a>
-            </div>
-
+                <a href="faq.html" class="mm-link">FAQ</a>
+                <a href="track-order.html" class="mm-link">Track Order</a>
+            </nav>
             <div class="mm-footer">
-                <a href="profile.html" class="mm-link"
-                    style="display:block; margin-bottom:1.5rem; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; color: var(--c-gold);">Profile
-                    / Login</a>
-                <p>Luxury Car Fragrances</p>
-                <div class="social-row">
-                    <a href="https://www.instagram.com/norperfumeofficial/" target="_blank">Instagram</a>
-                </div>
+                <div class="mm-footer-left"><p>Luxury Car Fragrances</p><div class="mm-social"><a href="https://www.instagram.com/norperfumeofficial/" target="_blank" rel="noopener">Instagram</a></div></div>
+                <a href="https://shop.norperfume.com/account" class="mm-account-link" rel="noopener">Account</a>
             </div>
         </div>
     </div>
 
-
     <main id="main-content">
-<div id="terms" class="policy-page">
-  <div class="policy-tag">NOR Perfume · Legal</div>
-  <div class="policy-title">Terms of Service</div>
-  <div class="policy-date">Effective Date: January 1, 2025 · Last Updated: March 2025</div>
-  <div class="policy-intro">These Terms of Service govern your use of norperfume.com and any purchase made through our website. By accessing our website or placing an order, you confirm that you have read, understood, and agreed to these terms in full. If you do not agree, please do not use our website or place an order.</div>
-  <div class="fixed-badge">✓ All audit gaps fixed — fully refined version</div>
-
-  <h2>1. About NOR</h2>
-  <p>NOR is a luxury automotive fragrance brand operated as an individual seller, designed and manufactured in Kerala, India. We sell fragrance products including perfume sprays and luxury diffusion tags through norperfume.com.</p>
-
-  <h2>2. Eligibility</h2>
-  <p>By placing an order, you confirm you are at least 18 years of age and legally capable of entering into a binding contract under Indian law. Minors may only order with the explicit consent of a parent or legal guardian who accepts these terms on their behalf. NOR reserves the right to refuse service, cancel orders, or restrict website access for any customer at its sole discretion.</p>
-
-  <h2>3. Products and descriptions</h2>
-  <p>NOR makes every effort to ensure product descriptions, scent profiles, images, and pricing are accurate. In the event of a material error in a product listing, NOR reserves the right to cancel the affected order and issue a full refund. Product images are for illustrative purposes only — minor packaging variations between batches may occur.</p>
-
-  <h2>4. Pricing</h2>
-  <p>All prices are listed in Indian Rupees (₹) inclusive of applicable taxes unless otherwise stated. NOR reserves the right to change pricing at any time without prior notice. The price confirmed at checkout and payment is the price applicable to that order. If a product is listed at an incorrect price due to error, NOR reserves the right to cancel the order and refund in full.</p>
-
-  <h2>5. Promotional codes and discount offers <span class="new-tag">New</span></h2>
-  <p>Any promotional codes, discount offers, sale prices, or free shipping promotions offered by NOR are subject to the following conditions:</p>
-  <ul>
-    <li>Promotions are valid only for the specific period and conditions stated at the time of the promotion.</li>
-    <li>NOR reserves the right to withdraw, modify, or end any promotion at any time without prior notice.</li>
-    <li>Promotional codes cannot be combined with other offers, discounts, or promotions unless explicitly stated by NOR.</li>
-    <li>Expired, invalid, or previously used promotional codes will not be honoured under any circumstances.</li>
-    <li>Promotional prices or offers cannot be applied retroactively to orders already placed or confirmed.</li>
-    <li>NOR is not obligated to honour any promotional price that was applied due to a system error or technical fault.</li>
-  </ul>
-
-  <h2>6. Orders and acceptance</h2>
-  <p>Placing an order constitutes an offer to purchase. An order is confirmed only when NOR sends an order confirmation via SMS or email following successful payment. NOR reserves the right to decline any order including due to payment failure, suspected fraud, stock unavailability, undeliverable address, or policy violation. If NOR declines an order after payment, a full refund will be issued within 5–7 business days.</p>
-
-  <h2>7. No cancellations</h2>
-  <p>Orders cannot be cancelled once placed and payment is confirmed. NOR operates a strict no-cancellation policy. Please review your order carefully — product, quantity, and delivery address — before completing checkout. NOR will not cancel, modify, or refund an order based on any customer request after payment is confirmed.</p>
-
-  <div class="warn-box"><p><strong>Please double-check before you pay:</strong> Once your payment is confirmed, your order is locked and cannot be cancelled or modified under any circumstances. NOR will not make exceptions to this policy.</p></div>
-
-  <h2>8. Payment</h2>
-  <p>All orders must be paid in full at the time of ordering. NOR does not offer Cash on Delivery (COD), credit terms, or deferred payment. Accepted methods: UPI, debit cards, credit cards, and net banking — processed through a secure third-party gateway. NOR does not store or access any payment credentials.</p>
-
-  <h2>9. Shipping and delivery</h2>
-  <p>NOR ships within India only via DTDC, Blue Dart, and Delhivery. Standard delivery takes 4–7 business days from dispatch. Free shipping on orders above ₹999. Full details in our Shipping Policy at norperfume.com. NOR is not liable for delays caused by courier partners, incorrect customer addresses, or circumstances beyond NOR's control.</p>
-
-  <h2>10. Returns and replacements</h2>
-  <p>NOR does not accept returns on opened or used products. Damage claims require a valid unboxing video recorded before opening, submitted within 48 hours of delivery, along with photographs and order details. Eligible claims result in a replacement product only — no monetary refunds are issued under any circumstances. Full details in our Return Policy at norperfume.com.</p>
-
-  <h2>11. Product use and disclaimer</h2>
-  <p>NOR products are designed as luxury automotive fragrances for use inside vehicles. While formulations are toxin-free and suitable for skin contact, NOR makes no medical, therapeutic, or dermatological claims. Customers with known allergies or sensitivities should perform a patch test before skin use. NOR is not liable for adverse reactions from use outside the intended purpose. Store away from heat and direct sunlight. Do not ingest. Keep out of reach of children. In case of eye contact, rinse immediately with water.</p>
-
-  <h2>12. Intellectual property</h2>
-  <p>All content on norperfume.com — including the NOR brand name, logo, product names (Mask, Aqua), descriptions, images, and design — is the exclusive intellectual property of NOR, protected under applicable Indian and international intellectual property laws. No content may be copied, reproduced, distributed, or commercially used without prior written permission from NOR. Unauthorised use may result in legal action.</p>
-
-  <h2>13. Limitation of liability</h2>
-  <p>To the fullest extent permitted by law, NOR shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from use of our website, products, or services. NOR's total liability to any customer for any claim shall not exceed the total amount paid by that customer for the specific product giving rise to the claim.</p>
-
-  <h2>14. Indemnification</h2>
-  <p>You agree to indemnify and hold harmless NOR and its founder, personnel, and agents from any claims, damages, liabilities, and expenses (including legal fees) arising from your violation of these Terms, misuse of our products or website, submission of fraudulent claims, or infringement of any third-party rights.</p>
-
-  <h2>15. Fraud and misuse</h2>
-  <p>NOR reserves the right to take legal action against any customer found to have submitted fraudulent damage claims, false non-receipt declarations, manipulated evidence, or any other form of deliberate misuse of NOR's policies. Such customers will be permanently banned from purchasing on norperfume.com and may be reported to relevant law enforcement authorities.</p>
-
-  <h2>16. Governing law and disputes</h2>
-  <p>These Terms are governed by the laws of India. Any dispute shall first be attempted to be resolved through good-faith negotiation. If unresolved, the dispute shall be subject to the exclusive jurisdiction of the competent courts in Kerala, India. By using norperfume.com, you consent to this jurisdiction.</p>
-
-  <h2>17. Changes to these terms</h2>
-  <p>NOR reserves the right to update these Terms at any time. Changes will be posted with a revised effective date. Continued use of norperfume.com after any update constitutes acceptance of the revised terms.</p>
-
-  <h2>18. Entire agreement</h2>
-  <p>These Terms of Service, together with our Return Policy, Shipping Policy, and Privacy Policy, constitute the entire agreement between you and NOR. They supersede all prior communications whether written, verbal, or via any messaging platform including Instagram DM or email.</p>
-
-  <div class="contact-box">
-    <h2>Legal enquiries</h2>
-    <div class="contact-row"><span class="contact-label">Email</span><span class="contact-val">norperfume.help@gmail.com</span></div>
-    <div class="contact-row"><span class="contact-label">Instagram</span><span class="contact-val">@norperfumeofficial</span></div>
-    <div class="contact-row"><span class="contact-label">Website</span><span class="contact-val">norperfume.com</span></div>
-    <div class="contact-row"><span class="contact-label">Response</span><span class="contact-val">Within 24 hours</span></div>
-    <div class="contact-row"><span class="contact-label">Jurisdiction</span><span class="contact-val">Kerala, India</span></div>
-  </div>
-</div>
-</main>
-
-    <footer class="footer" id="about">
-
-        <!-- Trust badges -->
-        <div class="footer-trust">
+        <header class="legal-hero">
             <div class="container">
-                <div class="trust-grid">
-                    <div class="trust-card fade-up" data-delay="0">
-                        <div class="trust-ico">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
-                                fill="#e3e3e3" style="display: block; margin: 0 auto; margin-bottom: 8px;">
-                                <path
-                                    d="M394.33-117.67 298-298.33l-181.33-97 63-62.67 147 26.33L442-546.33 118.33-684l76-76.67L586.67-692l130-130q21.66-21.67 52.66-21.67 31 0 52.67 21.67t21.67 52.5q0 30.83-21.67 52.5L691.67-586.67l68.66 392L684-118.33 546-442 431.33-326.67l26 146-63 63Z" />
-                            </svg>
-                        </div>
-                        <h3>All India Shipping</h3>
-                        <p>Nationwide shipping — fast &amp; reliable</p>
+                <span class="eyebrow fade-up">NOR Perfume · Legal</span>
+                <h1 class="fade-up" data-delay="80">Terms of <em>Service</em></h1>
+                <div class="legal-meta fade-up" data-delay="160">Effective: 1 January 2025 · Last Updated: March 2025</div>
+            </div>
+        </header>
+
+        <div class="container">
+            <nav class="legal-nav-bar fade-up" aria-label="Legal pages">
+                <a href="privacy-policy.html" class="legal-nav-link">Privacy Policy</a>
+                <a href="terms.html" class="legal-nav-link current">Terms of Service</a>
+                <a href="return-policy.html" class="legal-nav-link">Return Policy</a>
+                <a href="shipping-policy.html" class="legal-nav-link">Shipping Policy</a>
+            </nav>
+        </div>
+
+        <div class="legal-layout">
+            <aside class="legal-toc" aria-label="Table of contents">
+                <div class="legal-toc-title">Contents</div>
+                <nav class="legal-toc-nav">
+                    <a href="#t1"><span class="toc-n">01</span>About NOR</a>
+                    <a href="#t2"><span class="toc-n">02</span>Eligibility</a>
+                    <a href="#t3"><span class="toc-n">03</span>Products &amp; Descriptions</a>
+                    <a href="#t4"><span class="toc-n">04</span>Pricing</a>
+                    <a href="#t5"><span class="toc-n">05</span>Promotional Codes</a>
+                    <a href="#t6"><span class="toc-n">06</span>Orders &amp; Acceptance</a>
+                    <a href="#t7"><span class="toc-n">07</span>No Cancellations</a>
+                    <a href="#t8"><span class="toc-n">08</span>Payment</a>
+                    <a href="#t9"><span class="toc-n">09</span>Shipping &amp; Delivery</a>
+                    <a href="#t10"><span class="toc-n">10</span>Returns &amp; Replacements</a>
+                    <a href="#t11"><span class="toc-n">11</span>Product Use</a>
+                    <a href="#t12"><span class="toc-n">12</span>Intellectual Property</a>
+                    <a href="#t13"><span class="toc-n">13</span>Limitation of Liability</a>
+                    <a href="#t14"><span class="toc-n">14</span>Indemnification</a>
+                    <a href="#t15"><span class="toc-n">15</span>Fraud &amp; Misuse</a>
+                    <a href="#t16"><span class="toc-n">16</span>Governing Law</a>
+                    <a href="#t17"><span class="toc-n">17</span>Changes to Terms</a>
+                    <a href="#t18"><span class="toc-n">18</span>Entire Agreement</a>
+                </nav>
+            </aside>
+
+            <div class="legal-content">
+                <div class="legal-section fade-up" id="t1">
+                    <h2><span class="sec-num">01</span>About NOR</h2>
+                    <p>NOR is a luxury automotive fragrance brand operated as an individual seller, designed and manufactured in Kerala, India. We sell fragrance products including perfume sprays and luxury diffusion tags through norperfume.com.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t2">
+                    <h2><span class="sec-num">02</span>Eligibility</h2>
+                    <p>By placing an order, you confirm you are at least 18 years of age and legally capable of entering into a binding contract under Indian law. Minors may only order with the explicit consent of a parent or legal guardian who accepts these terms on their behalf. NOR reserves the right to refuse service, cancel orders, or restrict website access for any customer at its sole discretion.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t3">
+                    <h2><span class="sec-num">03</span>Products &amp; Descriptions</h2>
+                    <p>NOR makes every effort to ensure product descriptions, scent profiles, images, and pricing are accurate. In the event of a material error in a product listing, NOR reserves the right to cancel the affected order and issue a full refund. Product images are for illustrative purposes only — minor packaging variations between batches may occur.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t4">
+                    <h2><span class="sec-num">04</span>Pricing</h2>
+                    <p>All prices are listed in Indian Rupees (₹) inclusive of applicable taxes unless otherwise stated. NOR reserves the right to change pricing at any time without prior notice. The price confirmed at checkout and payment is the price applicable to that order. If a product is listed at an incorrect price due to error, NOR reserves the right to cancel the order and refund in full.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t5">
+                    <h2><span class="sec-num">05</span>Promotional Codes &amp; Offers <span class="new-tag">New</span></h2>
+                    <p>Any promotional codes, discount offers, sale prices, or free shipping promotions offered by NOR are subject to the following conditions:</p>
+                    <ul>
+                        <li>Promotions are valid only for the specific period and conditions stated at the time of the promotion.</li>
+                        <li>NOR reserves the right to withdraw, modify, or end any promotion at any time without prior notice.</li>
+                        <li>Promotional codes cannot be combined with other offers, discounts, or promotions unless explicitly stated by NOR.</li>
+                        <li>Expired, invalid, or previously used promotional codes will not be honoured under any circumstances.</li>
+                        <li>Promotional prices or offers cannot be applied retroactively to orders already placed or confirmed.</li>
+                        <li>NOR is not obligated to honour any promotional price that was applied due to a system error or technical fault.</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section fade-up" id="t6">
+                    <h2><span class="sec-num">06</span>Orders &amp; Acceptance</h2>
+                    <p>Placing an order constitutes an offer to purchase. An order is confirmed only when NOR sends an order confirmation via SMS or email following successful payment. NOR reserves the right to decline any order including due to payment failure, suspected fraud, stock unavailability, undeliverable address, or policy violation. If NOR declines an order after payment, a full refund will be issued within 5–7 business days.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t7">
+                    <h2><span class="sec-num">07</span>No Cancellations</h2>
+                    <p>Orders cannot be cancelled once placed and payment is confirmed. NOR operates a strict no-cancellation policy. Please review your order carefully — product, quantity, and delivery address — before completing checkout.</p>
+                    <div class="warn-box">
+                        <p><strong>Please double-check before you pay:</strong> Once your payment is confirmed, your order is locked and cannot be cancelled or modified under any circumstances. NOR will not make exceptions to this policy.</p>
                     </div>
-                    <div class="trust-card fade-up" data-delay="100"
-                        onclick="window.location.href='mailto:norperfume.help@gmail.com'" style="cursor: pointer;"
-                        title="Email Customer Service">
-                        <div class="trust-ico">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
-                                fill="#e3e3e3" style="display: block; margin: 0 auto; margin-bottom: 8px;">
-                                <path
-                                    d="M440-120v-66.67h333.33V-484q0-121.46-85.38-206.06-85.38-84.61-207.95-84.61t-207.95 84.61q-85.38 84.6-85.38 206.06v244H160q-33 0-56.5-23.5T80-320v-80q0-21 10.5-39.5T120-469l3-53q8-68 39.5-126t79-101q47.5-43 109-67T480-840q68 0 129 24t109 66.5Q766-707 797-649t40 126l3 52q19 9 29.5 27t10.5 38v92q0 20-10.5 38T840-249v62.33q0 27.5-19.58 47.09Q800.83-120 773.33-120H440ZM336.17-416.28q-9.5-9.62-9.5-23.84 0-14.21 9.61-23.71 9.62-9.5 23.84-9.5 14.21 0 23.71 9.61 9.5 9.62 9.5 23.84 0 14.21-9.61 23.71-9.62 9.5-23.84 9.5-14.21 0-23.71-9.61Zm240 0q-9.5-9.62-9.5-23.84 0-14.21 9.61-23.71 9.62-9.5 23.84-9.5 14.21 0 23.71 9.61 9.5 9.62 9.5 23.84 0 14.21-9.61 23.71-9.62 9.5-23.84 9.5-14.21 0-23.71-9.61ZM241-462q-7-106 64-182t177-76q87.67 0 152.83 57.17Q700-605.67 714-519q-89.67-1-164.17-49.67-74.5-48.66-115.02-129.33Q419-618 367.5-555.5T241-462Z" />
-                            </svg>
-                        </div>
-                        <h3>Customer Service</h3>
-                        <p>Get in touch via <a href="mailto:norperfume.help@gmail.com">norperfume.help@gmail.com</a></p>
-                    </div>
-                    <div class="trust-card fade-up" data-delay="200">
-                        <div class="trust-ico">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
-                                fill="#e3e3e3" style="display: block; margin: 0 auto; margin-bottom: 8px;">
-                                <path
-                                    d="M546.67-426.67q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM240-293.33q-27.5 0-47.08-19.59-19.59-19.58-19.59-47.08v-373.33q0-27.5 19.59-47.09Q212.5-800 240-800h613.33q27.5 0 47.09 19.58Q920-760.83 920-733.33V-360q0 27.5-19.58 47.08-19.59 19.59-47.09 19.59H240ZM333.33-360H760q0-39 27.17-66.17 27.16-27.16 66.16-27.16V-640q-39 0-66.16-27.17Q760-694.33 760-733.33H333.33q0 39-27.16 66.16Q279-640 240-640v186.67q39 0 66.17 27.16Q333.33-399 333.33-360ZM800-160H106.67q-27.5 0-47.09-19.58Q40-199.17 40-226.67V-680h66.67v453.33H800V-160ZM240-360v-373.33V-360Z" />
-                            </svg>
-                        </div>
-                        <h3>Secure Payment</h3>
-                        <p>Your payment information is processed securely.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t8">
+                    <h2><span class="sec-num">08</span>Payment</h2>
+                    <p>All orders must be paid in full at the time of ordering. NOR does not offer Cash on Delivery (COD), credit terms, or deferred payment. Accepted methods: UPI, debit cards, credit cards, and net banking — processed through a secure third-party gateway. NOR does not store or access any payment credentials.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t9">
+                    <h2><span class="sec-num">09</span>Shipping &amp; Delivery</h2>
+                    <p>NOR ships within India only via DTDC, Blue Dart, and Delhivery. Standard delivery takes 4–7 business days from dispatch. Free shipping on orders above ₹999. Full details available in our <a href="shipping-policy.html">Shipping Policy</a>. NOR is not liable for delays caused by courier partners, incorrect customer addresses, or circumstances beyond NOR's control.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t10">
+                    <h2><span class="sec-num">10</span>Returns &amp; Replacements</h2>
+                    <p>NOR does not accept returns on opened or used products. Damage claims require a valid unboxing video recorded before opening, submitted within 48 hours of delivery, along with photographs and order details. Eligible claims result in a replacement product only — no monetary refunds are issued under any circumstances. Full details in our <a href="return-policy.html">Return Policy</a>.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t11">
+                    <h2><span class="sec-num">11</span>Product Use &amp; Disclaimer</h2>
+                    <p>NOR products are designed as luxury automotive fragrances for use inside vehicles. While formulations are toxin-free and suitable for skin contact, NOR makes no medical, therapeutic, or dermatological claims. Customers with known allergies or sensitivities should perform a patch test before skin use. NOR is not liable for adverse reactions from use outside the intended purpose. Store away from heat and direct sunlight. Do not ingest. Keep out of reach of children.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t12">
+                    <h2><span class="sec-num">12</span>Intellectual Property</h2>
+                    <p>All content on norperfume.com — including the NOR brand name, logo, product names, descriptions, images, and design — is the exclusive intellectual property of NOR, protected under applicable Indian and international intellectual property laws. No content may be copied, reproduced, distributed, or commercially used without prior written permission from NOR. Unauthorised use may result in legal action.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t13">
+                    <h2><span class="sec-num">13</span>Limitation of Liability</h2>
+                    <p>To the fullest extent permitted by law, NOR shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from use of our website, products, or services. NOR's total liability to any customer for any claim shall not exceed the total amount paid by that customer for the specific product giving rise to the claim.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t14">
+                    <h2><span class="sec-num">14</span>Indemnification</h2>
+                    <p>You agree to indemnify and hold harmless NOR and its founder, personnel, and agents from any claims, damages, liabilities, and expenses (including legal fees) arising from your violation of these Terms, misuse of our products or website, submission of fraudulent claims, or infringement of any third-party rights.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t15">
+                    <h2><span class="sec-num">15</span>Fraud &amp; Misuse</h2>
+                    <p>NOR reserves the right to take legal action against any customer found to have submitted fraudulent damage claims, false non-receipt declarations, manipulated evidence, or any other form of deliberate misuse of NOR's policies. Such customers will be permanently banned from purchasing on norperfume.com and may be reported to relevant law enforcement authorities.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t16">
+                    <h2><span class="sec-num">16</span>Governing Law &amp; Disputes</h2>
+                    <p>These Terms are governed by the laws of India. Any dispute shall first be attempted to be resolved through good-faith negotiation. If unresolved, the dispute shall be subject to the exclusive jurisdiction of the competent courts in Kerala, India. By using norperfume.com, you consent to this jurisdiction.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t17">
+                    <h2><span class="sec-num">17</span>Changes to These Terms</h2>
+                    <p>NOR reserves the right to update these Terms at any time. Changes will be posted with a revised effective date. Continued use of norperfume.com after any update constitutes acceptance of the revised terms.</p>
+                </div>
+
+                <div class="legal-section fade-up" id="t18">
+                    <h2><span class="sec-num">18</span>Entire Agreement</h2>
+                    <p>These Terms of Service, together with our Return Policy, Shipping Policy, and Privacy Policy, constitute the entire agreement between you and NOR. They supersede all prior communications whether written, verbal, or via any messaging platform including Instagram DM or email.</p>
+                </div>
+
+                <div class="legal-contact-box fade-up">
+                    <h2>Legal Enquiries</h2>
+                    <div class="contact-rows">
+                        <div class="contact-row-item"><span class="contact-row-label">Email</span><span class="contact-row-val"><a href="mailto:norperfume.help@gmail.com">norperfume.help@gmail.com</a></span></div>
+                        <div class="contact-row-item"><span class="contact-row-label">Instagram</span><span class="contact-row-val">@norperfumeofficial</span></div>
+                        <div class="contact-row-item"><span class="contact-row-label">Response Time</span><span class="contact-row-val">Within 24 hours</span></div>
+                        <div class="contact-row-item"><span class="contact-row-label">Jurisdiction</span><span class="contact-row-val">Kerala, India</span></div>
                     </div>
                 </div>
             </div>
         </div>
+    </main>
 
-        <!-- Newsletter -->
-        <div class="footer-newsletter">
-            <div class="container">
-                <div class="nl-box fade-up">
-                    <span class="eyebrow">Keep Me Updated</span>
-                    <div class="nl-icon"></div>
-                    <h3 class="nl-title">Newsletter</h3>
-                    <p class="nl-desc">Subscribe to get notified about product launches, special offers and company
-                        news.</p>
-                    <form class="nl-form" id="nl-form">
-                        <input type="email" placeholder="Your e-mail address" required>
-                        <button type="submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bottom -->
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="fb-grid">
-                    <div class="fb-brand">
-                        <a href="index.html" class="footer-logo">
-                            <img src="assets/images/norwhite.webp" alt="NOR Perfume" class="footer-logo-img"
-                                loading="lazy" style="height: 48px; object-fit: contain;">
-                            <div class="font-lovelo"
-                                style="font-size: 0.9rem; color: var(--c-cream); letter-spacing: 3px;">NOR PERFUME</div>
-                        </a>
-                        <p>Luxury car fragrances crafted for those who drive with purpose.</p>
-                        <div class="social-row" style="display: flex; gap: 16px; margin-top: 20px;">
-                            <a href="https://www.instagram.com/norperfumeofficial/" target="_blank"
-                                aria-label="Instagram"
-                                style="color: var(--c-silver); transition: color 0.3s var(--ease);">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                </svg>
-                            </a>
-                            <a href="https://www.facebook.com/norperfumeofficial/" target="_blank" aria-label="Facebook"
-                                style="color: var(--c-silver); transition: color 0.3s var(--ease);">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                                </svg>
-                            </a>
-                            <a href="https://www.linkedin.com/company/norperfume/" target="_blank" aria-label="LinkedIn"
-                                style="color: var(--c-silver); transition: color 0.3s var(--ease);">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                    </path>
-                                    <rect x="2" y="9" width="4" height="12"></rect>
-                                    <circle cx="4" cy="4" r="2"></circle>
-                                </svg>
-                            </a>
-                        </div>
-
-                    </div>
-                    <div class="fb-links">
-                        <div class="fb-col" id="footer-shop-list">
-                            <h5>Shop</h5>
-                            <a href="collections.html">All Collections</a>
-                        </div>
-
-
-
-                        <div class="fb-col">
-                            <h5>Support</h5>
-                            <a href="about.html">About NOR</a>
-                            <a href="faq.html">FAQ</a>
-                            <a href="track-order.html">Track Order</a>
-                            <a href="contact.html">Contact Us</a>
-                        </div>
-
-
-
-                        <div class="fb-col">
-                            <h5>Legal</h5>
-                            <a href="return-policy.html">Return Policy</a>
-                            <a href="shipping-policy.html">Shipping Policy</a>
-                            <a href="privacy-policy.html">Privacy Policy</a>
-                            <a href="terms.html">Terms of Service</a>
-                        </div>
-
-
+    <footer class="footer">
+        <div class="footer-trust"><div class="container"><div class="trust-grid">
+            <div class="trust-card fade-up"><div class="trust-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M394.33-117.67 298-298.33l-181.33-97 63-62.67 147 26.33L442-546.33 118.33-684l76-76.67L586.67-692l130-130q21.66-21.67 52.66-21.67 31 0 52.67 21.67t21.67 52.5q0 30.83-21.67 52.5L691.67-586.67l68.66 392L684-118.33 546-442 431.33-326.67l26 146-63 63Z"/></svg></div><h3>All India Shipping</h3><p>Nationwide shipping — fast &amp; reliable</p></div>
+            <div class="trust-card fade-up" data-delay="100" onclick="window.location.href='mailto:norperfume.help@gmail.com'" style="cursor:pointer"><div class="trust-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M440-120v-66.67h333.33V-484q0-121.46-85.38-206.06-85.38-84.61-207.95-84.61t-207.95 84.61q-85.38 84.6-85.38 206.06v244H160q-33 0-56.5-23.5T80-320v-80q0-21 10.5-39.5T120-469l3-53q8-68 39.5-126t79-101q47.5-43 109-67T480-840q68 0 129 24t109 66.5Q766-707 797-649t40 126l3 52q19 9 29.5 27t10.5 38v92q0 20-10.5 38T840-249v62.33q0 27.5-19.58 47.09Q800.83-120 773.33-120H440Z"/></svg></div><h3>Customer Service</h3><p><a href="mailto:norperfume.help@gmail.com">norperfume.help@gmail.com</a></p></div>
+            <div class="trust-card fade-up" data-delay="200"><div class="trust-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M546.67-426.67q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM240-293.33q-27.5 0-47.08-19.59-19.59-19.58-19.59-47.08v-373.33q0-27.5 19.59-47.09Q212.5-800 240-800h613.33q27.5 0 47.09 19.58Q920-760.83 920-733.33V-360q0 27.5-19.58 47.08-19.59 19.59-47.09 19.59H240Z"/></svg></div><h3>Secure Payment</h3><p>Your payment information is processed securely.</p></div>
+        </div></div></div>
+        <div class="footer-newsletter"><div class="container"><div class="nl-box fade-up">
+            <span class="nl-overline">Keep Me Updated</span>
+            <h3 class="nl-title">Newsletter</h3>
+            <p class="nl-desc">Subscribe to get notified about product launches, special offers, and company news.</p>
+            <form class="nl-form" id="nl-form" novalidate>
+                <input type="email" name="email" placeholder="Your e-mail address" required autocomplete="email">
+                <button type="submit">Subscribe</button>
+            </form>
+            <div class="nl-success" aria-live="polite"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><p>You're on the list!</p></div>
+        </div></div></div>
+        <div class="footer-bottom"><div class="container">
+            <div class="fb-grid">
+                <div class="fb-brand">
+                    <a href="index.html" class="footer-logo"><img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="footer-logo-img" loading="lazy" width="80" height="40"><span class="footer-logo-text">NOR PERFUME</span></a>
+                    <p>Luxury car fragrances crafted for those who drive with purpose.</p>
+                    <div class="social-row">
+                        <a href="https://www.instagram.com/norperfumeofficial/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="https://www.facebook.com/norperfumeofficial/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
                     </div>
                 </div>
-                <div class="fb-copyright">
-                    <p>© 2026 <span class="font-lovelo">NOR PERFUME</span>. <span
-                            style="text-transform: uppercase; letter-spacing: 3px;">ALL RIGHTS RESERVED.</span></p>
+                <div class="fb-links">
+                    <div class="fb-col"><h5>Shop</h5><a href="collections.html">All Collections</a><a href="collections.html?product=musk">MUSK NOR</a><a href="collections.html?product=aqua">AQUA NOR</a></div>
+                    <div class="fb-col"><h5>Support</h5><a href="about.html">About NOR</a><a href="faq.html">FAQ</a><a href="track-order.html">Track Order</a><a href="contact.html">Contact Us</a></div>
+                    <div class="fb-col"><h5>Legal</h5><a href="return-policy.html">Return Policy</a><a href="shipping-policy.html">Shipping Policy</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
                 </div>
             </div>
-        </div>
-
+            <div class="fb-copyright"><p>© 2026 <span>NOR PERFUME</span>. All Rights Reserved.</p></div>
+        </div></div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+    <script src="js/animations.js" defer></script>
     <script src="js/main.js" defer></script>
     <script type="module" src="js/shopify-integration.js"></script>
+    <script>
+        (function() {
+            const sections = document.querySelectorAll('.legal-section[id]');
+            const tocLinks = document.querySelectorAll('.legal-toc-nav a');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        tocLinks.forEach(l => l.classList.remove('toc-active'));
+                        const active = document.querySelector(`.legal-toc-nav a[href="#${e.target.id}"]`);
+                        if (active) active.classList.add('toc-active');
+                    }
+                });
+            }, { rootMargin: '-20% 0px -70% 0px' });
+            sections.forEach(s => observer.observe(s));
+        })();
+    </script>
 </body>
-
-
 </html>

@@ -1,474 +1,771 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | NOR PERFUME</title>
-    <meta name="description" content="Reach out for VIP support, inquiries, and fragrance guidance.">
-
-    <!-- Open Graph & Social SEO -->
-    <meta property="og:title" content="Contact Us | NOR Perfume">
-    <meta property="og:description" content="Discover the origins and philosophy behind NOR Perfume.">
-    <meta property="og:image" content="https://norperfume.com/assets/images/mask.webp">
+    <meta name="description" content="Get in touch with NOR Perfume — for orders, support, damage claims, or general enquiries. We respond within 24 hours.">
+    <meta property="og:title" content="Contact Us | NOR PERFUME">
+    <meta property="og:description" content="Reach NOR Perfume via email, Instagram DM, or our contact form. We respond within 24 hours.">
     <meta property="og:url" content="https://norperfume.com/contact.html">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Favicon & Touch -->
-    <link rel="apple-touch-icon" href="assets/images/mask.webp">
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' fill='%23c4a35a'%3E✦%3C/text%3E%3C/svg%3E">
-
-    <!-- Google Fonts -->
+    <link rel="icon" type="image/png" href="assets/images/logo/norwhite.png">
+    <link rel="apple-touch-icon" href="assets/images/logo/norwhite.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/pages.css">
     <link rel="stylesheet" href="css/components.css">
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
     <style>
-        .page-header {
-            padding: 180px 0 80px;
+        /* ── CONTACT PAGE ── */
+        .contact-hero {
+            padding: clamp(130px, 18vh, 220px) 0 clamp(60px, 8vw, 100px);
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-
-        .about-content {
-            padding-bottom: 120px;
-        }
-
-        /* Override anchor links for multi-page */
-        .nav-link[href="#experience"],
-        .nav-link[href="#about"] {
-            color: var(--text-p);
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(182,154,112,0.09) 0%, transparent 65%);
             pointer-events: none;
         }
+        .contact-hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 300;
+            color: var(--c-cream);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .contact-hero h1 em { font-style: italic; color: var(--c-silver); }
+        .contact-hero-sub {
+            font-family: var(--sans);
+            font-size: var(--fs-s);
+            color: var(--c-text-dim);
+            font-weight: 300;
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
 
-        /* Specific about page styling */
-        .story-block {
-            max-width: 800px;
-            margin: 0 auto 100px;
+        /* Response time badge */
+        .response-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 22px;
+            border-radius: 50px;
+            border: 1px solid var(--c-border-gold);
+            background: rgba(182,154,112,0.06);
+            font-family: var(--sans);
+            font-size: var(--fs-xs);
+            font-weight: 500;
+            color: var(--c-gold);
+            letter-spacing: 0.04em;
+            margin-bottom: 28px;
+        }
+        .response-badge::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #6abf80;
+            box-shadow: 0 0 8px rgba(106,191,128,0.7);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(106,191,128,0.7); }
+            50% { opacity: 0.6; box-shadow: 0 0 16px rgba(106,191,128,0.4); }
+        }
+
+        /* ── MAIN LAYOUT ── */
+        .contact-main {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 var(--pad-x) clamp(80px, 10vw, 140px);
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: clamp(40px, 5vw, 72px);
+            align-items: start;
+        }
+        @media (max-width: 960px) {
+            .contact-main {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contact-sidebar { order: -1; }
+        }
+
+        /* ── FORM PANEL ── */
+        .contact-form-panel {
+            background: rgba(16, 13, 10, 0.50);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--c-border);
+            border-top-color: rgba(255,255,255,0.09);
+            border-radius: 24px;
+            padding: clamp(30px, 4vw, 50px);
+        }
+        .contact-form-title {
+            font-family: var(--serif);
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            font-weight: 300;
+            color: var(--c-cream);
+            margin-bottom: 8px;
+        }
+        .contact-form-subtitle {
+            font-family: var(--sans);
+            font-size: var(--fs-s);
+            color: var(--c-text-muted);
+            font-weight: 300;
+            margin-bottom: 36px;
+        }
+
+        /* Form fields */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-family: var(--sans);
+            font-size: var(--fs-2xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--c-text-muted);
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--c-border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            font-family: var(--sans);
+            font-size: var(--fs-s);
+            color: var(--c-cream);
+            outline: none;
+            transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+            appearance: none;
+            -webkit-appearance: none;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: var(--c-text-muted); font-weight: 300; }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--c-border-gold);
+            background: rgba(182,154,112,0.04);
+            box-shadow: 0 0 0 3px rgba(182,154,112,0.08);
+        }
+        .form-group textarea { min-height: 140px; }
+        .form-group select option { background: #14110d; color: var(--c-cream); }
+
+        /* Select arrow */
+        .select-wrapper { position: relative; }
+        .select-wrapper::after { content: ''; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid var(--c-silver); pointer-events: none; }
+
+        /* Submit button */
+        .contact-submit-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 16px 36px;
+            font-family: var(--sans);
+            font-size: var(--fs-xs);
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #0B0A09;
+            background: linear-gradient(135deg, var(--c-gold-h), var(--c-gold));
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.35s var(--ease-out);
+            margin-top: 10px;
+        }
+        .contact-submit-btn:hover {
+            background: linear-gradient(135deg, #e8cfa0, var(--c-gold-h));
+            box-shadow: 0 8px 32px rgba(182,154,112,0.30);
+            transform: translateY(-2px);
+        }
+        .contact-submit-btn:active { transform: translateY(0); }
+
+        /* Form success state */
+        .contact-success {
+            display: none;
+            text-align: center;
+            padding: 48px 24px;
+        }
+        .contact-success-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(106,191,128,0.10);
+            border: 1px solid rgba(106,191,128,0.30);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: #6abf80;
+        }
+        .contact-success h3 {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--c-cream);
+            margin-bottom: 10px;
+        }
+        .contact-success p {
+            font-size: var(--fs-s);
+            color: var(--c-text-dim);
+            font-weight: 300;
+        }
+
+        /* Character counter */
+        .char-hint {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            color: var(--c-text-muted);
+            text-align: right;
+            margin-top: 4px;
+        }
+
+        /* ── SIDEBAR ── */
+        .contact-sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+        /* Info card */
+        .contact-info-card {
+            background: rgba(16, 13, 10, 0.50);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--c-border);
+            border-top-color: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 28px 28px;
+            transition: border-color 0.35s, transform 0.4s var(--ease-out);
+        }
+        .contact-info-card:hover {
+            border-color: var(--c-border-gold);
+            transform: translateY(-3px);
+        }
+        .contact-info-card a {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            text-decoration: none;
+        }
+        .contact-info-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: rgba(182,154,112,0.10);
+            border: 1px solid var(--c-border-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c-gold);
+            flex-shrink: 0;
+        }
+        .contact-info-body {}
+        .contact-info-label {
+            font-family: var(--sans);
+            font-size: var(--fs-2xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--c-gold);
+            margin-bottom: 5px;
+        }
+        .contact-info-value {
+            font-family: var(--sans);
+            font-size: var(--fs-s);
+            color: var(--c-cream);
+            font-weight: 300;
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+        .contact-info-hint {
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            color: var(--c-text-muted);
+            font-weight: 300;
+        }
+
+        /* Topic chips */
+        .contact-topics {
+            background: rgba(16, 13, 10, 0.50);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--c-border);
+            border-radius: 20px;
+            padding: 28px 28px;
+        }
+        .contact-topics-title {
+            font-family: var(--sans);
+            font-size: var(--fs-2xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--c-gold);
+            margin-bottom: 18px;
+        }
+        .topic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .topic-chip {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--c-border);
+            background: rgba(255,255,255,0.02);
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--c-text-dim);
+            cursor: pointer;
+            transition: all 0.25s;
             text-align: center;
         }
-
-        .story-block p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--text-p);
-            margin-bottom: 2rem;
+        .topic-chip:hover {
+            border-color: var(--c-border-gold);
+            color: var(--c-cream);
+            background: rgba(182,154,112,0.06);
         }
+        .topic-chip.selected {
+            border-color: var(--c-border-gold);
+            background: rgba(182,154,112,0.12);
+            color: var(--c-gold);
+        }
+
+        /* Policy quick links */
+        .contact-policy-links {
+            background: rgba(16, 13, 10, 0.50);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--c-border);
+            border-radius: 20px;
+            padding: 28px 28px;
+        }
+        .contact-policy-links-title {
+            font-family: var(--sans);
+            font-size: var(--fs-2xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--c-gold);
+            margin-bottom: 18px;
+        }
+        .policy-link-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--c-border);
+            text-decoration: none;
+            transition: all 0.25s;
+            gap: 12px;
+        }
+        .policy-link-row:last-child { border-bottom: none; }
+        .policy-link-row:hover { transform: translateX(4px); }
+        .policy-link-row span {
+            font-family: var(--sans);
+            font-size: var(--fs-s);
+            color: var(--c-text-dim);
+            font-weight: 300;
+            transition: color 0.25s;
+        }
+        .policy-link-row:hover span { color: var(--c-cream); }
+        .policy-link-arrow {
+            color: var(--c-gold);
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: all 0.25s;
+        }
+        .policy-link-row:hover .policy-link-arrow { opacity: 1; transform: translateX(0); }
+
+        /* Form error states */
+        .form-group.has-error input,
+        .form-group.has-error textarea,
+        .form-group.has-error select {
+            border-color: rgba(220,100,60,0.50);
+        }
+        .form-error-msg {
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            color: #d9825a;
+            display: none;
+        }
+        .form-group.has-error .form-error-msg { display: block; }
     </style>
 </head>
-
-<body class="page-about">
-    <a href="#main-content" class="skip-link sr-only">Skip to main content</a>
-
-    <!-- ===================== CURSOR ===================== -->
-    <div class="cursor-dot" id="cursor-dot"></div>
-    <div class="cursor-ring" id="cursor-ring"></div>
-
-    <!-- ===================== NAVBAR ===================== -->
+<body class="page-contact">
+    <a href="#main-content" class="skip-link sr-only">Skip to main content</a><!-- NAVBAR -->
     <nav class="navbar" id="navbar">
         <div class="nav-inner">
-            <!-- LEFT: Menu Toggle -->
             <div class="nav-left">
-                <button class="nav-menu-label" aria-label="Open Menu">
+                <button class="nav-menu-label" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                     <span>MENU</span>
-                    <div class="nav-menu-lines">
-                        <span></span>
-                        <span></span>
-                    </div>
+                    <div class="nav-menu-lines" aria-hidden="true"><span></span><span></span></div>
                 </button>
             </div>
-
-            <!-- CENTER: Logo -->
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="logo-svg" style="object-fit: contain;">
+            <a href="index.html" class="logo" aria-label="NOR Perfume Homepage">
+                <img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="logo-svg" width="80" height="30">
             </a>
-
-            <!-- RIGHT: Search, Profile, Cart -->
             <div class="nav-right">
-                <button class="nav-icon-btn" id="search-btn" aria-label="Search">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="11" cy="11" r="8" />
-                        <path d="M21 21l-4.35-4.35" />
-                    </svg>
-                </button>
-                <a href="https://shop.norperfume.com/account" class="nav-icon-btn" aria-label="User Account">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                        <circle cx="12" cy="7" r="4" />
-                    </svg>
-                </a>
-                <a href="cart.html" class="nav-icon-btn cart-btn" id="cart-btn" aria-label="Cart">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                        <path d="M16 10a4 4 0 0 1-8 0" />
-                    </svg>
-                    <span class="cart-count" id="cart-count">0</span>
-                </a>
+                <button class="nav-icon-btn" id="search-btn" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button>
+                <a href="https://shop.norperfume.com/account" class="nav-icon-btn" aria-label="Account" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+                <a href="cart.html" class="nav-icon-btn cart-btn" id="cart-btn" aria-label="Cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="cart-count" id="cart-count">0</span></a>
             </div>
         </div>
     </nav>
 
-    <!-- ===================== MOBILE MENU ===================== -->
-    <div class="mobile-menu" id="mobile-menu">
+    <!-- SEARCH OVERLAY -->
+    <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true">
+        <button class="search-close" id="search-close" aria-label="Close search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+        <div class="search-content"><div class="search-input-wrapper"><span class="search-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span><input type="search" id="search-input" placeholder="Search fragrances…" autocomplete="off"></div></div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
         <div class="mm-inner">
             <div class="mm-header">
-                <a href="index.html" class="mm-logo"><span class="font-lovelo">NOR</span></a>
-                <button class="mm-close" id="mm-close" aria-label="Close Menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="1.5">
-                        <path d="M18 6L6 18M6 6l12 12" />
-                    </svg>
-                </button>
+                <a href="index.html" class="mm-logo">NOR</a>
+                <button class="mm-close" id="mm-close" aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
             </div>
-            <div class="mm-links">
+            <nav class="mm-links">
                 <a href="index.html" class="mm-link">Home</a>
                 <a href="collections.html" class="mm-link">Products</a>
                 <a href="about.html" class="mm-link">About Us</a>
-                <a href="track-order.html" class="mm-link">Track My Order</a>
-            </div>
-
+                <a href="faq.html" class="mm-link">FAQ</a>
+                <a href="track-order.html" class="mm-link">Track Order</a>
+            </nav>
             <div class="mm-footer">
-                <a href="profile.html" class="mm-link"
-                    style="display:block; margin-bottom:1.5rem; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; color: var(--c-gold);">Profile
-                    / Login</a>
-                <p>Luxury Car Fragrances</p>
-                <div class="social-row">
-                    <a href="https://www.instagram.com/norperfumeofficial/" target="_blank">Instagram</a>
-                </div>
+                <div class="mm-footer-left"><p>Luxury Car Fragrances</p><div class="mm-social"><a href="https://www.instagram.com/norperfumeofficial/" target="_blank" rel="noopener">Instagram</a></div></div>
+                <a href="https://shop.norperfume.com/account" class="mm-account-link" rel="noopener">Account</a>
             </div>
         </div>
     </div>
 
-
     <main id="main-content">
-        <header class="page-header">
+        <!-- HERO -->
+        <header class="contact-hero">
             <div class="container">
-                <span class="eyebrow fade-up">Concierge Support</span>
-                <h1 class="sec-title fade-up">Get in <span class="font-lovelo">Touch</span></h1>
+                <span class="response-badge fade-up">Responds within 24 hours</span>
+                <h1 class="fade-up" data-delay="60">Get in <em>Touch</em></h1>
+                <p class="contact-hero-sub fade-up" data-delay="120">Whether it's about an order, a claim, or just a question — we're here and we'll respond personally.</p>
             </div>
         </header>
 
-        <section class="contact-grid-section">
-            <div class="container">
-                <div class="contact-split">
-                    <!-- Left: Form -->
-                    <div class="contact-form-wrap glass fade-up">
-                        <h2 class="form-title">Send us a message</h2>
-                        <form id="contact-form" class="premium-form">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label>NAME</label>
-                                    <input type="text" name="contact[name]" placeholder="Your name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>EMAIL</label>
-                                    <input type="email" name="contact[email]" placeholder="you@email.com" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>SUBJECT</label>
-                                <input type="text" name="contact[subject]"
-                                    placeholder="Order inquiry, product question, etc." required>
-                            </div>
-                            <div class="form-group">
-                                <label>MESSAGE</label>
-                                <textarea name="contact[body]" rows="5" placeholder="Tell us how we can help..."
-                                    required></textarea>
-                            </div>
-                            <button type="submit" class="cta-primary btn-send">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" style="margin-right: 8px;">
-                                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-                                </svg>
-                                <span>SEND MESSAGE</span>
-                            </button>
-                        </form>
-                    </div>
+        <!-- MAIN TWO-COLUMN -->
+        <div class="contact-main">
+            <!-- Form Panel -->
+            <div class="contact-form-panel fade-up">
+                <div id="contact-form-wrap">
+                    <h2 class="contact-form-title">Send a Message</h2>
+                    <p class="contact-form-subtitle">We'll respond within 24 hours on business days.</p>
 
-                    <!-- Right: Info -->
-                    <div class="contact-info-wrap fade-up">
-                        <div class="info-card glass">
-                            <div class="info-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.5">
-                                    <path
-                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                    <path d="M22 6l-10 7L2 6" />
-                                </svg>
+                    <form id="contact-form" novalidate autocomplete="on">
+                        <div class="form-row">
+                            <div class="form-group" id="fg-name">
+                                <label for="contact-name">Full Name</label>
+                                <input type="text" id="contact-name" name="name" placeholder="Your full name" autocomplete="name" required>
+                                <span class="form-error-msg">Please enter your name.</span>
                             </div>
-                            <div class="info-body">
-                                <span class="info-label">EMAIL</span>
-                                <a href="mailto:norperfume.in@gmail.com" class="info-value">norperfume.in@gmail.com</a>
+                            <div class="form-group" id="fg-email">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                                <span class="form-error-msg">Please enter a valid email.</span>
                             </div>
                         </div>
 
-                        <div class="info-card glass">
-                            <div class="info-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.5">
-                                    <path
-                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                                </svg>
-                            </div>
-                            <div class="info-body">
-                                <span class="info-label">PHONE</span>
-                                <a href="tel:+919544290206" class="info-value">+91 9544290206</a>
-                            </div>
+                        <div class="form-group" id="fg-order">
+                            <label for="contact-order">Order Number <span style="color: var(--c-text-muted); font-weight:300; text-transform:none; letter-spacing:0;">(optional)</span></label>
+                            <input type="text" id="contact-order" name="orderNumber" placeholder="e.g. NOR-1234" autocomplete="off">
                         </div>
 
-                        <div class="info-card glass">
-                            <div class="info-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.5">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                    <circle cx="12" cy="10" r="3" />
-                                </svg>
+                        <div class="form-group" id="fg-subject">
+                            <label for="contact-subject">Subject</label>
+                            <div class="select-wrapper">
+                                <select id="contact-subject" name="subject" required>
+                                    <option value="" disabled selected>Select a topic…</option>
+                                    <option value="order-status">Order Status</option>
+                                    <option value="damage-claim">Damage Claim</option>
+                                    <option value="non-receipt">Order Not Received</option>
+                                    <option value="wrong-product">Wrong Product Received</option>
+                                    <option value="shipping-query">Shipping Query</option>
+                                    <option value="return-query">Return / Replacement</option>
+                                    <option value="product-info">Product Information</option>
+                                    <option value="wholesale">Wholesale / Collaboration</option>
+                                    <option value="other">Other</option>
+                                </select>
                             </div>
-                            <div class="info-body">
-                                <span class="info-label">ADDRESS</span>
-                                <p class="info-value">Door No: 5/52 Kodibail, Mangalpady Gram Panchayth, Uppala, Kasargod - 671322, Kerala
-                                </p>
-                            </div>
+                            <span class="form-error-msg">Please select a topic.</span>
                         </div>
 
-                        <div class="info-card glass">
-                            <div class="info-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.5">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="M12 6v6l4 2" />
-                                </svg>
-                            </div>
-                            <div class="info-body">
-                                <span class="info-label">SUPPORT HOURS</span>
-                                <p class="info-value">Mon–Sat: 9:00 AM – 7:00 PM</p>
-                            </div>
+                        <div class="form-group" id="fg-message">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" placeholder="Describe your enquiry in detail…" maxlength="1000" required></textarea>
+                            <div class="char-hint"><span id="char-count">0</span> / 1000</div>
+                            <span class="form-error-msg">Please enter your message (at least 20 characters).</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Location Map Section -->
-        <section class="location-map-section fade-up">
-            <div class="container">
-                <div class="map-frame glass">
-                    <iframe
-                        src="https://www.google.com/maps?q=Door%20No%3A%205%2F52%20Kodibail%2C%20Mangalpady%20Gram%20Panchayth%2C%20Uppala%2C%20Kasargod%20-%20671322%2C%20Kerala&z=15&output=embed"
-                        width="100%" height="450" style="border:0; filter: grayscale(1) invert(0.9) contrast(1.2);"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                    <div class="map-overlay">
-                        <div class="map-info-box">
-                            <div class="map-info-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                    <circle cx="12" cy="10" r="3" />
-                                </svg>
-                            </div>
-                            <div>
-                                <strong></strong>
-                                <p>Door No: 5/52 Kodibail, Uppala, Kasargod</p>
-                            </div>
-                        </div>
-                        <a href="https://goo.gl/maps/xyz" target="_blank" class="map-btn">Open in Maps ↗</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- ===================== FOOTER ===================== -->
-    <footer class="footer" id="about">
-
-        <!-- Trust badges -->
-        <div class="footer-trust">
-            <div class="container">
-                <div class="trust-grid">
-                    <div class="trust-card fade-up" data-delay="0">
-                        <div class="trust-ico">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
-                                fill="#e3e3e3" style="display: block; margin: 0 auto; margin-bottom: 8px;">
-                                <path
-                                    d="M394.33-117.67 298-298.33l-181.33-97 63-62.67 147 26.33L442-546.33 118.33-684l76-76.67L586.67-692l130-130q21.66-21.67 52.66-21.67 31 0 52.67 21.67t21.67 52.5q0 30.83-21.67 52.5L691.67-586.67l68.66 392L684-118.33 546-442 431.33-326.67l26 146-63 63Z" />
-                            </svg>
-                        </div>
-                        <h3>All India Shipping</h3>
-                        <p>Nationwide shipping — fast &amp; reliable</p>
-                    </div>
-                    <div class="trust-card fade-up" data-delay="100"
-                        onclick="window.location.href='mailto:norperfume.help@gmail.com'" style="cursor: pointer;"
-                        title="Email Customer Service">
-                        <div class="trust-ico">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
-                                fill="#e3e3e3" style="display: block; margin: 0 auto; margin-bottom: 8px;">
-                                <path
-                                    d="M440-120v-66.67h333.33V-484q0-121.46-85.38-206.06-85.38-84.61-207.95-84.61t-207.95 84.61q-85.38 84.6-85.38 206.06v244H160q-33 0-56.5-23.5T80-320v-80q0-21 10.5-39.5T120-469l3-53q8-68 39.5-126t79-101q47.5-43 109-67T480-840q68 0 129 24t109 66.5Q766-707 797-649t40 126l3 52q19 9 29.5 27t10.5 38v92q0 20-10.5 38T840-249v62.33q0 27.5-19.58 47.09Q800.83-120 773.33-120H440ZM336.17-416.28q-9.5-9.62-9.5-23.84 0-14.21 9.61-23.71 9.62-9.5 23.84-9.5 14.21 0 23.71 9.61 9.5 9.62 9.5 23.84 0 14.21-9.61 23.71-9.62 9.5-23.84 9.5-14.21 0-23.71-9.61Zm240 0q-9.5-9.62-9.5-23.84 0-14.21 9.61-23.71 9.62-9.5 23.84-9.5 14.21 0 23.71 9.61 9.5 9.62 9.5 23.84 0 14.21-9.61 23.71-9.62 9.5-23.84 9.5-14.21 0-23.71-9.61ZM241-462q-7-106 64-182t177-76q87.67 0 152.83 57.17Q700-605.67 714-519q-89.67-1-164.17-49.67-74.5-48.66-115.02-129.33Q419-618 367.5-555.5T241-462Z" />
-                            </svg>
-                        </div>
-                        <h3>Customer Service</h3>
-                        <p>Get in touch via <a href="mailto:norperfume.help@gmail.com">norperfume.help@gmail.com</a></p>
-                    </div>
-                    <div class="trust-card fade-up" data-delay="200">
-                        <div class="trust-ico">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
-                                fill="#e3e3e3" style="display: block; margin: 0 auto; margin-bottom: 8px;">
-                                <path
-                                    d="M546.67-426.67q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM240-293.33q-27.5 0-47.08-19.59-19.59-19.58-19.59-47.08v-373.33q0-27.5 19.59-47.09Q212.5-800 240-800h613.33q27.5 0 47.09 19.58Q920-760.83 920-733.33V-360q0 27.5-19.58 47.08-19.59 19.59-47.09 19.59H240ZM333.33-360H760q0-39 27.17-66.17 27.16-27.16 66.16-27.16V-640q-39 0-66.16-27.17Q760-694.33 760-733.33H333.33q0 39-27.16 66.16Q279-640 240-640v186.67q39 0 66.17 27.16Q333.33-399 333.33-360ZM800-160H106.67q-27.5 0-47.09-19.58Q40-199.17 40-226.67V-680h66.67v453.33H800V-160ZM240-360v-373.33V-360Z" />
-                            </svg>
-                        </div>
-                        <h3>Secure Payment</h3>
-                        <p>Your payment information is processed securely.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Newsletter -->
-        <div class="footer-newsletter">
-            <div class="container">
-                <div class="nl-box fade-up">
-                    <span class="eyebrow">— Keep Me Updated</span>
-                    <div class="nl-icon"></div>
-                    <h3 class="nl-title">Newsletter</h3>
-                    <p class="nl-desc">Subscribe to get notified about product launches, special offers and company
-                        news.</p>
-                    <form class="nl-form" id="nl-form">
-                        <input type="email" placeholder="Your e-mail address" required>
-                        <button type="submit">Subscribe</button>
+                        <button type="submit" class="contact-submit-btn" id="contact-submit">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                            Send Message
+                        </button>
                     </form>
                 </div>
-            </div>
-        </div>
 
-        <!-- Bottom -->
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="fb-grid">
-                    <div class="fb-brand">
-                        <a href="index.html" class="footer-logo">
-                            <img src="assets/images/norwhite.webp" alt="NOR Perfume" class="footer-logo-img"
-                                loading="lazy" style="height: 48px; object-fit: contain;">
-                            <div class="font-lovelo"
-                                style="font-size: 0.9rem; color: var(--c-cream); letter-spacing: 3px;">NOR PERFUME</div>
-                        </a>
-                        <p>Luxury car fragrances crafted for those who drive with purpose.</p>
-                        <div class="social-row" style="display: flex; gap: 16px; margin-top: 20px;">
-                            <a href="https://www.instagram.com/norperfumeofficial/" target="_blank"
-                                aria-label="Instagram"
-                                style="color: var(--c-silver); transition: color 0.3s var(--ease);">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                </svg>
-                            </a>
-                            <a href="https://www.facebook.com/norperfumeofficial/" target="_blank" aria-label="Facebook"
-                                style="color: var(--c-silver); transition: color 0.3s var(--ease);">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                                </svg>
-                            </a>
-                            <a href="https://www.linkedin.com/company/norperfume/" target="_blank" aria-label="LinkedIn"
-                                style="color: var(--c-silver); transition: color 0.3s var(--ease);">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                    </path>
-                                    <rect x="2" y="9" width="4" height="12"></rect>
-                                    <circle cx="4" cy="4" r="2"></circle>
-                                </svg>
-                            </a>
-                        </div>
-
+                <!-- Success state -->
+                <div class="contact-success" id="contact-success">
+                    <div class="contact-success-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                     </div>
-                    <div class="fb-links">
-                        <div class="fb-col" id="footer-shop-list">
-                            <h5>Shop</h5>
-                            <a href="collections.html">All Collections</a>
-                        </div>
-
-
-
-                        <div class="fb-col">
-                            <h5>Support</h5>
-                            <a href="about.html">About NOR</a>
-                            <a href="faq.html">FAQ</a>
-                            <a href="track-order.html">Track Order</a>
-                            <a href="contact.html">Contact Us</a>
-                        </div>
-
-
-
-                        <div class="fb-col">
-                            <h5>Legal</h5>
-                            <a href="return-policy.html">Return Policy</a>
-                            <a href="shipping-policy.html">Shipping Policy</a>
-                            <a href="privacy-policy.html">Privacy Policy</a>
-                            <a href="terms.html">Terms of Service</a>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="fb-copyright">
-                    <p>© 2026 <span class="font-lovelo">NOR PERFUME</span>. <span
-                            style="text-transform: uppercase; letter-spacing: 3px;">ALL RIGHTS RESERVED.</span></p>
+                    <h3>Message Sent</h3>
+                    <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
                 </div>
             </div>
-        </div>
 
+            <!-- Sidebar -->
+            <aside class="contact-sidebar">
+
+                <!-- Email card -->
+                <div class="contact-info-card fade-up">
+                    <a href="mailto:norperfume.help@gmail.com" aria-label="Email NOR Perfume">
+                        <div class="contact-info-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div class="contact-info-body">
+                            <div class="contact-info-label">Email</div>
+                            <div class="contact-info-value">norperfume.help@gmail.com</div>
+                            <div class="contact-info-hint">Response within 24 hours</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Instagram card -->
+                <div class="contact-info-card fade-up" data-delay="80">
+                    <a href="https://www.instagram.com/norperfumeofficial/" target="_blank" rel="noopener" aria-label="NOR Perfume Instagram">
+                        <div class="contact-info-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </div>
+                        <div class="contact-info-body">
+                            <div class="contact-info-label">Instagram</div>
+                            <div class="contact-info-value">@norperfumeofficial</div>
+                            <div class="contact-info-hint">DMs open for support &amp; claims</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Business hours card -->
+                <div class="contact-info-card fade-up" data-delay="160" style="cursor:default;">
+                    <div style="display:flex; align-items:flex-start; gap:18px;">
+                        <div class="contact-info-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <div class="contact-info-body">
+                            <div class="contact-info-label">Business Hours</div>
+                            <div class="contact-info-value">Mon – Sat, 10am – 7pm IST</div>
+                            <div class="contact-info-hint">Sundays &amp; holidays — response next business day</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick topic chips -->
+                <div class="contact-topics fade-up" data-delay="200">
+                    <div class="contact-topics-title">Common Topics</div>
+                    <div class="topic-grid">
+                        <div class="topic-chip" data-topic="order-status">Order Status</div>
+                        <div class="topic-chip" data-topic="damage-claim">Damage Claim</div>
+                        <div class="topic-chip" data-topic="non-receipt">Not Received</div>
+                        <div class="topic-chip" data-topic="shipping-query">Shipping</div>
+                        <div class="topic-chip" data-topic="product-info">Product Info</div>
+                        <div class="topic-chip" data-topic="other">Other</div>
+                    </div>
+                </div>
+
+                <!-- Policy links -->
+                <div class="contact-policy-links fade-up" data-delay="260">
+                    <div class="contact-policy-links-title">Quick Answers</div>
+                    <a href="faq.html" class="policy-link-row">
+                        <span>Frequently Asked Questions</span>
+                        <svg class="policy-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="shipping-policy.html" class="policy-link-row">
+                        <span>Shipping Policy</span>
+                        <svg class="policy-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="return-policy.html" class="policy-link-row">
+                        <span>Return Policy</span>
+                        <svg class="policy-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="track-order.html" class="policy-link-row">
+                        <span>Track My Order</span>
+                        <svg class="policy-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="terms.html" class="policy-link-row">
+                        <span>Terms of Service</span>
+                        <svg class="policy-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-trust"><div class="container"><div class="trust-grid">
+            <div class="trust-card fade-up"><div class="trust-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M394.33-117.67 298-298.33l-181.33-97 63-62.67 147 26.33L442-546.33 118.33-684l76-76.67L586.67-692l130-130q21.66-21.67 52.66-21.67 31 0 52.67 21.67t21.67 52.5q0 30.83-21.67 52.5L691.67-586.67l68.66 392L684-118.33 546-442 431.33-326.67l26 146-63 63Z"/></svg></div><h3>All India Shipping</h3><p>Nationwide shipping — fast &amp; reliable</p></div>
+            <div class="trust-card fade-up" data-delay="100" onclick="window.location.href='mailto:norperfume.help@gmail.com'" style="cursor:pointer"><div class="trust-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M440-120v-66.67h333.33V-484q0-121.46-85.38-206.06-85.38-84.61-207.95-84.61t-207.95 84.61q-85.38 84.6-85.38 206.06v244H160q-33 0-56.5-23.5T80-320v-80q0-21 10.5-39.5T120-469l3-53q8-68 39.5-126t79-101q47.5-43 109-67T480-840q68 0 129 24t109 66.5Q766-707 797-649t40 126l3 52q19 9 29.5 27t10.5 38v92q0 20-10.5 38T840-249v62.33q0 27.5-19.58 47.09Q800.83-120 773.33-120H440Z"/></svg></div><h3>Customer Service</h3><p><a href="mailto:norperfume.help@gmail.com">norperfume.help@gmail.com</a></p></div>
+            <div class="trust-card fade-up" data-delay="200"><div class="trust-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M546.67-426.67q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM240-293.33q-27.5 0-47.08-19.59-19.59-19.58-19.59-47.08v-373.33q0-27.5 19.59-47.09Q212.5-800 240-800h613.33q27.5 0 47.09 19.58Q920-760.83 920-733.33V-360q0 27.5-19.58 47.08-19.59 19.59-47.09 19.59H240Z"/></svg></div><h3>Secure Payment</h3><p>Your payment information is processed securely.</p></div>
+        </div></div></div>
+        <div class="footer-newsletter"><div class="container"><div class="nl-box fade-up">
+            <span class="nl-overline">Keep Me Updated</span><h3 class="nl-title">Newsletter</h3>
+            <p class="nl-desc">Subscribe to get notified about product launches, special offers, and company news.</p>
+            <form class="nl-form" id="nl-form" novalidate><input type="email" name="email" placeholder="Your e-mail address" required autocomplete="email"><button type="submit">Subscribe</button></form>
+            <div class="nl-success" aria-live="polite"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><p>You're on the list!</p></div>
+        </div></div></div>
+        <div class="footer-bottom"><div class="container">
+            <div class="fb-grid">
+                <div class="fb-brand">
+                    <a href="index.html" class="footer-logo"><img src="assets/images/logo/norwhite.png" alt="NOR Perfume" class="footer-logo-img" loading="lazy" width="80" height="40"><span class="footer-logo-text">NOR PERFUME</span></a>
+                    <p>Luxury car fragrances crafted for those who drive with purpose.</p>
+                    <div class="social-row">
+                        <a href="https://www.instagram.com/norperfumeofficial/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="https://www.facebook.com/norperfumeofficial/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    </div>
+                </div>
+                <div class="fb-links">
+                    <div class="fb-col"><h5>Shop</h5><a href="collections.html">All Collections</a><a href="collections.html?product=musk">MUSK NOR</a><a href="collections.html?product=aqua">AQUA NOR</a></div>
+                    <div class="fb-col"><h5>Support</h5><a href="about.html">About NOR</a><a href="faq.html">FAQ</a><a href="track-order.html">Track Order</a><a href="contact.html">Contact Us</a></div>
+                    <div class="fb-col"><h5>Legal</h5><a href="return-policy.html">Return Policy</a><a href="shipping-policy.html">Shipping Policy</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+                </div>
+            </div>
+            <div class="fb-copyright"><p>© 2026 <span>NOR PERFUME</span>. All Rights Reserved.</p></div>
+        </div></div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+    <script src="js/animations.js" defer></script>
     <script src="js/main.js" defer></script>
     <script type="module" src="js/shopify-integration.js"></script>
     <script>
-        const officeLocationQuery = 'Door No: 5/52 Kodibail, Mangalpady Gram Panchayth, Uppala, Kasargod - 671322, Kerala';
-        const mapButton = document.querySelector('.map-btn');
-
-        if (mapButton) {
-            mapButton.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeLocationQuery)}`;
+    document.addEventListener('DOMContentLoaded', function() {
+        // Character counter
+        const msgEl = document.getElementById('contact-message');
+        const charCount = document.getElementById('char-count');
+        if (msgEl && charCount) {
+            msgEl.addEventListener('input', () => {
+                charCount.textContent = msgEl.value.length;
+            });
         }
 
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const btn = this.querySelector('.btn-send');
-            const btnText = btn.querySelector('span');
-            const origText = btnText.innerText;
-
-            btnText.innerText = 'SENDING...';
-            btn.style.opacity = '0.7';
-            btn.disabled = true;
-
-            // Simulate Shopify contact form submission delay
-            setTimeout(() => {
-                btnText.innerText = 'SENT ✓';
-                btn.style.background = 'var(--c-gold)';
-                btn.style.color = '#000';
-                this.reset();
-
-                setTimeout(() => {
-                    btnText.innerText = origText;
-                    btn.style.background = '';
-                    btn.style.color = '';
-                    btn.disabled = false;
-                    btn.style.opacity = '1';
-                }, 3000);
-            }, 1500);
+        // Topic chips — populate select
+        const chips = document.querySelectorAll('.topic-chip');
+        const subjectSelect = document.getElementById('contact-subject');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => c.classList.remove('selected'));
+                chip.classList.add('selected');
+                const topic = chip.dataset.topic;
+                if (subjectSelect) {
+                    const opt = subjectSelect.querySelector(`option[value="${topic}"]`);
+                    if (opt) subjectSelect.value = topic;
+                }
+                // Scroll to form on mobile
+                if (window.innerWidth < 960) {
+                    document.querySelector('.contact-form-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
+
+        // Form validation + submit
+        const form = document.getElementById('contact-form');
+        const successEl = document.getElementById('contact-success');
+        const formWrap = document.getElementById('contact-form-wrap');
+        const submitBtn = document.getElementById('contact-submit');
+
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                let valid = true;
+
+                // Validate name
+                const nameEl = document.getElementById('contact-name');
+                const fgName = document.getElementById('fg-name');
+                if (!nameEl.value.trim()) { fgName.classList.add('has-error'); valid = false; }
+                else fgName.classList.remove('has-error');
+
+                // Validate email
+                const emailEl = document.getElementById('contact-email');
+                const fgEmail = document.getElementById('fg-email');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailEl.value.trim())) { fgEmail.classList.add('has-error'); valid = false; }
+                else fgEmail.classList.remove('has-error');
+
+                // Validate subject
+                const subjEl = document.getElementById('contact-subject');
+                const fgSubj = document.getElementById('fg-subject');
+                if (!subjEl.value) { fgSubj.classList.add('has-error'); valid = false; }
+                else fgSubj.classList.remove('has-error');
+
+                // Validate message
+                const msgElV = document.getElementById('contact-message');
+                const fgMsg = document.getElementById('fg-message');
+                if (!msgElV.value.trim() || msgElV.value.trim().length < 20) { fgMsg.classList.add('has-error'); valid = false; }
+                else fgMsg.classList.remove('has-error');
+
+                if (!valid) return;
+
+                // Submit
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending…';
+
+                try {
+                    const res = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name: nameEl.value.trim(),
+                            email: emailEl.value.trim(),
+                            orderNumber: document.getElementById('contact-order').value.trim(),
+                            subject: subjEl.value,
+                            message: msgElV.value.trim()
+                        })
+                    });
+
+                    if (res.ok) {
+                        formWrap.style.display = 'none';
+                        successEl.style.display = 'block';
+                    } else {
+                        throw new Error('Server error');
+                    }
+                } catch(err) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
+                    alert('Something went wrong. Please email us directly at norperfume.help@gmail.com');
+                }
+            });
+        }
+    });
     </script>
 </body>
-
 </html>
-
